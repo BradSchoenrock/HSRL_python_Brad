@@ -1,0 +1,36 @@
+  {
+   "highest_order":        4,
+   "lowest_altitude":      130.0,
+   "step_size":            1,
+   "particle_info_source": "measured",
+   "#following parameters from particle_parameters if particle_info_source":"measured",
+   "processing_mode":      "1d", 
+   "mode_diameter_water":  200e-6,
+   "mode_diameter_ice":    300e-6, 
+   "h2o_depol_threshold":  1.0,
+   "p180_ice":             0.035,
+   "p180_water":           0.045,
+   "alpha_water":          1.0,
+   "g_water":              1.0,
+   "alpha_ice":            1.0,
+   "g_ice":                1.0,
+   "second_wavelength":    [],
+  
+   "parameters":{
+      "highest_order":        "highest order of scattering to calculate",
+      "lowest_altitude":      "start multiple scatter calculation here",
+      "step_size":            "step this number of range bins between ms computations",
+      "particle_info_source": "measured or constant---measured uses measured mode diameters and takes particle parameters from particle_parameters.json",
+      "processing_mode":      "1d  or 2d,  produce 1d average profile, produce both 1d and full 2d multiple scatter results",
+      "mode_diameter_water":  "mode diameter of cloud water droplets (m)",
+      "mode_diameter_ice":    "mode diameter of ice crystals (m)",
+      "p180_ice":             "ice crystal backscatter phase function, used to generate beta_a via beta_a_backscat/p180_ice",
+      "p180_water":           "water droplet backscatter phase function",
+      "h2o_depol_threshold":  "linear depolarization threshold, linear_depol<threshold identified as liquid",
+      "alpha_water":          "size distribution shape parameter alpha for liquid",
+      "g_water":              "size distribution parameter g for liquid",
+      "alpha_ice":            "size distribution shape parameter alpha for ice",
+      "g_ice":                "size distribution parameter g for ice",
+      "second_wavelength":    "None or wavelength (m) for second multiple scatter calculation"
+   }
+}

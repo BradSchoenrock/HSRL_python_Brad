@@ -1,0 +1,376 @@
+#LyX 1.6.10 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family rmdefault
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 1cm
+\topmargin 1in
+\rightmargin 1cm
+\bottommargin 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\size huge
+Compute the mode diameter directly from the radar backscatter cross section
+ and the lidar scattering cross section.
+ With: the dielectric constant, 
+\begin_inset Formula $k$
+\end_inset
+
+, the wavelength, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, the average 6th moment the particles, 
+\begin_inset Formula $<D^{6}>$
+\end_inset
+
+, and the average 2nd moment of the particle distribution 
+\begin_inset Formula $<D^{2}>$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+From Doviak and Zrnic page 27:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\sigma_{bsRadar}=\frac{\pi^{4}}{4\lambda^{4}}\cdot k^{2}\cdot D^{6}$
+\end_inset
+
+ backscatter cross section for a single particle
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+Writen without the assumption of spherical particles this becomes a function
+ of the average volume squared of the particles:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\sigma_{bsRadar}=\frac{\pi^{4}}{4\lambda^{4}}\cdot k^{2}\cdot\frac{36}{\pi^{2}}\cdot<V^{2}>$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\beta_{bsRadar}=N\cdot\frac{\pi^{4}}{4\lambda^{4}}\cdot k^{2}\cdot<D^{6}>$
+\end_inset
+
+ for N particles
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+for the lidar:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\beta_{extLidar}=2\cdot N\cdot\frac{\pi}{4}\cdot<D^{2}$
+\end_inset
+
+>
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+Thus the ratio of the extinction cross sections for many particles becomes:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\frac{\beta_{bsRadar}}{\beta_{extLidar}}=\frac{N\cdot\frac{\pi^{4}}{4\lambda^{4}}\cdot k^{2}\cdot\frac{36}{\pi^{2}}\cdot<V^{2}>}{\frac{\pi}{2}\cdot N\cdot<D^{2}>}=\frac{18\cdot\pi^{2}\cdot k^{2}\cdot<V^{2}>}{\lambda^{4}<D^{2}>}=\frac{\pi^{3}\cdot k^{2}<D^{6}>}{2\lambda^{4}<D^{2}>}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+defining effective diameter prime in terms of spherical particles with the
+ same volume as the actual particles and noting that:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $<V^{2}>=\frac{\pi^{2}}{36}\cdot<D^{6}>$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $<D^{6}>=\frac{36}{\pi^{2}}\cdot<V^{2}>$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+t
+\size huge
+he effective diameter prime becomes:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}^{'}=(\frac{<D^{6}>}{<D^{2}>})^{0.25}=(\frac{2\lambda^{4}}{\pi^{3}\cdot k^{2}}\cdot\frac{\beta_{bsRadar}}{\beta_{extLidar}})^{0.25}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+This quantity can be determined from the lidar and radar extinction cross
+ sections and involves only the assumption that the particles are small
+ compared to the radar wavelength such that the Rayleigh scattering approximatio
+n holds and that the particles are large compared to the lidar wavelength
+ such that the geometric optics approximation holds.
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+We also assume that ice particles are oblate spheroids with an height:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $h=aD^{\zeta}$
+\end_inset
+
+and that 
+\begin_inset Formula $h=D$
+\end_inset
+
+ when the diameter is 
+\begin_inset Formula $D_{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+thus:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $h=D_{r}^{1-\zeta}\cdot D^{\zeta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+for a spheroid the volume expresion for volume becomes:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $<V^{2}>=(\frac{\pi}{6}\cdot h\cdot D^{2})^{2}=\frac{\pi^{2}}{36}\cdot D_{r}^{2-2\zeta}\cdot<D^{2\cdot\zeta}\cdot D^{4}$
+\end_inset
+
+>
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+If we now assume a modified gamma particle size distribution where, 
+\begin_inset Formula $D$
+\end_inset
+
+ is the diameter, and 
+\begin_inset Formula $D_{m}$
+\end_inset
+
+ is the mode diameter we can solve for the mode diameter in terms of the
+ radar and lidar extinction cross sections:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $N=a\int_{0}^{\infty}D^{\alpha}\cdot exp(-\frac{\alpha}{\gamma}\cdot(\frac{D}{D_{m}})^{\gamma})\cdot dD=a\gamma^{-1}(\frac{\alpha}{\gamma})^{\frac{\alpha+1}{\gamma}}\Gamma(\frac{\alpha+1}{\gamma})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $(D_{eff}^{'})^{4}=\frac{\int D_{r}^{2-2\zeta}\cdot D^{2\cdot\zeta}\cdot D^{4}\cdot D^{\alpha}\cdot exp(-\frac{\alpha}{\gamma}\cdot(\frac{D}{D_{m}})^{\gamma}\cdot dD}{\int D^{2}\cdot D^{\alpha}\cdot exp(-\frac{\alpha}{\gamma}\cdot(\frac{D}{D_{m}})^{\gamma}\cdot dD}=\frac{2\lambda^{4}}{\pi^{3}\cdot k^{2}}\cdot\frac{\beta_{bsRadar}}{\beta_{extLidar}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\frac{\int D^{2\zeta+4+\alpha}\cdot exp(-\frac{\alpha}{\gamma}\cdot(\frac{D}{D_{m}})^{\gamma}\cdot dD}{\int D^{\alpha+2}\cdot exp(-\frac{\alpha}{\gamma}\cdot(\frac{D}{D_{m}})^{\gamma}\cdot dD}=\frac{2D_{r}^{2\zeta-2}\cdot\lambda^{4}}{\pi^{3}\cdot k^{2}}\cdot\frac{\beta_{bsRadar}}{\beta_{extLidar}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $\frac{\frac{1}{\gamma}\cdot(\frac{\alpha}{\gamma}\cdot D_{m}^{-\gamma})^{-(2\zeta+\alpha+5)/\gamma}\cdot\Gamma(\frac{2\zeta+\alpha+5}{\gamma})}{\frac{1}{\gamma}\cdot(\frac{\alpha}{\gamma}\cdot D_{m}^{-\gamma})^{-(\alpha+3)/\gamma}\cdot\Gamma(\frac{\alpha+3}{\gamma})}=\frac{(\frac{\alpha}{\gamma})^{-(2\zeta+2)/\gamma}\cdot D_{m}{}^{(2\zeta+2)}\cdot\Gamma(\frac{2\zeta+\alpha+5}{\gamma})}{\Gamma(\frac{\alpha+3}{\gamma})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{m}^{2\zeta+2}=(\frac{\alpha}{\gamma})^{\frac{2\zeta+2}{\gamma}}\cdot\frac{\Gamma(\frac{\alpha+3}{\gamma})}{\Gamma(\frac{2\zeta+\alpha+5}{\gamma})}\cdot\frac{2D_{r}^{2\zeta-2}\cdot\lambda^{4}}{\pi^{3}\cdot k^{2}}\cdot\frac{\beta_{bsRadar}}{\beta_{extLidar}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{m}=(\frac{\alpha}{\gamma})^{\frac{1}{\gamma}}\cdot(\frac{\Gamma(\frac{\alpha+3}{\gamma})}{\Gamma(\frac{2\zeta+\alpha+5}{\gamma})}\cdot\frac{2D_{r}^{2\zeta-2}\cdot\lambda^{4}}{\pi^{3}\cdot k^{2}}\cdot\frac{\beta_{bsRadar}}{\beta_{extLidar}})^{\frac{1}{2\zeta+2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+Now derive the effective diameter, 
+\begin_inset Formula $D_{eff}=\frac{<D^{3}>}{<D^{2}>}$
+\end_inset
+
+ from the mode diameter, 
+\begin_inset Formula $D_{m}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}=\frac{\int_{0}^{\infty}D^{\alpha}\cdot h\cdot D^{2}exp(-(\frac{\alpha}{\gamma})\cdot(\frac{D}{D_{m}})^{\gamma})\cdot dD}{\int_{0}^{\infty}D^{\alpha}D^{2}\cdot exp(-(\frac{\alpha}{\gamma})\cdot(\frac{D}{D_{m}})^{\gamma})\cdot dD}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}=D_{r}^{1-\zeta}\cdot\frac{\int_{0}^{\infty}D^{\alpha+\zeta+2}exp(-(\frac{\alpha}{\gamma})\cdot(\frac{D}{D_{m}})^{\gamma})\cdot dD}{\int_{0}^{\infty}D^{\alpha+2}\cdot exp(-(\frac{\alpha}{\gamma})\cdot(\frac{D}{D_{m}})^{\gamma})\cdot dD}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}=D_{r}^{1-\zeta}\cdot\frac{\frac{1}{\gamma}\cdot(\frac{\alpha}{\gamma}\cdot D_{m}^{-\gamma})^{-(\alpha+\zeta+3)/\gamma}\cdot\Gamma(\frac{\alpha+\zeta+3)}{\gamma})}{\frac{1}{\gamma}\cdot(\frac{\alpha}{\gamma}\cdot D_{m}^{-\gamma})^{-(\alpha+3)/\gamma}\cdot\Gamma(\frac{\alpha+3)}{\gamma})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}=D_{r}^{1-\zeta}\cdot\frac{(\frac{\alpha}{\gamma})^{-(\alpha+\zeta+3)/\gamma}\cdot D_{m}^{\alpha+\zeta+3}\cdot\Gamma(\frac{\alpha+\zeta+3)}{\gamma})}{(\frac{\alpha}{\gamma})^{-(\alpha+3)/\gamma}\cdot D_{m}^{\alpha+3}\cdot\Gamma(\frac{\alpha+3)}{\gamma})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size huge
+\begin_inset Formula $D_{eff}=D_{r}^{1-\zeta}\cdot(\frac{\alpha}{\gamma})^{-\zeta/\gamma}\cdot D_{m}^{\zeta}\cdot\frac{\Gamma(\frac{\alpha+\zeta+3)}{\gamma})}{\Gamma(\frac{\alpha+3)}{\gamma})}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,32 @@
+{
+   "h2o_depol_threshold": 0.20,
+   "p180_ice":            0.035,
+   "alpha_water":         2.0,
+   "g_water":             1.0,
+   "alpha_ice":           1.0,
+   "g_ice":               1.0,
+   "type":                "Bullet Rosettes",
+   "Dr":                  60.0,
+   "sigma_a":             1.0,
+   "sigma_v":             0.26,
+   "delta_a1":            2.0,
+   "delta_v1":            3.0,
+   "delta_a2":            1.57,
+   "delta_v2":            2.26,
+   "parameters":{
+      "p180_ice":             "ice crystal backscatter phase function, used to generate beta_a via beta_a_backscat/p180_ice\nif set to an invalid or non-finite value, will use measured beta_a.",
+      "h2o_depol_threshold":  "linear depolarization threshold, linear_depol<threshold identified as liquid",
+      "alpha_water":          "size distribution shape parameter alpha for liquid",
+      "g_water":              "size distribution parameter g for liquid",
+      "alpha_ice":            "size distribution shape parameter alpha for ice",
+      "g_ice":                "size distribution parameter g for ice",
+      "type":                 "A name for your distribution type",
+      "Dr":                   "maximum radius of an ice crystal",
+      "sigma_a":              "projected area of ice crystal = sigma_a*(pi/4)*D^delta_a",
+      "sigma_v":              "volume of ice crystal = sigma_v*(pi/4)*D^delta_v",
+      "delta_a1":             "delta_a for projected area where D < Dr",
+      "delta_v1":             "delta_v for volume where D < Dr",
+      "delta_a2":             "delta_a for projected area where D >= Dr",
+      "delta_v2":             "delta_v for volume where D >= Dr"
+   }
+}

@@ -1,0 +1,16 @@
+{
+   "h2o_depol_threshold": 0.05,
+   "p180_ice":            0.035,
+   "alpha_water":         2.0,
+   "g_water":             1.0,
+   "alpha_ice":           4.0,
+   "g_ice":               1.0,
+   "type":                "Hex Columns",
+   "Dr":                  100.0,
+   "sigma_a":             0.87,
+   "sigma_v":             0.485,
+   "delta_a1":            2.0,
+   "delta_v1":            2.91,
+   "delta_a2":            1.5,
+   "delta_v2":            1.91
+}

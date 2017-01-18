@@ -1,0 +1,7 @@
+#!/bin/sh
+pgrep -f cdfclient.py >& /dev/null
+if [ $? == 0 ]; then
+	echo cdfclient is running
+else
+	echo cdfclient is NOT running
+fi

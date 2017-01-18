@@ -1,0 +1,6 @@
+tag 1.3 - the typed array changes and Ed's TORERO fixes have been merged into the master branch.
+tag 1.2 - dfg calibration does not produce good plots, but at least does not
+crash.  beta_r does not have valid data to 45K (6000 bins).
+
+still need to fix cxx cal_gen, but we don't have the calibration files necessary
+to run with the August 2010 dataset.

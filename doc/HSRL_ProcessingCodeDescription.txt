@@ -1,0 +1,65 @@
+pu - processing_utilities.py (/hsrl/data_stream/)
+pol - HSRL_PolCorrection.py (/hsrl/polarization/)
+cu - calibration_utilities.py (/hsrl/calibration/)
+
+Processing Flow:
+
+Read Data - read_utilities
+
+     1. pu.pileup_correction called in input_translators.py
+    
+pre-average data (skip if QWP rotating)
+
+pu.process_data - called in main_routines and updat_cal_and_process - see rti_maestro.py
+	pu.range_process
+		2.  pu.baseline_correction - adapted by Ed for QWP rotation
+		3.  pu.dar_count_correction
+		    pu.signal_in_dark_count - removes previous shot contribution
+		4.  pu.diff_geometry_correction -differential geometic overlap
+		    pu.diff_cp_geometry_correction - diff geo overlap for cross pol channel
+		5.  pu.merge_combined_hi_and_lo  - merge high and low gain channel data into a singal return
+	pol.HSRL_PolCorrection - calculate pol. inversion matrix based on QWP and calibration terms
+	pol.computeCorrection - compute backscatter matrix terms from pol. inversion matrix. Also computes conventional signals for remaining processing code to provide data as if QWP were not rotating.
+	cu.hsrl_inversion - calculates backscatter cross section, depolarization, 
+	pu.compute_atten_backscat - computes a calibrated attenuated backscatter (not conventionally used except as visual aid)
+	
+	section dedicated to quality control masking based on:
+		1.  Molecular limit - all signals after the molecular signal is below a threshold are masked
+		2.  Molecular SNR - all signals after the molecular SNR falls below a threshold are masked
+		3.  Cloud Mask - all signals after a backscatter cross section (and a specified number of points before) are masked to remove clouds from data
+		All mask parameters set in process_control.json
+
+	compute_optical_depth
+	compute_beta_a - compute aerosol extinction cross section.  Now uses a polynomial running filter (salviski-golay) to determine extinction.  Filter parameters are set in process_control.json
+
+Other Notes:
+
+cal_gen - calls routines that make cal files - called in rti_maestro.py (/maestro/).  This is where we would add a call to a polarization calibration routine.
+
+corr_adjusts libarary normally set to 1 to use and 0 to mask the correction term.  This term can be adjusted to look at sensitivity to a particular parameter in the retrieved profiles.  Use cal_scale in rti_maestro to modify in command line or modify in the process_control.json file.
+
+plots.json - control what is plotted when the rti processing is run
+
+process_control.json (/hsrl/config/)
+	salviski-golay extinction, polynomial filter parameters
+		       usually Ed uses order between 1 and 3
+
+	signal_lost - Molecular signal thresholding for quality control mask
+	avg_prof - enable/disable profile rejection from average based on qc critieria
+	depolarization_is_aerosol_only - disable to compute the volume depolarization ratio
+	corr_adjusts - adjust correction terms by this factor, or set to 0 to remove the correction from processing.  Also controlled in command line through r.cal_scale()
+
+display_defaults.json (/config/)
+	sets plot parameters including
+	     enable/disable plot
+	     scale limits, log/linear
+	     
+plotting routines (/hsrl/graphics/hsrl_display.py)
+	 show_images - call to show plots definined in display_defaults.json.  It calls plotting routines in gt.rti_fig
+	 add new plots in this section.
+
+Polarzation Comments from Matt:
+	    Two additional features need to be added to fully integrate polarization capabilities into the python software:
+	    	1.  Polarization calibration routines - these should be called under cal_gen in rti_maestro.py.
+		2.  Oriented particle output plots - these are probably generic plots that should be added in the display_defaults.json and the plotting routines in hsrl_display.py.  Plots that we may want to add:  Orientation index, f12/f13, histograms of f22 vs f33 vs f44.
+	

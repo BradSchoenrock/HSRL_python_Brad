@@ -1,0 +1,593 @@
+#calvals for AHSRL
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented
+#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#a multiplier or divsor can follow the ']', it can't lead the '['
+#string return values must be written as 'string' or "string" 
+
+non_filtered_energy_monitor(mJ/shot)
+    01-oct-11,  [0.5, 0, 0]/4000.0
+    01-sep-06 , [0.94, 0, 0]/4000.
+    01-sep-00 , [0.94, 0, 0]/4000.
+
+filtered_energy_monitor(mJ/shot)
+   1-oct-11,    [0.5,0,0]/4000.0
+   15-jun-05 00:00, [0.565, 0, 0]/4000
+   15-jun-00 00:00, [0.565, 0, 0]/4000
+
+transmitted_energy_monitor(mJ/shot)
+   1-oct-11,  [0.5,0,0]/4000.0
+   28-dec-05 ,[0.37,25 ,0]/4000
+   28-dec-00 ,[0.37,25 ,0]/4000
+
+IRDetectorShutterInverse
+   15-apr-00 ,[0]
+
+seed_laser_voltage_to_freq(GHz/V)
+   1-jan-05      ,[-4.1, 0]*1e9 
+   1-jan-00      ,[-4.1, 0]*1e9 
+
+seedlaser_temp_to_freq(GHz/K)
+   #used with super seed laser controller
+   1-feb-00 , [-39.9953] 
+ 
+telescope_roll_angle_offset
+  #angle (deg) measured from zenith for fixed pointing ground based operation
+  #roll angle offset of beam for zenith pointing mobile operation
+   1-jan-00, [4.0]
+
+IR_dark_interval
+   #IR_dark_interval = [start_bin,end_bin]
+   1-may-16,[2850,2990]
+   1-may-00,[2850,2995]
+  
+wfov_to_combined_gain_ratio
+  1-jan-00, [175]
+   
+molecular_to_wfov_gain_ratio
+    1-may-16,[46.28]
+   10-mar-16,[38.93]
+    1-jan-16,[48.9]
+   21-sep-15,[68.63]
+   9-sep-15,[41.8]
+   1-sep-15,[59]
+  13-jun-15,[220]
+   1-jun-15,[70]
+  15-may-00,[30.43]
+
+molecular_wfov_dead_time(sec)
+    #spec sheet value = 53e-9
+    1-jan-00,[53e-9]
+
+transmitted_1064_energy_monitor(mJ/shot)
+   10-jul-14,     [2.17,0,0]/4000
+   1-feb-00 18:00,[2.5,0 ,0]/4000
+
+combined_1064_dead_time
+    #spec sheet value = 28e-9
+    1-aug-15,[30.0e-9]
+    1-jan-00,[29.7e-9]
+
+IR_combined_hi_gain_ratio
+    #gain of 1064 channel relative to combined_hi 532 channel
+    10-may-16 20:00,[0.46]
+    1-may-16,[0.22]
+    12-mar-16,[0.37]
+    10-mar-16,[0.32]
+    1-mar-16,[0.15]
+    1-sep-15,[.095]
+    18-aug-15,[0.042]
+    13-jun-15,[0.01]
+    1-jun-15,[0.1]
+    1-may-00,[0.0125]
+
+
+sounding_id
+   #system in Soul Korea
+   1-mar-2016, 'RKSO'
+   #system in madison
+   1-Jan-2015, 'GRB'
+   #system in Sinapore
+   12-aug-12, 'WSSS'
+   #system in Norman,OK
+   1-apr-12     ,'OUN'
+   #system in madison
+   1-oct-11     ,'GRB'
+   #system in Eureka
+   1-sep-05    ,'YEU'
+  10-sep-04, 'BRW'
+   1-jan-03, 'GRB'  
+
+installation
+   1-jan-00 , 'ground'
+
+wavelength(nm)
+    1-jan-00 , [532.26]
+
+virtual_sounding_update_interval
+    1-jan-00, [180]
+
+sounding_type
+    #15-may-2016, 'NOAA raob'
+    1-may-2016,     'virtual'
+    1-jan-00,     'NOAA raob'
+
+calibration_nd_filters
+   #calibration_nd_filters[0] = OD of filter removed for narrow scan
+   #calibration_nd_filters[1] = OD of filter always present durring cal scan
+   1-mar-16,  [3,3]
+   28-jun-05 , [ 3,3]
+   28-jun-00 , [ 3,3]
+   
+interferometer_fft_npixels
+   #number of pixels to use in fft
+   1-jan-02, [640]
+
+interferometer_spectral_peak
+   1-sep-12,   [26]
+   6-jun-05,   [33]
+   6-jun-00,   [33]
+interferometer_phase_to_freq(Hz/radian)
+   1-jan-13  , [-1,0]*2.2e8
+   1-nov-07  , [-1,0]*1.98e8
+   16-may-07 , [-1, 0]*2.15e8
+   12-dec-05 , [-1,0]*2.15e8
+   22-sep-05 , [-1,0]*2.09e8
+   22-sep-00 , [-1,0]*2.09e8
+
+lock_point_freq_offset(GHz)
+   1-oct-08  , [0.1]
+   1-aug-07  ,[0.025]
+   1-jan-04  ,[0.0]
+   1-jan-00  ,[0.0]
+
+
+shortcell_locked_ratio
+   #first entry, normalized filtered/nonfiltered short cell ratio at lock point
+   #second entry, normalization value so filtered/nonfiltered = 1 off I2 line
+   #-9999 no value available
+   1-aug-12 , [0.122,1.6]
+   1-jan-04 , [-9999,1]
+   1-jan-00 , [-9999,1]
+
+brillouin_ratio_to_freq(1/GHz)
+   9-aug-05  , [-0.430]
+   9-aug-00  , [-0.430]
+
+combined_hi_dead_time(sec)
+   1-oct-11, [29e-9]
+   17-jun-03 , [32e-9]
+  
+
+combined_lo_dead_time(sec)
+    1-oct-11, [50e-9]
+   17-jun-03 , [32e-9]
+  
+
+cross_pol_dead_time
+   1-oct-11,   [29e-9]
+   17-jun-03,  [32e-9]
+
+molecular_dead_time(sec)
+    1-oct-11, [29e-9]
+   17-jun-03, [32e-9]
+
+quarter_wave_plate_rotation
+   #rotation of output quarter wave plate
+   #valid options: 'rotating','fixed','none'
+   17-jun-03, 'fixed'
+
+polarization_is_linear
+   1-jun-15, [1]
+   1-feb-04, [0]
+   1-feb-00, [0]
+
+comb_hi_detector_dark_count
+   #counts per shot/bin
+   1-sep-15, [9.2e-5]
+   1-jan-03, [0e-5]
+
+comb_lo_detector_dark_count
+   #counts per shot/bin
+   1-jan-03, [0.0e-4]
+
+cpol_detector_dark_count
+   #counts per shot/bin
+   1-sep-15,[1.8e-5]
+   1-jan-03,[0.0e-4]
+
+mol_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+mol_I2a_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+IR_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+mol_wfov_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+polarization_is_aerosol_only
+   #true if polarization is computed after
+   #molecular contribution is subtracted
+   #false if computed from combined
+   #aersol and molecular contribution
+   1-jun-15, [1]
+   1-sep-13, [0]
+   1-feb-04, [1]
+   1-feb-00, [1]
+
+dark_count_timing
+   #'first_bins' or 'last_bins' used for dark count computation
+   1-feb-04, 'first_bins'
+   1-feb-00, 'first_bins'
+
+i2_absorption_scale_factor
+   #optical depth scale factor used to make dfb measured i2 reference
+   #spectra match long i2 cell optical depth--used in calibration
+   #file generation.
+   1-jan-08, [6.2]
+   1-jan-04, [6.2]
+   1-jan-00, [6.2]
+
+polarization_cross_talk
+    1-jan-16,[0.02]
+    18-jun-15,[0.04]
+    1-jun-15,[0.02]
+   10-aug-13,[0.005]
+    9-aug-13,[0.028]
+   19-jun-13 21:00,[0.01]
+   12-jun-13 21:00,[0.0001]
+   1-nov-12 00:00,[0.001]
+   10-oct-12 12:00,[0.0025]
+   4-oct-12,[0.001]
+   3-oct-12 09:00,[0.0033]
+   2-oct-12 19:00,[0.002]
+   1-oct-12,[0.0025]
+   15-jun-12,[0.001]
+   1-apr-12,[0.004]
+   1-mar-12,[0.001]
+   29-nov-11,[0.02]
+   1-oct-11, [.003]
+   1-may-09, [0.015]
+   1-jan-09, [0.005]
+   1-jan-08, [0.007]
+   1-oct-07, [0.0045]
+   5-aug-05, [0.001]
+   5-aug-00, [0.001]
+
+combined_to_cross_pol_gain_ratio
+   1-may-16,[0.28]
+   1-sep-15,[0.266]
+   1-jun-15,[0.308]
+   1-jan-13,[2.65]
+   9-nov-12,[6.216]
+   26-oct-12,[6.35]
+   1-aug-12,[6.44]
+   1-apr-12,[5.6]
+   1-mar-12,[2.61]
+   18-nov-11,[4.86]
+   1-oct-11,[5.28]
+   1-jan-11,[5.0]
+   1-sep-08,[1.357]
+   1-apr-08,[1.0]
+   10-feb-08,[0.84]
+   1-aug-05,[1.445]
+   1-aug-00,[1.445]
+
+nadir_comb_gain_adjustment 
+  1-aug-05, [1.0]
+  1-aug-00, [1.0]
+
+Cam_adjustment
+   1-aug-05,[1.0]
+   1-aug-00,[1.0]
+
+i2_scan_adjustment
+     1-jan-16,[1.0]
+    21-sep-15,[1.25]
+    1-sep-15,[1.35]
+    18-jun-15,[1.4]
+    1-jun-15,[1.55]
+    9-aug-13,[0.96]
+    30-jun-13 12:00,[0.75]
+    29-jun-13 12:00,[0.78]
+    19-jun-13 00:00,[0.78]
+    15-jun-13 00:00,[0.81]
+    14-jun-13 12:00,[0.78]
+    13-jun-13 00:00,[0.83]
+    12-jun-13 12:00,[0.8]
+    2-jun-13 12:00,[0.83]
+    1-jun-13 12:00,[0.8]
+    1-jan-13,[0.85]
+    1-dec-12, [1.0]
+    2-nov-12, [1.0]
+    1-nov-12, [1.02]
+    28-oct-12 5:59, [1.0]
+    27-oct-12 15:59, [1.05]
+    27-oct-12 11:59, [1.0]
+    27-oct-12, [0.92]
+    26-oct-12, [1.05]
+    20-oct-12, [1.0]
+    19-oct-12 00:00, [0.95]
+    17-oct-12 12:00, [1.0]
+    15-oct-12 00:00, [1.0]
+    11-oct-12 12:00, [0.95]
+    11-oct-12 00:00, [0.85]
+    10-oct-12 12:00, [0.9]
+    10-oct-12, [0.95]
+    9-oct-12, [0.95]
+    8-oct-12 11:59, [0.87]
+    8-oct-12, [0.93]
+    7-oct-12, [1.0]
+    6-oct-12, [0.9]
+    4-oct-12, [1.0]
+    3-oct-12 09:00, [0.863]
+    3-oct-12, [0.90]
+    2-oct-12 19:00, [0.955]
+    2-oct-12, [0.945]
+    1-oct-12 12:00, [0.9]
+    1-oct-12, [0.97]
+    17-sep-12 12:00, [0.95]
+    17-sep-12, [1.0]
+    15-sep-12, [0.95]
+    6-sep-12, [1.0]
+    5-sep-12, [0.945]
+    4-sep-12, [0.945]
+    3-sep-12,[0.974]
+    2-sep-12,[0.96]
+   20-feb-12, [1.02]
+   1-feb-12, [0.94]	     
+   1-oct-11, [1.03]
+   1-nov-07, [1.03]
+   1-jan-03, [1.0]
+
+baseline_adjust
+   #adjust factors for baseline correction
+   #channels, [c_hi, c_lo, mol, cp, mol_i2a,comb_1064]
+   10-may-16 20:00,  [0.3,   1.0, 1.0, 1.0,  1.0,        0.0]
+   1-may-16,  [0.3,   1.0, 1.0, 1.0,  1.0,        0.0] 
+   10-mar-16, [0.3,   1.0, 1.0, 1.0,1.0,1.0]
+   08-mar-16, [0.21,   1.0 ,1.0, 0.0,1.0,1.0]
+   18-jan-16, [0.7,   1.0 ,1.0, 0.0,1.0,1.0]
+   1-jan-16,  [1.0,   1.0 ,1.0, 0.1, 1.0,1.0]
+   1-jun-15,  [1.0,   1.0 ,1.0, 1.0, 1.0,1.0]
+   9-aug-13,  [1.3,  1.0, 1.0,3.5,1.0,1.0]
+   7-jul-13,  [0.85, 1.0,1.0,0.9,1.0,1.0]
+   30-jun-13 12:00, [1.3, 1.0, 1.0, 0.9,1.0,1.0]
+   30-jun-13 00:00, [0.7, 1.0, 1.0, 0.9,1.0,1.0]
+   29-jun-13 12:00, [1.0, 1.0, 1.0, 0.9,1.0,1.0]
+   29-jun-13 00:00, [1.0, 1.0, 1.0, 1.1,1.0,1.0]
+   28-jun-13 15:00, [1.6, 1.0, 1.0, 1.1,1.0,1.0]
+   28-jun-13 12:00, [1.1, 1.0, 1.0, 1.1,1.0,1.0]
+   27-jun-13, [1.26, 1.0, 1.0, 1.05,1.0,1.0]
+   24-jun-13 12:00, [1.4, 1.0, 1.0, 1.1,1.0,1.0]
+   24-jun-13 11:00, [1.2, 1.0, 1.0, 1.1,1.0,1.0]
+   24-jun-13 00:00, [1.0, 1.0, 1.0, 1.1,1.0,1.0]
+   23-jun-13 12:00, [1.4, 1.0, 1.0, 1.1,1.0,1.0]
+   23-jun-13 00:00, [1.0, 1.0, 1.0, 1.1,1.0,1.0]
+   22-jun-13 12:00, [1.9, 1.0, 1.0, 1.1,1.0,1.0]
+   22-jun-13 00:00, [0.8, 1.0, 1.0, 1.1,1.0,1.0]
+   19-jun-13 12:00, [1.3, 1.0, 1.0, 1.1,1.0,1.0]
+   19-jun-13 07:00, [0.95, 1.0, 1.0, 0.9,1.0,1.0]
+   19-jun-13 03:00, [1.0, 1.0, 1.0, 1.1,1.0,1.0]
+   18-jun-13 20:00, [1.3, 1.0, 1.0, 1.1,1.0,1.0]
+   18-jun-13 00:00, [1.2, 1.0, 1.0, 1.1,1.0,1.0]
+   17-jun-13 12:00, [1.8, 1.0, 1.0, 1.1,1.0,1.0]
+   17-jun-13 00:00, [1.0, 1.0, 1.0, 1.1,1.0,1.0]
+   16-jun-13 00:00, [0.81, 1.0, 1.0, 1.1,1.0,1.0]
+   15-jun-13 21:00, [1.35, 1.0, 1.0, 1.1,1.0,1.0]
+   15-jun-13 00:00, [1.0, 1.0, 1.0, 1.0,1.0,1.0]
+   14-jun-13 12:00, [1.4, 1.0, 1.0, 1.25,1.0,1.0]
+   14-jun-13 00:00, [0.8, 1.0, 1.0, 1.25,1.0,1.0]
+   13-jun-13 12:00, [1.2, 1.0, 1.0, 1.25,1.0,1.0]
+   13-jun-13 00:00, [0.8, 1.0, 1.0, 1.25,1.0,1.0]
+   12-jun-13 21:00, [1.2, 1.0, 1.0, 1.25,1.0,1.0]
+   12-jun-13 08:00, [0.9, 1.0, 1.0, 1.25,1.0,1.0]
+   11-jun-13 08:00, [0.6, 1.0, 1.0, 1.25,1.0,1.0]
+   10-jun-13 09:00, [0.9, 1.0, 1.0, 1.25,1.0,1.0]
+   09-jun-13 00:00, [1.2, 1.0, 1.0, 1.05,1.0,1.0]
+   08-jun-13 12:00, [1.45, 1.0, 1.0, 1.05,1.0,1.0]
+   08-jun-13 00:00, [1.05, 1.0, 1.0, 1.05,1.0,1.0]
+   07-jun-13 20:00, [0.95, 1.0, 1.0, 1.05,1.0,1.0]
+   06-jun-13 00:00, [1.0, 1.0, 1.0, 1.05,1.0,1.0]
+   05-jun-13 19:00, [2.26, 1.0, 1.0, 1.05,1.0,1.0]
+   05-jun-13, [1.16, 1.0, 1.0, 1.05,1.0,1.0]
+   04-jun-13, [2.56, 1.0, 1.0, 1.05,1.0,1.0]
+   03-jun-13, [1.16, 1.0, 1.0, 1.05,1.0,1.0]
+   1-mar-13,  [2.3,  1.0, 1.0, 1.5, 1.0,1.0]
+   15-nov-12 00:00,  [1.4,  1.0, 1.0, 0.65, 1.0,1.0]
+   10-nov-12 12:00,  [1.65,  1.0, 1.0, 0.65, 1.0,1.0]
+   09-nov-12 12:00,  [1.0,  1.0, 1.0, 0.5, 1.0,1.0]
+   07-nov-12 12:00,  [1.75,  1.0, 1.0, 0.65, 1.0,1.0]
+   06-nov-12 12:00,  [1.25,  1.0, 1.0, 0.65, 1.0,1.0]
+   05-nov-12 12:00,  [1.75,  1.0, 1.0, 0.65, 1.0,1.0]
+   04-nov-12 12:00,  [1.5,  1.0, 1.0, 0.75, 1.0,1.0]
+   04-nov-12 00:00,  [0.8,  1.0, 1.0, 0.75, 1.0,1.0]
+   02-nov-12 00:00,  [1.5,  1.0, 1.0, 0.75, 1.0,1.0]
+   01-nov-12 00:00,  [1.1,  1.0, 1.0, 0.75, 1.0,1.0]
+   28-oct-12 18:00,  [1.1,  1.0, 1.0, 0.55, 1.0,1.0]
+   28-oct-12 06:59,  [1.0,  1.0, 1.0, 0.75, 1.0,1.0]
+   27-oct-12 12:00,  [1.25,  1.0, 1.0, 0.55, 1.0,1.0]
+   27-oct-12 00:00,  [1.55,  1.0, 1.0, 0.8, 1.0,1.0]
+   26-oct-12 15:00,  [1.35,  1.0, 1.0, 0.75, 1.0,1.0]
+   26-oct-12 00:00,  [1.55,  1.0, 1.0, 0.75, 1.0,1.0]
+   25-oct-12 12:00,  [1.05,  1.0, 1.0, 0.65, 1.0,1.0]
+   24-oct-12 00:00,  [1.45,  1.0, 1.0, 0.65, 1.0,1.0]
+   20-oct-12 15:00,  [1.15,  1.0, 1.0, 0.65, 1.0,1.0]
+   20-oct-12 00:00,  [1.85,  1.0, 1.0, 0.65, 1.0,1.0]
+   17-oct-12 12:00,  [1.15,  1.0, 1.0, 0.65, 1.0,1.0]
+   15-oct-12 05:59,  [1.45,  1.0, 1.0, 0.65, 1.0,1.0]
+   15-oct-12 00:00,  [0.9,  1.0, 1.0, 0.65, 1.0,1.0]
+   13-oct-12 12:00,  [1.6,  1.0, 1.0, 0.65, 1.0,1.0]
+   13-oct-12 00:00,  [1.45,  1.0, 1.0, 0.77, 1.0,1.0]
+   12-oct-12 12:00,  [1.65,  1.0, 1.0, 0.77, 1.0,1.0]
+   12-oct-12 00:00,  [1.45,  1.0, 1.0, 0.77, 1.0,1.0]
+   11-oct-12 00:00,  [1.65,  1.0, 1.0, 0.77, 1.0,1.0]
+   10-oct-12 12:00,  [1.65,  1.0, 1.0, 0.82, 1.0,1.0]
+   9-oct-12 12:00,  [1.35,  1.0, 1.0, 0.85, 1.0,1.0]
+   9-oct-12,  [1.35,  1.0, 1.0, 0.7, 1.0,1.0]
+   8-oct-12 11:59,  [1.49,  1.0, 1.0, 0.9, 1.0,1.0]
+   8-oct-12 08:00,  [1.15,  1.0, 1.0, 0.95, 1.0,1.0]
+   7-oct-12 12:20,  [1.15,  1.0, 1.0, 0.65, 1.0,1.0]
+   7-oct-12 08:20,  [1.45,  1.0, 1.0, 1.1, 1.0,1.0]
+   7-oct-12 00:00,  [1.2,  1.0, 1.0, 0.8, 1.0,1.0]
+   6-oct-12 12:00,  [1.45,  1.0, 1.0, 0.8, 1.0,1.0]
+   6-oct-12,  [1.2,  1.0, 1.0, 1.0, 1.0,1.0]
+   4-oct-12 18:00,  [1.4,  1.0, 1.0, 0.8, 1.0,1.0]
+   4-oct-12,  [1.7,  1.0, 1.0, 1.0, 1.0,1.0]
+   3-oct-12 13:00,  [1.75,  1.0, 1.0, 0.805, 1.0,1.0]
+   3-oct-12 09:00,  [1.469,  1.0, 1.0, 0.805, 1.0,1.0]
+   3-oct-12,  [1.35,  1.0, 1.0, 0.875, 1.0,1.0]
+   2-oct-12 19:00,  [1.35,  1.0, 1.0, 0.85, 1.0,1.0]
+   2-oct-12,  [1.27,  1.0, 1.0, 0.875, 1.0,1.0]
+   1-oct-12 12:00,  [1.35,  1.0, 1.0, 0.85, 1.0,1.0]
+   1-oct-12,  [1.15,  1.0, 1.0, 0.85, 1.0,1.0]
+   29-sep-12, [0.8,  1.0, 1.0, 0.8, 1.0,1.0]
+   19-sep-12 12:00, [1.80,  1.0, 1.0, 0.7, 1.0,1.0]
+   17-sep-12 12:00, [1.30,  1.0, 1.0, 0.7, 1.0,1.0]
+   16-sep-12, [1.10,  1.0, 1.0, 0.7, 1.0,1.0]
+   15-sep-12, [1.10,  1.0, 1.0, 1.0, 1.0,1.0]
+   14-sep-12,  [1.45,  1.0, 1.0, 0.9, 1.0,1.0]
+   13-sep-12,  [1.45,  1.0, 1.0, 1.0, 1.0,1.0]
+   9-sep-12,  [1.0,  1.0, 1.0, 1.0, 1.0,1.0]
+   5-sep-12,  [1.45,  1.0, 1.0, 1.15, 1.0,1.0]
+   4-sep-12,  [1.55,  1.0, 1.0, 1.15, 1.0,1.0]
+   3-sep-12,  [1.275,  1.0, 1.0, 1.23, 1.0,1.0]
+   2-sep-12,  [1.148,  1.0, 1.0, 1.23, 1.0,1.0]
+   1-jan-03,  [1.0,  1.0, 1.0, 1.0, 1.0,1.0]
+ 
+apd_pulse_timing(ns)
+   22-jan-16,[39,44,49]*50e-9
+   1-jan-16, [40,46,50]*50e-9
+   1-sep-15, [40,44,48]*50e-9
+   1-jun-15, [39,45,53]*50e-9
+   22-sep-12,[40,46,54]*50e-9
+   1-sep-12, [40,46,50]*50e-9
+   22-mar-12,[40,43,50]*50e-9
+   1-oct-11, [40, 46, 52]*50e-9
+   1-oct-07, [7, 11, 14]*50e-9
+   16-apr-04,[7, 10, 14]*50e-9
+   16-apr-00,[7, 10, 14]*50e-9
+
+etalon_pressure(mb)
+   1-jan-08, [68.947]
+   1-jan-00, [68.947]
+
+ktp_temperature(deg C)
+   19-jan-05 ,[0.2,-1]/0.0035
+   19-jan-00 ,[0.2,-1]/0.0035
+   
+
+interferometer_temp_cal(deg C)
+   1-jan-08 ,[0.000862448, 0.000258456, 0.000000142]
+   1-jan-04 ,[0.000862448, 0.000258456, 0.000000142]
+   1-jan-00 ,[0.000862448, 0.000258456, 0.000000142]
+
+lidar_altitude(m)
+   #Soul Korea
+   1-mar-16,[104]
+   #space science
+   1-aug-15, [1100]*0.3048
+   #Singapore gps altitude
+   12-aug-12,[82.9]
+   #Norman, OK--aprox altitude
+   1-apr-12, [350.0]
+   #space science center
+   1-oct-11, [1100]*0.3048
+   #Eureka
+   1-aug-05, [10]*0.3048
+   #space science
+   20-nov-04, [1100]*0.3048
+   #barrow mpace
+   10-sep-04, [10]*0.3048
+   #space science
+   1-aug-00,[1100]*0.3048
+
+latitude(deg N)
+    #Soul Korea appox latitude
+    1-mar-16, [37.460105]
+    #Madison testing
+    1-jun-15, [43.0707]
+    #Singapore approx latitude
+    12-aug-12,[1.29212]
+    #Norman, OK
+    1-apr-12,[35.2368]
+    #Eureka
+    1-aug-05,[79.9903]
+    #space science center
+    20-nov-04 ,[43.0707]  
+    #space science center
+    20-nov-00 ,[43.0707]  
+
+binwidth(sec)
+    1-jan-03 ,[50e-9]
+
+integration_time(sec)
+    1-jan-03,[2.5]
+
+laser_rep_rate(Hz)
+    1-jan-03 ,[4000]
+
+longitude(deg W)
+    #appox Soul Korea longitude
+    1-mar-16,[-126.948498]
+    #Madison space sciences center
+    1-jun-15,[89.4071]
+    #approx Singapore longitude
+    12-aug-12, [-103.78172]
+    #Norman
+    1-apr-12,[97.4636]
+    #Eureka
+    1-aug-05,[89.4071]
+    #space science center
+    20-nov-04 , [89.4071]
+    #space science center
+    20-nov-00 , [89.4071]
+
+hi_to_low_combined_channel_gain_ratio
+    1-may-16,[24.4] 
+    1-apr-12,[50.0]   
+    1-jul-09, [14.6]
+    28-may-09, [24]
+    1-may-09, [27]
+    1-apr-09, [26]
+    1-mar-09, [27.5] 
+    1-feb-09, [25]
+    1-jan-09, [28]
+    1-dec-08, [26]
+    8-aug-05, [16]
+    28-jun-05, [45]
+    28-jun-00, [45]
+   
+combined_channel_merge_threshhold
+   #use low chanel when combined_hi>threshold
+   1-apr-12, [1.0]
+   1-oct-11, [0.5]
+   7-sep-08, [0.05]
+   #combined hi restored 10 feb 08
+   10-feb-08,[0.05]
+   #combined hi channel died on oct 7
+   7-oct-07 11:00,[-100]
+   1-jan-04, [1.0]
+   1-jan-00, [1.0]
+
+location_string
+  1-mar-16, 'Soul Korea'
+  1-jun-15, 'Madison'
+  12-aug-12, 'Singapore'
+  1-apr-12, 'Norman'
+  1-oct-11, 'Madison'
+  2-aug-05, 'Eureka'
+  20-nov-04, 'Madison'
+  10-sep-04, 'Barrow'
+  1-jan-03, 'Madison'  

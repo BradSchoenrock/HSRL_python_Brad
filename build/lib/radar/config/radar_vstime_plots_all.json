@@ -1,0 +1,29 @@
+{
+    "display_defaults": {
+        "image_pixels_per_inch": {
+            "ppi": 100
+        },
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+       
+        "backscatter_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol backscatter vs time at altitude = selected_plot_level"
+        }, 
+        "reflectivity_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol backscatter vs time at altitude = selected_plot_level"
+      
+        }, 
+        "doppler_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Doppler velocity vs time at altitude = selected_plot_level"
+        }
+   } 
+}

@@ -1,0 +1,23 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "#altitudedim": "range",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "drop_diameter":{"aliases":["drop_diameter"],"read_sel":["select"]},
+    "num_drops":{"aliases":["num_drops"],"read_sel":["select"]},
+    "num_density":{"aliases":["num_density"],"read_sel":["select"]},
+    "rain_rate":{"aliases":["rain_rate"],"read_sel":["select"]},
+    "rain_amount":{"aliases":["rain_amount"],"read_sel":["select"]},
+    "total_drops":{"aliases":["total_drops"],"read_sel":["select"]},
+    "liquid_water_content":{"aliases":["liquid_water_content"],"read_sel":["select"]},
+    "radar_reflectivity":{"aliases":["radar_reflectivity"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

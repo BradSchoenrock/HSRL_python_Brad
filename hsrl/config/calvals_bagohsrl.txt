@@ -1,0 +1,671 @@
+#calvals for Bago HSRL
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented
+#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#string return values must be written as 'string' or "string" 
+
+non_filtered_energy_monitor(mJ/shot)
+    01-feb-12 01:20, [0.5, 0, 0]/4000.
+
+filtered_energy_monitor(mJ/shot)
+   1-feb-12 00:00, [0.5, 0, 0]/4000
+
+transmitted_energy_monitor(mJ/shot)
+   1-feb-12 18:00,[0.5,0 ,0]/4000  
+
+IRDetectorShutterInverse
+   15-apr-15 17:00,[0]
+   1-feb-12,[1]
+
+transmitted_1064_energy_monitor(mJ/shot)
+   10-jul-14,     [2.17,0,0]/4000
+   1-feb-12 18:00,[2.5,0 ,0]/4000
+
+seed_laser_voltage_to_freq(GHz/V)
+   1-feb-12      ,[-1.8]*1e9 
+
+seedlaser_temp_to_freq(GHz/K)
+   #used with super seed laser controller
+   1-feb-12 , [-39.7683] 
+
+wavelength(nm)
+    1-feb-12 , [532.26]
+
+installation
+    1-jan-08, 'ground'
+
+telescope_roll_angle_offset
+    #angle (deg) measured from zenith for fixed pointing ground based operation
+    #roll angle offset of beam for zenith pointing mobile operation
+    23-jun-14, [4.0]
+    13-may-14 2:30, [11.0]
+    1-jun-13,  [4.0]
+    1-jan-13, [15.0]
+    1-jan-10, [15.0]
+
+interferometer_temperature_cal(deg C)
+   1-feb-12 , [-.862448, 0.258456, 0.000142]/1000
+
+calibration_nd_filters
+   #calibration_nd_filters[0] = OD of filter removed for narrow scan
+   #calibration_nd_filters[1] = OD of filter always present durring cal scan
+   1-feb-16,  [ 2,3]
+   1-feb-12 , [ 3,3]
+
+interferometer_fft_npixels
+   #number of pixels to use in fft
+   1-jan-08, [625]
+  
+interferometer_spectral_peak
+   1-feb-12,   [28]
+
+interferometer_phase_to_freq(Hz/radian)
+   20-dec-12 , [-2.14e8,0]
+   25-nov-12 , [-2.05e8,0]
+   1-jun-12  , [-2.27e8,0]
+   1-feb-12  , [-1.7e8, 0]
+   
+interf_temp_coef(GHz/degC)
+    #temperature coeficent of interferomter
+    1-jan-10, [2.0]
+
+lock_point_freq_offset(GHz)
+   #shift freq of theoretical i2 absorption in i2scan generation
+    1-dec-16,[-0.062]
+   30-mar-13 5:00, [0.0]
+   29-mar-13, [0.23]
+   1-feb-12  , [0.04]
+
+
+brillouin_ratio_to_freq(1/GHz)
+   1-feb-12  , [-0.1907]
+   
+
+combined_hi_dead_time(sec)
+   #spec sheet value = 28e-9
+   1-feb-12 , [27.9e-9]
+
+combined_lo_dead_time(sec)
+   #spec sheet value = 32e-9
+   1-feb-12 , [29.7e-9]
+ 
+cross_pol_dead_time
+    #spec sheet value = 28e-9
+    1-feb-12, [29.4e-9]
+   
+molecular_dead_time(sec)
+    22-jan-16, [10.0e-9]
+    #spec sheet value = 28e-9
+    1-feb-12, [32.0e-9]
+
+
+molecular_i2a_dead_time(sec)
+    22-jan-16, [10e-9]
+    #spec sheet value = 28e-9
+    1-nov-12,[29.7e-9]
+    1-Jan-12,[29.7e-9]
+
+molecular_wfov_dead_time(sec)
+    #spec sheet value = 53e-9
+    1-jan-12,[53e-9]
+
+combined_1064_dead_time
+    #spec sheet value = 28e-9
+    1-jan-12,[29.7e-9]
+    
+
+polarization_is_linear
+    1-feb-12, [1]
+
+comb_hi_detector_dark_count
+   #counts per shot/bin
+   18-jul-15,[1.1e-4]
+   1-feb-12, [0.4e-4]
+
+cpol_detector_dark_count
+   #counts per shot/bin
+   18-jul-15,[0.75e-4]
+   1-feb-12,[0.4e-4]
+dark_count_timing
+   #'first_bins' or 'last_bins' used for dark count computation
+   1-feb-12, 'first_bins'
+
+polarization_cross_talk
+     7-dec-16,[0.435]
+     12-aug-16,[0.0]
+     3-mar-16,[8.0]
+     5-feb-16,[0.0]
+    28-jul-15,[0.022]
+    18-jul-15,[0.04]
+    1-oct-14,[0.085]
+    1-jul-14,[0.01]
+   20-apr-14,[0.06]
+   01-nov-13, [0.097]
+   25-oct-13, [0.087]
+   27-Sep-13, [0.097]
+   23-Sep-13, [0.104]
+   22-Sep-13, [0.12]
+   20-Sep-13, [0.1]
+   19-Sep-13, [0.10]
+   11-Sep-13, [0.125]
+   1-jul-13, [0.11]
+   30-jun-13, [0.116]
+   28-jun-13, [0.121]
+   22-jun-13, [0.11]
+   1-jun-13, [0.11]
+  19-nov-12 12:00, [0.575]
+  22-aug-12,[0.3]
+   1-jun-12, [0.01]
+   1-feb-12, [0.08]
+
+quarter_wave_plate_rotation
+   #rotation of output quarter wave plate
+   #valid options: 'rotating','fixed','none'
+   1-feb-12, 'none'
+
+Cam_adjustment
+   1-feb-12,[1.0]
+
+i2a_scan_adjustment
+    #mulitiplies i2a scan molecular signal by this factor
+      9-dec-16,[1.0]
+      7-dec-16,[17]
+      12-aug-16,[12.62]
+      3-mar-16,[13]
+      5-feb-16,[1.17]
+      4-feb-16,[1.12]
+     22-jan-16,[1.05]
+     14-sep-15 6:00,[1.171]
+     13-sep-15 6:00,[1.215]
+      7-sep-15 6:00,[1.175]
+      6-sep-15 6:00,[1.16]
+      5-sep-15 6:00,[1.16]
+      4-sep-15 6:00,[0.96]
+      3-sep-15 6:00,[1.165]
+      3-sep-15,[1.175]
+      #8-aug-15,[1.21]
+      8-aug-15,[1.21]
+     28-jul-15,[1.195]
+     18-jul-15, [1.18]
+     25-jun-15, [0.9]
+     18-jun-15 15:50,[1.0]
+     17-jun-15 23:00,[0.45]
+     12-jun-15,[1.18]
+     15-may-15,[1.05]
+     1-mar-15,[1.09]
+     15-feb-15,[1.07]
+      1-oct-14,[1.00]
+     17-aug-14,[1.075]
+     12-aug-14,[0.99]
+     10-aug-14,[1.06]
+      6-aug-14,[1.08]
+     20-jul-14,[0.98]
+     17-jul-14 12:00,[1.09]
+     11-jul-14,[1.08]
+     10-jul-14,[1.07]
+     9-jul-14,[1.19]
+     4-jul-14,[1.04]
+     1-jul-14,[0.99]
+     6-jun-14,[1.03]
+    29-may-14,[1.0]
+    25-may-14,[1.0]
+    14-may-14,[1.05]
+    26-apr-14,[1.0]
+    #16-dec-13,[1.171]
+    #23-sep-13,[1.136]
+    01-nov-13,[1.185]
+    25-oct-13,[1.155]
+    20-oct-13,[1.17]
+    11-oct-13,[1.18]
+    04-oct-13,[1.16]
+    23-sep-13,[1.195]
+    22-sep-13,[1.2]
+    20-sep-13,[1.25]
+    19-sep-13,[1.23]
+     7-sep-13,[1.15]
+     5-sep-13,[1.133]
+     1-sep-13,[1.148]
+    22-aug-13,[1.15]
+    15-aug-13 12:00,[1.65]
+    15-aug-13,[1.62]
+    11-jul-13,[1.56] 
+    8-jul-13,[1.62] 
+    1-jul-13,[1.54]
+    30-jun-13,[1.52]
+    28-jun-13 00:00,[1.47]
+    26-jun-13 00:00,[1.435]
+    24-jun-13 12:00,[1.38]
+    24-jun-13 00:00,[1.343]
+    23-jun-13,[1.33]
+    22-jun-13,[1.29]
+    21-jun-13,[1.24]
+    20-jun-13,[1.2006]
+    19-jun-13 06:00, [1.55]
+    19-jun-13 00:00, [1.53]
+    18-jun-13,[1.045]
+    16-jun-13,[0.93]
+    7-jun-13 16:50, [1.18]
+    1-feb-12, [1.0]
+no_i2_channel
+     #does not use i2 channel for beta_a_backscat or depol if ==1
+      18-jul-15,[0]
+      17-jun-15 23:00, [1]
+      1-feb-12,[0]
+no_depol_channel
+     #system does not have depolarization channel if == 1
+     12-aug-16,[0]
+     22-jan-16,[1]
+     1-feb-12,[0]
+i2_scan_adjustment
+    #multiplies i2 scan molecular signal by this factor
+        9-dec-16,[1.0]
+        7-dec-16,[28.0]
+       12-mar-16,[14.14]
+        3-mar-16,[15.0]
+        5-feb-16,[1.1]
+        4-feb-16,[1.06]
+       22-jan-16,[1.12]
+      14-sep-15 6:00,[1.164]
+      13-sep-15 6:00,[1.205]
+       7-sep-15 6:00,[1.168]
+       6-sep-15 6:00, [1.17]
+       5-sep-15 6:00,[1.17]       
+       4-sep-15 6:00, [0.97]
+       3-sep-15 6:00,[1.155]
+       3-sep-15,[1.165]
+       2-sep-15,[1.15]
+       8-aug-15,[1.21] 
+      2-aug-15 00:00,[1.16025]
+      18-jul-15,[1.19]
+      17-jun-15 23:00,[0.26]
+      12-jun-15,[1.18]
+      15-may-15,[1.08]
+      1-mar-15,[1.04]
+      15-feb-15,[1.03]
+      1-oct-14,[0.96]
+      17-aug-14,[1.03]
+      12-aug-14,[0.975]
+      10-aug-14, [1.04]
+       6-aug-14, [1.06]
+      20-jul-14 0:01,[0.945]
+      20-jul-14,[0.966]
+      17-jul-14 12:00,[1.02]
+      11-jul-14,[1.05]
+      10-jul-14,[1.04]
+      9-jul-14,[1.06]
+      4-jul-14,[1.0]
+      1-jul-14,[1.0]
+      6-jun-14,[1.03]
+     29-may-14,[1.0]
+     25-may-14,[1.0]
+     14-may-14,[1.05]
+     26-apr-14,[1.0]
+     16-dec-13,[1.089]
+     01-nov-13,[1.135]
+     25-oct-13,[1.095]
+     20-oct-13,[1.12]
+     11-oct-13,[1.14]
+     4-oct-13,[1.125]
+     1-oct-13,[1.10]
+     27-sep-13,[1.14]
+     24-sep-13,[1.12]
+     23-sep-13,[1.135]
+     22-sep-13,[1.15]
+     20-sep-13,[1.16]
+     19-sep-13,[1.16]
+     07-sep-13,[1.11]
+     05-sep-13,[1.095]
+     03-sep-13,[1.11]
+     01-sep-13,[1.135]
+     25-aug-13,[1.09]
+     23-aug-13,[1.12]
+     22-aug-13,[1.13]
+     15-aug-13,[1.36]
+     11-jul-13,[1.34]
+     8-jul-13,[1.37] 
+     1-jul-13,[1.33]
+     30-jun-13, [1.33]
+     28-jun-13, [1.31]
+     26-jun-13, [1.292]
+     24-jun-13 12:00, [1.248]
+     23-jun-13,[1.23]
+     22-jun-13,[1.204]
+     21-jun-13,[1.18]
+     20-jun-13,[1.16]
+     19-jun-13, [1.334]
+    18-jun-13, [.894]
+    16-jun-13, [0.82]
+    7-jun-13, [1.21]
+    1-jun-13,[1.10]
+    1-jan-13, [1.03]
+    20-nov-12 12:00 ,[0.31]
+    25-sep-12, [1.03]
+    22-aug-12, [1.05]
+    01-aug-12, [1.07]
+    01-jun-12, [1.05]
+    01-feb-12, [1.02]
+    1-jan-12, [1.03]
+
+i2_absorption_scale_factor
+   #optical depth scale factor used to make dfb measured i2 reference
+   #spectra match long i2 cell optical depth--used in calibration
+   #file generation.
+   26-apr-14,[5.9]
+   1-jan-08, [6.2]
+
+
+
+shortcell_locked_ratio
+   #first entry,filtered/nonfiltered short cell ratio at lock point
+   #second entry,filtered/nonfiltered short cell ratio when off I2 line
+   1-sep-16,[0.14,0.52]
+   #dfb seeder installed 5-may-14
+   #1-aug-13, [0.235,1.437]
+   9-jul-14,[0.82,1.787]
+   5-may-14,[0.57,4.6]
+   1-apr-14,[0.41,3.145]
+   20-oct-13, [0.34,1.6]
+   18-sep-13 17:00, [0.35,1.6]
+   18-sep-13, [0.39,1.6]
+   8-sep-13 06:00, [0.305,1.55]
+   6-sep-13 06:00, [0.298,1.5]
+   5-sep-13 10:00, [0.29,1.5]
+   3-sep-13 12:00, [0.373,1.6]
+   2-sep-13 06:00, [0.395,1.6]
+   1-sep-13 06:00, [0.385,1.6]
+   30-aug-13, [0.37,1.6]
+   29-aug-13, [0.357,1.6]
+   28-aug-13, [0.355,1.6]
+   27-aug-13, [0.353,1.6]
+   25-aug-13, [0.355,1.6]
+   23-aug-13 18:00, [0.35,1.66]
+   23-aug-13, [0.3,1.66]
+   16-aug-13, [0.345,1.66]
+   15-aug-13, [0.355,1.66]
+   13-aug-13, [0.36,1.66]
+   12-aug-13, [0.356,1.66]
+   9-aug-13, [0.35,1.6]
+   8-aug-13, [0.347,1.6]
+   7-aug-13, [0.345,1.6]
+   1-aug-13, [0.343,1.6]
+   23-jul-13, [0.34,1.59]
+   22-jul-13, [0.3455,1.59]
+   21-jul-13, [0.345,1.59]
+   15-jul-13 06:00, [0.34,1.59]
+   11-jul-13 16:00, [0.335,1.57]
+   10-jul-13, [0.27,1.52]
+   1-jul-13, [0.314,1.56]
+   28-jun-13, [0.32,1.57]
+   19-jun-13, [0.31,1.57]
+   7-jun-13 16:50 , [0.2,1.47]
+   1-jun-13,[0.16,1,47]
+   1-may-13,[0.156,1.47]
+   #-9999 indicates no value supplied
+   1-jan-12, [-9999,1]
+  
+baseline_adjust
+   #adjust factors for baseline correction
+   #channels, [c_hi, c_lo, mol, cp, mol_i2a comb_1064]
+    1-dec-16, [1.0, 1.0, 0.0   , 1.4,    0.5 ,    0.0]
+   12-aug-16, [1.0, 1.0, 0.0   , 1.0,   0.5  ,    0.0]
+   3-mar-16,  [0.5, 1.0, 0.0   , 1.0,   0.5  ,    1.0]
+   22-jan-16, [1.0, 1.0, 0.0,    1.0,   0.0 ,    1.0]
+    8-aug-15, [1.0, 1.0, 0.0,    1.0,  2.0 ,     1.0]
+   19-jul-14, [1.0,  1.0  , 1.0, 1.0,  1.0,      1.0]
+   11-jul-14,  [3.0,   0,0, 1.0, 0.9,   1.5,     1.0]
+   4-jul-14,  [3.0,   0,0, 1.0, 1.0,   1.5,     1.0]
+   1-jul-14,  [1.0,   0.0, 1.0, 1.0,   1.0,     1.0]
+   28-jun-14, [1.05,  0.0, 1.0, 0.35,  1.0,     1.0]
+   6-jun-14,  [1.05, 0.0,  1.0, 0.5,  1.0,      1.0]
+   27-may-14, [2.5, 0.0,   1.0, 1.0,  1.0,      1.0]   
+   25-oct-13, [2.0,  0.0,  1.0, 0.5,  1.0,     1.0]
+   11-sep-13, [2.0,  0.0,  1.0, 1.0,  1.0,     1.0]
+   05-sep-13, [1.0,  0.0,  1.0, 1.0,  1.0,     1.0]
+   03-sep-13, [1.0,  0.0,  1.0, 3.0,  1.0,     1.0]
+   25-aug-13, [1.0,  0.0,  1.0, 1.0,  1.0,     1.0]
+   14-may-12, [1.0,  0.0,  1.0, 1.0,  1.01,     1.0]
+   01-jan-12, [1.0,  0.0,  3.3, 1.0,  1.0,    1.0]
+
+combined_to_cross_pol_gain_ratio
+    7-dec-16,[0.207]
+    12-aug-16,[0.222]
+    18-jul-15,[0.224]
+    16-jun-15,[0.226]
+    1-jan-15,[0.254]
+    20-apr-14,[0.220]
+    1-oct-13, [0.055]
+    3-sep-13,[0.056]
+    3-sep-13,[0.076]
+    1-sep-13,[0.056]
+    17-jul-13,[0.060]
+   18-jun-13, [0.057]
+   1-jan-13, [0.06]
+   20-nov-12 12:00, [0.057]
+   25-sep-12,[0.170]
+   1-feb-12,[0.180]
+
+hi_to_low_combined_channel_gain_ratio
+   1-dec-16,[40.0]
+   12-aug-16,[205]
+   18-jul-15,[200]
+   1-jul-14,[222]
+   1-apr-14,[170]
+   25-sep-12, [0.1]
+   1-feb-12, [220]
+
+IR_combined_hi_gain_ratio
+  #gain of 1064 channel relative to combined_hi 532 channel
+   16-aug-16,[0.145]
+   12-aug-16,[0.1]
+   3-mar-16,[0.2]
+   22-jan-16, [0.1]
+   28-sep-15,0:00, [0.29]
+   27-sep-15 6:00, [0.245]
+   16-sep-15 6:00, [0.24]
+   14-sep-15 6:00, [0.25]
+   13-sep-15 6:00, [0.29]
+   10-sep-15 6:00,[0.245]
+   7-sep-15 6:00,[0.26]
+   5-sep-15 6:00,[0.30]
+   4-sep-15 6:00,[0.265]
+   3-sep-15,[0.275]
+   2-sep-15 6:00,[0.18]
+   2-sep-15,[.165]
+   #TCS offline 25aug-2sep
+   25-aug-15 18:30, [0.24]
+   17-aug-15,[0.20]
+   8-aug-15,[0.29]
+   5-aug-15,[0.31]
+   4-aug-15,[0.31]
+   #3-aug-15,[0.3]
+   3-aug-15 00:00,[0.285]
+   2-aug-15 18:00,[0.26]
+   2-aug-15 06:00,[0.295]
+   2-aug-15 00:00,[0.295]
+   1-aug-15 15:00,[0.305]
+   1-aug-15 6:00,[0.31]
+   1-aug-15,[0.3]
+  18-jul-15,[0.26]
+  23-jun-15,[0.033]
+  19-jun-15,[0.1]
+  17-jun-15,[0.2]
+  12-jun-15,[0.4]
+   1-may-15,[0.125]
+  18-mar-15,[0.039]
+  1-mar-15,[0.084]
+  1-jan-15,[0.075]
+  1-oct-14,[0.55]
+  1-aug-14,[0.47]
+  10-jul-14,[0.5]
+  23-jun-14,[0.64]
+  10-jun-14,[0.145]
+  24-may-14,[0.07]
+  1-may-14,[0.1181]
+  1-jan-08, [0.206]
+
+IR_dark_interval
+   #IR_dark_interval = [start_bin,end_bin]
+   7-dec-16,[0,40]
+   1-may-12,[2850,2995]
+   1-feb-08,[2850,2995]
+wfov_to_combined_gain_ratio 
+  1-jan-08, [175]
+   
+molecular_to_wfov_gain_ratio
+   12-aug-16,[22.5]
+   3-mar-16,[4.5]
+  22-jan-16, [1.35]
+  28-jul-15 19:00,[19.95]
+  26-jul-15 06:00,[21.78]
+  18-jul-15,[23.0]
+  15-may-15,[7.02]
+  15-may-15,[30.43]
+  9-jul-14,[97]
+  6-jun-14,[89]
+  1-oct-13,[450]
+  23-aug-13,[310]
+  12-aug-13, [115]
+  13-jul-13,[50.2]
+  19-jun-13, [60]
+  16-jun-13 12:00, [57]
+  15-jun-13, [70]
+  #changed to 100 micron fiber
+  14-jun-13, [51]
+  #with 50 micron fiber
+  12-jun-13, [140]
+   4-jun-13, [110]
+   1-jun-13, [480]
+   1-jan-08, [160]
+
+wfov_type
+   4-apr-13, 'molecular'
+   1-jan-13, 'combined_hi'
+   1-jan-08, 'molecular'
+
+enable_cw_i2scan
+  19-mar-16,[1] 
+   1-feb-12,[0]
+apd_pulse_timing(ns)
+   9-jul-14, [40,48,53]*50e-9
+   23-may-14,[40,47,53]*50e-9
+   6-may-14,[43,47,53]*50e-9
+   11-aug-13,[46,51,54]*50e-9
+   1-jun-13,[46,52,56]*50e-9
+   1-mar-13,[48,50,57]*50e-9
+   28-mar-12,[47,51,55]*50e-9
+   22-mar-12,[40,51,55]*50e-9
+   1-feb-12, [47, 51, 55]*50e-9
+
+nadir_comb_gain_adjustment 
+  1-feb-12, [1.0]
+
+
+etalon_pressure(mb)
+   1-feb-12, [68.947]
+
+optical_bench_air_pressure_cal(mb)
+   1-feb-12, [-200]
+ 
+ktp_temperature(deg C)
+   1-feb-12 ,[0.2,-1]/0.0035
+
+interferometer_temp_cal(deg C)
+   1-feb-12 ,[0.000862448, 0.000258456, 0.000000142]
+
+lidar_altitude(m)
+   #DOE Southern Great Plains
+   18-Jul-15,[330]
+   #Hayes, Kansas
+   12-Jun-15, [609.0]
+   #space science
+   28-aug-14, [900]*0.3048
+   #BAO tower, Erie, CO
+   9-jul-14, [1584.]
+   #space science
+   23-jun-14, [900]*0.3048
+   15-nov-13, [1100]*0.3048
+   #huntsville,Alabama
+   18-jun-13, [206]
+   #space science center
+   1-jan-08, [1100]*0.3048
+
+latitude(deg N)
+    #DOE Southern Great Plains
+    18-jul-15,[36.579]
+    #space science 
+    28-aug-14, [43.0707]
+    #near BAO tower, Erie CO
+    09-jul-14,[40.0451]
+    #space science 
+    15-nov-13, [43.0707]
+    #UAH Huntsville Alabama
+    18-jun-13, [34.7250]
+    #space science
+    1-feb-12 ,[43.0707]  
+
+binwidth(sec)
+    1-feb-12 ,[50e-9]
+
+integration_time(sec)
+    1-jan-12, [2.5]
+
+laser_rep_rate(Hz)
+    1-feb-12 ,[4000]
+
+longitude(deg W)
+    #DOE Southern Great Plains
+    18-jul-15,[97.314]
+    #space science center
+    28-aug-14, [89.4071]
+    #near BAO tower, Erie CO
+    09-jul-14,[105.0058]
+    #space science center
+    15-nov-13, [89.4071]
+    #UAH Huntsville Alabama
+    18-jun-13, [86.6450]
+    #space science center
+    1-feb-12 , [89.4071]
+
+telescope_diameter(m)
+    1-feb-12, [0.4]
+
+telescope_fov(radians)
+    1-feb-12, [100e-6]
+
+laser_beam_divergence(radians)
+    1-feb-12, [20e-6]
+
+1/e_laser_beam_width(m)
+    1-feb-12, [0.22]
+
+combined_channel_merge_threshhold
+   1-jul-14, [10.0]
+   1-feb-12, [1000.0]
+   
+sounding_type
+    2-oct-15,'NOAA raob'
+    18-jul-15, 'arm'
+    #9-jul-14, 'virtual'
+    1-feb-12, 'NOAA raob'
+
+sounding_id
+   2-oct-15, 'GRB'
+   12-jun-15, 'DDC'
+   28-aug-14, 'GRB'
+    9-jul-14, 'DNR'
+   15-nov-13, 'GRB'
+   18-jun-13, 'BMX'
+   1-feb-12  ,'GRB'
+
+location_string
+   2-oct-15, 'Madison'
+   18-jul-15, 'DOE SGP'
+   28-aug-14, 'Madison'
+  9-Jul-14, 'Erie, CO'
+  15-nov-13, 'Madison'
+  18-jun-12, 'Huntsville'
+  1-feb-12, 'Madison'  

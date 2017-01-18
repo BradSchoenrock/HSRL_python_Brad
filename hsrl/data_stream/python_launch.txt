@@ -1,0 +1,6 @@
+to launch python on lidar:
+
+cd ~/typedarray_hsrl_python
+from hsrl.data_stream.rti import Rti
+
+r = Rti('gvhsrl','22-feb-12 21:45', '22:05', 0.0, 16.0, .5, 'flight_plots.json')

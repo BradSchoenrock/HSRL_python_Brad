@@ -1,0 +1,22 @@
+{
+    "process_defaults": {
+        "radar_SNR_mask": {
+            "enable": 1,           
+            "threshhold":0.0,
+            "docs": "generate qc_radar_mask field when enabled",
+            "parameters":{
+                "enable": "enable if = 1, disable if = 0",
+                "threshhold":"mask==1 if SNR > threshhold, else==0, threshhold in dB"
+             }
+        }, 
+        "ship_motion_correction": {
+            "enable": 0,
+            "filter_length":20,           
+            "docs": "filter Doppler velocity to remove ship motion",
+            "parameters":{
+                "enable": "enable if = 1, disable if = 0",
+                "filter_length":"length low pass filter on vertically integrated doppler (s)"
+             }
+        } 
+    }
+}

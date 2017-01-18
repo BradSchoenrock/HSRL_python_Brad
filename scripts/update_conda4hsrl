@@ -1,0 +1,10 @@
+#! /bin/csh
+
+conda config --add channels conda-forge
+conda update -y conda
+conda update -y anaconda
+conda install -y basemap
+conda install -y cython
+conda install -y bottleneck netcdf4
+conda install -y pygrib
+conda upgrade -y jpeg

@@ -1,0 +1,126 @@
+{
+ "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "image_altitude_above_ground_level":{
+            "enable": 1,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+          "effective_diameter_prime_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 0.01, 
+            "hi_color_lmt": 5,
+            "units":"mm",
+            "doc":"Effective Diameter Prime Cooperative value, (mm | microns)"
+        }, 
+        "effective_diameter_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5,
+            "units":"mm",
+            "doc":"Effective Diameter value (mm | microns)"
+        }, 
+        "mode_diameter_image": {
+            "enable":1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "units":"mm",
+            "doc":"Mode diameter Cooperative value(mm | microns)"
+        }, 
+        "mean_diameter_image": {
+            "enable":1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "units":"mm",
+            "doc":"Mean Diameter value (mm | microns)"
+        }, 
+        "mean_mass_diameter_image": {
+            "enable":1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "units":"mm",
+            "doc":"Mean mass diameter value(mm, microns)"
+        }, 
+        "particle_number_density_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01,
+            "hi_color_lmt":1e4,
+            "doc":"Particle Number Density"
+
+        }, 
+        "particle_phase_image": {
+            "enable":1, 
+            "log_linear":"cl",
+            "doc":"Particle phase (ice or water) based on depolarization"
+        },
+        "liquid_water_content_image": {
+            "enable": 1,
+            "log_linear":"log",
+            "lo_color_lmt":0.0001,
+            "hi_color_lmt":1.0,
+            "doc":"Liquid Water Content(gr/m^3)"
+        }, 
+        "precip_rate_image": {
+            "enable":1,
+            "log_linear":"log",
+            "lo_color_lmt":0.001,
+            "hi_color_lmt":10.0,
+            "doc":"precip rate (mm/hr)"
+        }, 
+        "radar_weighted_fall_velocity_image": {
+            "enable": 1,
+            "log_linear":"log",
+            "lo_color_lmt":0.05,
+            "hi_color_lmt":5.0,
+            "doc":"computed radar-weighted fall velocity (m/s)"
+        },
+        "doppler_velocity_vs_deff_prime_hist":{
+            "enable":1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y min":0.0,
+            "y max":5.0,
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, occurence of doppler velocity(m/s) vs deff_prime(mm)"  
+        },
+        "spectral_width_vs_deff_prime_hist":{
+            "enable":1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, radar spectral_width(m/s) vs deff_prime(mm)"  
+        },
+        "ms_ratio_image":{
+            "enable":1,
+            "log_linear":"linear",
+            "lo_color_lmt":0.0,
+            "hi_color_lmt":5.0,
+            "doc":"image of total multiple to single scatter ratio"
+        }
+   }
+}

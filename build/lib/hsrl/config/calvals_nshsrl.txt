@@ -1,0 +1,316 @@
+#calvals for DOE nshsrl
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented
+#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#string return values must be written as 'string' or "string" 
+non_filtered_energy_monitor(mJ/shot)
+    01-jan-08 00:00, [0.5, 0, 0]/4000.
+
+filtered_energy_monitor(mJ/shot)
+   1-jan-08 00:00, [0.5, 0, 0]/4000
+
+transmitted_energy_monitor(mJ/shot)
+   1-jan-08 18:00,[0.5,0 ,0]/4000
+
+seed_laser_voltage_to_freq(GHz/V)
+   1-jan-08      ,[-1.8]*1e9 
+ 
+sounding_id
+   #system in Boulder
+   16-mar-11     ,'BRW'
+   1-jan-08      ,'MSN'
+  
+wavelength(nm)
+    1-jan-08 , [532.26]
+
+sounding_type
+    1-jan-08,     'NOAA raob'
+
+interferometer_temperature_cal(deg C)
+   1-jan-08 , [-.862448, 0.258456, 0.000142]/1000
+
+calibration_nd_filters
+   #calibration_nd_filters[0] = OD of filter removed for narrow scan
+   #calibration_nd_filters[1] = OD of filter always present durring cal scan
+   1-jan-08  , [3,3]
+
+interferometer_fft_npixels
+   #number of pixels to use in fft
+   1-jan-08, [625]
+
+interferometer_spectral_peak
+   1-sep-13,  [24]
+   1-jan-08,  [23]
+
+interferometer_phase_to_freq(Hz/radian)
+   31-mar-14 19:00 , [2.1e8,0]
+   1-mar-11  , [-1.7e8, 0]
+   1-jan-08  , [1.68e8, 0]
+
+lock_point_freq_offset(GHz)
+   1-jan-08  , [0.04]
+
+brillouin_ratio_to_freq(1/GHz)
+   1-aug-09  , [-0.1907]
+   1-jan-08  , [-0.430]
+
+combined_hi_dead_time(sec)
+   1-jan-08 , [29.3e-9]
+   
+
+combined_lo_dead_time(sec)
+   1-jan-08  , [29.7e-9]
+
+cross_pol_dead_time
+   1-jan-08, [29.9e-9]
+
+molecular_dead_time(sec)
+    1-jan-08, [28.5e-9]
+
+quarter_wave_plate_rotation
+   #rotation of output quarter wave plate
+   #valid options: 'rotating','fixed','none'
+   1-jan-08, 'fixed'
+
+polarization_is_linear
+   1-feb-08, [0]
+
+dark_count_timing
+   #'first_bins' or 'last_bins' used for dark count computation
+   1-feb-08, 'first_bins'
+
+i2_scan_adjustment
+   30-nov-15,[1.032]
+   23-nov-15,[1.0]
+   29-oct-15,[.97]
+   19-oct-15,[.93]
+   1-aug-15,[.88]
+   1-jul-15,[0.84]
+   1-jun-15,[0.85]
+   1-apr-15,[0.98]
+   14-jan-15 22:50, [1.01]
+   25-nov-14, [1.20]
+   28-oct-14,[1.15]
+   7-oct-14,[1.01]
+   7-sep-14,[0.98]
+   15-jun-14,[0.98]
+    7-may-14,[1.01]
+   13-apr-14,[1.07]
+   31-mar-14 19:00 ,[1.03]
+   #nshsrl operating on double line since feb 13
+   1-mar-14,[0.814]
+   9-feb-14,[0.78]
+   2-jan-14,[0.79]
+   4-dec-13,[0.75]
+   7-nov-13,[0.77]
+   6-oct-13,[0.74]
+   1-sep-13 00:01, [0.74]  #system repaired
+   #19-july-13 system down--laser failure
+   13-jul-13,[1.04]
+    12-jun-13,[1.21]
+    25-may-13,[1.1]
+    19-may-13,[1.21]
+    5-may-13,[1.27]
+   27-apr-13,[1.2]
+   5-apr-13,[1.04]
+   1-mar-13, [1.0]
+   1-feb-13, [1.04]
+   1-jan-08, [1.0]
+
+polarization_cross_talk
+     4-dec-15,[0.155]
+    30-nov-15,[0.14]
+    1-aug-15,[0.12]
+    1-jul-15,[0.125]
+    1-jun-15,[0.13]
+    1-apr-15,[0.165]
+   25-jan-15,[0.165]
+   14-jan-15 22:50,[0.155] #window cleaned
+   3-dec-14,[0.145]
+   28-oct-14,[0.14]
+    7-oct-14,[0.082]
+    7-sep-14,[0.072]
+   15-jun-14,[0.072]
+    7-may-14,[0.09]
+   13-apr-14,[0.109]
+   31-mar-14 19:00, [0.104]
+   1-mar-14, [0.097]
+   9-feb-14, [0.097]
+   2-jan-14,[0.085]
+   4-dec-13,[0.076]
+   7-nov-13,[0.078]
+   6-oct-13,[0.07]
+   1-sep-13 00:01, [0.065]
+   1-sep-13,[0.052]
+   13-jul-13,[0.076]
+   12-jun-13,[0.07]
+    5-may-13,[0.052]
+    5-apr-13,[0.04]
+   18-mar-13,[0.045]
+   11-mar-13,[0.045]
+   #1-mar-13, [0.001]
+   1-feb-13,[0.05]
+   16-oct-12,[0.0375]
+   1-oct-12,[0.03]
+   6-jun-11,[0.065]
+   3-jun-11,[.047]
+   27-may-11,[0.03]
+   25-may-11 19:00, [0.04]
+   25-may-11,[0.045]
+   24-may-11,[0.065]
+   1-apr-11, [0.10]
+   25-mar-11,[0.086]
+    1-jan-08, [0.12]
+
+combined_to_cross_pol_gain_ratio
+   1-aug-15,[1.27]
+   1-jun-15,[1.36]
+   1-apr-15,[1.43]
+  20-sep-14,[2.87] 
+   3-sep-14,[2.96]
+   22-jun-14,[2.96]
+   17-may-14,[2.90]
+   1-oct-13, [2.74]
+   1-sep-13, [3.114]
+   16-jul-13,[2.84]
+   16-jun-13,[2.84]
+    6-may-13,[3.18]
+    8-apr-13,[3.29]
+   1-oct-12, [3.5]
+  25-apr-11, [1.96]
+   1-apr-11,  [1.84]
+   10-mar-11, [1.63]
+   1-jun-08 , [2.32]
+   
+
+comb_hi_detector_dark_count
+    3-sep-14,[0.55e-4]
+    1-sep-13,[0.47e-4]
+   16-oct-12,[0.35e-4]
+    1-jan-08,[0.4e-4]
+
+cpol_detector_dark_count
+   1-aug-15,[1.95e-4]
+   3-sep-14,[1.77e-4]
+   1-sep-13,[1.34e-4]
+   16-oct-12,[1.25e-4]
+   1-jan-08,[1.2e-4]
+
+comb_lo_detector_dark_count
+   #counts per shot/bin
+   1-jan-03, [0.17e-4]
+
+mol_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.14e-4]
+
+mol_i2a_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+comb_1064_detector_dark_count
+   #counts per shot/bin
+   1-jan-03,[0.0e-4]
+
+apd_pulse_timing(ns)
+   1-jan-08, [42,49,52]*50e-9
+
+Cam_adjustment
+   1-jan-08,[1.0]
+
+shortcell_locked_ratio
+   #first entry:normalized shortcell ratio at lock pt
+   #second entry:normalization value so shortcell ratio = 1 off I2 line
+   1-sep-13,[0.005,3.4]
+   1-jan-08, [-9999,1.0]
+
+
+
+i2_absorption_scale_factor
+   #optical depth scale factor used to make dfb measured i2 reference
+   #spectra match long i2 cell optical depth--used in calibration
+   #file generation.
+   1-jan-08, [5.7]
+
+baseline_adjust
+   #adjust factors for baseline correction
+   #channels,      [c_hi, c_lo, mol, cp, mol_i2a]
+   3-dec-14       ,[1.2, 1.0,  1.0, 2.7,1.0]
+   28-oct-14      ,[1.2, 1.0,  1.0, 2.47,1.0]
+   31-mar-14 19:00,[1.2, 1.0 , 1.0, 1.5, 1.0]
+   1-mar-14       ,[1.2, 1.0 , 1.0, 2.04,1.0]
+   1-sep-13 00:01, [1.2, 1.0 , 1.0, 1.2, 1.0]
+   1-sep-13,       [0.23, 1.0, 1.0, 0.6, 1.0]
+   19-may-13,      [0.23, 1.0, 1.0, 1.56, 1.0]
+   13-mar-13,      [0.23, 1.0, 1.0, 2.6, 1.0]
+   1-mar-13,       [2.3,  1.0, 1.0, 1.00, 1.0]
+   1-feb-13 00:01, [1.0,  1.0, 1.0, 1.00, 1.0]
+   1-feb-13,       [1.0,  1.0, 1.0, 1.92, 1.0]
+   1-jan-08,       [1.0,  1.0, 1.0, 1.0, 1.0]
+
+etalon_pressure(mb)
+    1-jan-08, [68.947]
+
+interferometer_temp_cal(deg C)
+   1-jan-08 ,[0.000862448, 0.000258456, 0.000000142]
+
+optical_bench_air_pressure_cal(mb)
+    1-oct-12, [-216.1]
+    1-jan-08, [200]
+
+ktp_temperature(deg C)
+   1-jan-08 ,[0.2,-1]/0.0035
+
+installation
+   1-jan-08, 'ground'
+
+telescope_roll_angle_offset
+  #angle (deg) measured from zenith for fixed pointing ground based operation
+  #roll angle offset of beam for zenith pointing mobile operation
+   1-jan-08, [4.0]
+
+lidar_altitude(m)
+   #Barrow NSA site
+   16-mar-11, [4]
+   #space science center
+    1-jan-08, [1100]*0.3048
+
+latitude(deg N)
+    #Barrow NSA site
+    16-mar-11,[71.323]
+    #space science building
+    1-jan-08 ,[43.0707]
+  
+binwidth(sec)
+    1-jan-08 ,[50e-9]
+
+integration_time(sec)
+    1-jan-08, [2.5]
+
+laser_rep_rate(Hz)
+    1-jan-08 ,[4000]
+
+longitude(deg W)
+    #Barrow NSA site
+    16-mar-11,[156.615]
+    #space science center
+    1-jan-08 , [89.4071]
+
+hi_to_low_combined_channel_gain_ratio
+   1-sep-13, [155]
+   1-jan-13, [200]
+   1-oct-12, [159]
+   24-may-11, [138]
+   1-mar-11, [132]
+   1-jan-08,  [107]
+
+combined_channel_merge_threshhold
+   1-jan-08, [1.0]
+
+location_string
+  16-mar-11, 'Barrow'
+   1-jan-08, 'Madison'  

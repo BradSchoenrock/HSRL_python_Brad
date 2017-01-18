@@ -1,0 +1,2 @@
+#!/bin/sh
+HawkEye -params ~/projDir/display/params/HawkEye.archive &

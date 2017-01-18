@@ -1,0 +1,8 @@
+scipy
+numpy
+matplotlib
+netCDF4
+ply
+bottleneck>=0.6.0
+dplkit>=0.3.0
+tenti_s6

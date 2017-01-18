@@ -1,0 +1,215 @@
+{
+    "process_defaults": {
+        "mol_norm_alt": {
+            "meters": 130.0,
+            "doc": "molecular profile normalized to clear air at this altitude",
+            "parameters":{
+                "meters":"altitude at which to normalize in meters"
+                 }
+        },
+        "atten_backscat_norm_range": {
+            "range": 150.0,
+            "doc": "atten backscat normalized to backscatter at this range",
+            "parameters":{
+                "range":"range at which to normalize in meters"
+                 }
+        },
+        "extinction_processing":{
+            "filter_type": "savitzky_golay",
+            "adaptive": 0, 
+            "alt_window_length": 15,
+            "time_window_length": 30,
+            "polynomial_order":1,
+            "min_alt": 0.0,
+            "od_threshhold": 0.01,
+            "doc":"determines how extinction is computed from molecular signal",
+            "parameters":{
+                 "filter_type":"savitzky_golay is the only filtering now applied to the molecular signal",
+                 "adaptive":"if =1, decrease window length if needed to keep od difference < od_thres",
+                 "alt_window_length":"length of altitude filter window in meters",
+                 "t_window_length":"length of filter window in seconds",
+                 "polynomial_order":"order of the fitting polynominal",
+                 "min_alt":"don't fit below this altitude in meters",
+                 "od_threshhold":"if adaptive shorten window to keep window od below threshhold"
+            }
+         },
+        "molecular_smooth": {
+            "enable": 0, 
+            "polynomial_order": 3,
+            "window_length": 100,
+            "doc":"smooth molecular returns with savitsky-golay filter",
+            "parameters":{
+               "enable":"enable if = 1, diable if =0",
+               "polynomial_order":"order of polynomial fit",
+               "window_length": "filter window length in meters"
+               }
+        }, 
+        "signal_lost_mask": {
+            "enable": 0,
+            "lost_level": 0,
+            "doc":"mask range bins after molecular signal first falls to lost level phontons per bin--bit 6",
+            "parameters":{
+                "enable":"enable if =1, disable if = 0",
+                "lost_level":"remaining bins of profile mask after # photons/bin <= lost_level"
+                }
+        }, 
+        "cloud_mask": {
+            "enable": 0, 
+            "backscat_threshhold":1e-5, 
+            "cloud_buffer_zone": 1,
+            "mask_entire_profile":0,
+            "max_cloud_alt":15,
+            "doc":"mask cleared after first bin with backscatter > threshhold ormask entire profile with cloud",
+            "parameters":{
+                "enable":"enable if = 1 ,disable if =0",
+                "backscatter_threshhold":"mask after backscatter_cross_section > threshhold, 1/(m sr)",
+                "cloud_buffer_zone":"clear mask this distance before cloud is encountered (m)",
+                "mask_entire_profile":"mask entire profile if any cloud at this time",
+                "max_cloud_alt":"when mask entire profile ignore clouds above this altitude (km)"
+                }
+        }, 
+        "I2_lock_mask":{
+            "enable": 1,
+            "lock_lost": 0.4,
+            "lock_warning": 0.1,
+            "doc":"clear bits 0 and 2 of qc_mask if shortcell ratio > lock_lost, clear bit 13 of qc_mask if shortcell_ratio>warning)",
+            "parameters":{
+                "enable":"enable if 1, disable if =0",
+                "lock_lost":"mask if shortcell_ratio > lock_lost",
+                "lock_warning":"clear bit 13, lock lost warning, if shortcell_ratio > lock_warning"
+              }
+        },
+        "mol_signal_to_noise_mask":{
+            "enable": 1,
+            "threshhold": 0.25,
+            "doc":"clear bits 0 and 4 of qc_mask if mol signal/noise  < threshhold (for all ranges beyound first occurance)",
+            "parameters":{
+                "enable":"enable if 1, disable if =0",
+                "tolerance":"mask ranges after  mol_signal_to_noise < threshhold "
+            }
+        },
+        "averaged_profiles": {
+            "apply_mask": 0,
+            "telescope_pointing":"all",
+            "doc":"don't include masked data in average profiles",
+            "parameters":{
+                "apply_mask":"apply qc_mask and cloud mask before creating ave profiles",
+                "telescope_pointing":"dir to included in ave profiles(all/zenith/nadir)"
+                }
+        }, 
+        "first_bin_to_process": {
+            "bin_number": 3,
+            "docs":"Set first data bins to Nan's",
+            "parameters":{
+                "bin_number":"data bins <= bin_number = Nan's--applied to raw data bins"
+            }
+             
+        }, 
+        "molecular_spectrum": {
+            "model": "tenti_s6",
+            "docs":"select model for the spectral shape of the molecular backscatter",
+            "parameters":{
+                "model":" witschas | tenti_s6  | maxwellian"
+            }
+        }, 
+        "i2a_mol_ratio": {
+            "enable": 1, 
+            "filter_window":300.0,
+             "docs":"savitzky-golay filter i2a/i2 ratio profile",
+             "parameters":{
+                 "Filter": "apply 3-order savitzky_golay with window (m)"
+            }
+        },   
+        "compute_stats": {
+            "enable": 1,           
+            "docs": "request computation of photon counting statistics",
+            "parameters":{
+                "enable": "enable if = 1, disable if = 0"
+            } 
+        },
+       
+        "polarization_integration_time": {
+            "seconds": 40,
+            "docs":"integration time to recover polarization for gvhsrl rotating qw_plate",
+            "parameters":{
+                "seconds":"time interval used for polarization recovery"
+            }  
+        }, 
+        "depolarization_is_aerosol_only":{
+            "enable":1,
+            "doc":"If enabled separate molecular before computing depolarization"
+        },
+        "signal_in_dark":{
+            "enable":0,
+            "doc":"apply correction for signal from previous laser pulse in dark count"
+        },
+        "color_ratio":{
+            "angstrom_coef":0.0,
+            "docs":"Used to compute 1064 optical depth from 532 optical depth"
+        },
+        "wfov_geo_corr":{
+            "enable":0,
+            "lo_alt_lmt":2.5,
+            "fit_alt_1": 4.5,
+            "hi_alt_lmt":6.0,
+            "fit_type":"constrained_wfov_lsq",
+            "order_of_fit":4,
+            "time_ave":1,
+            "half_window":30,
+            "docs":"Add wfov_extinction profile, using wfov_ratios for geo_corr between lo_alt_lmt and hi_hatl_lmt",
+            "Parameters":{
+                "enable":"1 or 0",
+                "lo_alt_lmt":"start fit at this altitude (km)",
+                "hi_alt_lmt":"end fit at this altitude (km)",
+                "fit_alt_1":"when using 'raw' begin -+half_window smoothing at this altitude (km)",
+                "fit_type":"constrained_derivative_lsq|constrained_wfov_lsq|raw|spline|poly",
+                "order_of_fit":"fitting order when using polynomial fit",
+                "time_ave":"averaging time for wfov correction to geometry (hrs)",
+                "half_window":"half-width of averaging window for end pt values (bins)"
+                }
+        },
+        "alternate_cal_dir": {
+            "full_dir_path": "None",
+            "#full_dir_path": "/home/eloranta/rubidium",
+            "#full_dir_path": "/data/sharedcaldev",
+            "docs":"set up alternate dir for default calibration files in month dir",
+            "parameters":{
+               "full_dir_path":"eg. /home/eloranta/alt_dir, to standard subdir structure, eg. ahsrldata/2024/04"
+            } 
+        } 
+    },
+    "corr_adjusts": {
+        "mol_dark_count": 1.0,
+        "comb_hi_dark_count": 1.0,  
+        "comb_lo_dark_count": 1.0 ,
+        "mol_wfov_dark_count":1.0,
+        "comb_wfov_dark_count":1.0,
+        "comb_1064_dark_count":1.0,
+        "c_pol_dark_count": 1.0, 
+        "mol_i2a_dark_count": 1.0, 
+        "mol_baseline": 1.0,    
+        "mol_i2a_baseline": 1.0, 
+        "comb_hi_baseline": 1.0, 
+        "comb_lo_baseline": 1.0,
+        "c_pol_baseline": 1.0,
+        "comb_1064_baseline": 1.0,
+        "mol_pileup": 1.0,
+        "mol_i2a_pileup": 1.0,
+        "comb_hi_pileup": 1.0, 
+        "comb_lo_pileup": 1.0, 
+        "comb_wfov_pileup":1.0,
+        "mol_wfov_pileup":1.0,
+        "comb_1064_pileup":1.0,
+        "c_pol_pileup": 1.0,
+        "geo_corr": 1.0,
+        "dif_geo_corr": 1.0,
+        "i2a_dif_geo_corr": 1.0,
+        "i2_corr": 1.0,
+        "i2a_corr": 1.0, 
+        "Cam_corr": 1.0,
+        "signal_in_dark": 1.0,
+        "pol_x_talk": 1.0,
+        "i2a_ratio":1.0 ,
+	"cp_d_geo": 1.0
+    }
+}

@@ -1,0 +1,119 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "select_plot_altitude": {
+            "plot_altitude": 6.0,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[0.22,0.4],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        },
+        "wfov_ratio_vs_time":{
+            "enable":1,
+            "altitude1": 1.5,
+            "altitude2": 3.5,
+            "altitude3": 4.0,
+            "y min": 0.8,
+            "y max": 1.6,
+            "log_linear": "linear",
+            "doc":"wfov_counts/molecular_counts at 3 altitudes (km)"
+        },
+        "wfov_geo_corr_vs_time":{
+            "enable":1,
+            "altitude1": 0.5,
+            "altitude2": 1.0,
+            "altitude3": 2.0,
+            "y min": 0.0,
+            "y max": 0.4,
+            "log_linear": "linear",
+            "doc":"wfov_geo_corr vs time at 3 altitudes (km)"
+        },
+         "od_vs_time": {
+            "enable": 1, 
+            "altitude1": 0.5, 
+            "altitude2": 7.0,
+            "show_od_1_and_2":1,
+            "show_od_difference":1,
+            "doc":"Optical depth vs time at 2 altitudes given in km"
+        }, 
+        "extinction_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol Extinction vs time at altitude = selected_plot_level"
+        }, 
+        "backscatter_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol backscatter vs time at altitude = selected_plot_level"
+        }, 
+        "scattering_ratio_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "y min":-0.1,
+            "y max":0.5,
+            "ave_z_bins":5,
+            "doc":"scat ratio vs t at plot_altitude, ave 2*ave_z_bins+1 alt bins"
+        }, 
+        "int_backscat_vs_time": {
+            "enable": 1, 
+            "lidar_ratio_list": [20,30,40,50],
+            "y max": 1.0,
+            "y min": 0.0,
+            "doc":"Optical depth from integrated backscatter vs time ",
+            "parameters":{
+                 "enable":"enable if = 1, disable if =0",
+                 "lidar_ratio_list": "plot integrated backscat for these lidar ratios",
+                 "altitude1":"start integration at this altitude (km)",
+                 "altitude2":"stop integration at this altitude (km)",
+                 "y max":"upper limit of optical depth plot",
+                 "y min":"lower limit of optical depth plot"
+             } 
+        },    
+        "mol/comb_counts_vs_time": {
+            "enable": 1,  
+            "bin_1":3000,
+            "bin_2":3400,
+            "y min": 0.0,
+            "y max": 3.0,
+            "doc":"mol/comb counts vs time, altitude averaged [bin_1:bin_2] "
+        },  
+            "calibration_coefficients": {
+            "enable": 1, 
+            "doc":"cal coef, Cmm ,Mol in mol channel and Cmc, mol in combined channel"
+        }, 
+        "linear_depolarization_vs_time": {
+            "enable": 1, 
+            "log_linear":"linear",  
+            "altitudes": [2.0,5.0], 
+            "doc":"Linear depolarization vs time at a list of altitudes in km"
+        },
+        "sky_noise_counts":{
+            "enable":1,
+            "doc":"sky noise counts vs time"
+        },
+        "dark_counts":{
+            "enable":1,
+            "doc":"dark counts vs time"
+        }
+    }
+}

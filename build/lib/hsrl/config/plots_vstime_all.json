@@ -1,0 +1,98 @@
+{  
+    "display_defaults": {
+        "image_pixels_per_inch": {
+            "ppi": 100
+        },
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "wfov_ratio_vs_time":{
+            "enable":1,
+            "y min": 0.8,
+            "y max": 1.6,
+            "log_linear": "linear",
+            "doc":"wfov_counts/molecular_counts at selected layer altitudes-filtered "
+        },
+        "wfov_delta_extinction_vs_time":{
+            "enable":1,
+            "#y min": 0.0,
+            "#y max": 0.4,
+            "log_linear": "linear",
+            "doc":"wfov_geo_corr as deviation from time mean at selected levels--filtered"
+        },
+         "od_vs_time": {
+            "enable": 1, 
+            "show_od_difference":1,
+            "doc":"Aerosol optical depth vs time at selected altitudes"
+        }, 
+        "od_from_int_backscat_vs_time":{
+            "enable":1,
+            "lidar_ratio":20,
+            "y min":-0.1,
+            "doc":"aerosol od between lowest selected altitude and other selected altitudes from LR and integ backscatter"
+        },
+        "int_backscat_vs_time": {
+            "enable": 1, 
+            "lidar_ratio_list": [20,30,40,50,60,70],
+            "y max": 1.0,
+            "y min": 0.0,
+            "doc":"Optical depth of selected layer from integrated backscatter-multiple lidar ratios ",
+            "parameters":{
+                 "enable":"enable if = 1, disable if =0",
+                 "lidar_ratio_list": "plot integrated backscat for these lidar ratios",
+                 "y max":"upper limit of optical depth plot",
+                 "y min":"lower limit of optical depth plot"
+             } 
+        },    
+        "extinction_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol Extinction vs time at altitude = selected_plot_level"
+        }, 
+        "backscatter_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "doc":"Aerosol backscatter vs time at altitude = selected_plot_level"
+        }, 
+        "scattering_ratio_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "ave_over_layer":0,
+            "y min":-0.1,
+            "y max":0.5,
+      
+            "doc":"scat ratio vs t at plot_altitude, ave 2*ave_z_bins+1 alt bins"
+        },      
+        "mol/comb_counts_vs_time": {
+            "enable": 1, 
+            "log_linear":"log", 
+            "#y min": 0.0,
+            "#y max": 3.0,
+            "doc":"mol/comb counts vs time, altitude averaged [bin_1:bin_2] "
+        },  
+        "calibration_coefficients": {
+            "enable": 1, 
+            "doc":"cal coef, Cmm ,Mol in mol channel and Cmc, mol in combined channel"
+        }, 
+        "linear_depolarization_vs_time": {
+            "enable": 1, 
+            "log_linear":"linear",   
+            "doc":"Linear depolarization vs time at a list of altitudes "
+        },
+        "sky_noise_counts":{
+            "enable":1,
+            "doc":"sky noise counts vs time"
+        },
+        "dark_counts":{
+            "enable":1,
+            "doc":"dark counts vs time"
+        }
+    }
+}

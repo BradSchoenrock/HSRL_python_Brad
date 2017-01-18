@@ -1,0 +1,11 @@
+{
+    "canvas_pixels": {
+            "x": 800, 
+            "y": 400,
+            "docs":"set number of pixels to compute if t_res, and z_res are not specified while in image mode",
+            "parameters":{
+                "x": "number of pixels on the time axis",
+                "y": "number of pixels on altitude axis"
+            }
+    }
+}

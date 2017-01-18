@@ -1,0 +1,104 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6
+        }, 
+
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12
+       }, 
+       "image_altitude_above_ground_level":{
+            "enable": 0,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "#select_plot_altitude": {
+            "plot_altitude": 1.75,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[0.7,4.0],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        },
+        "mask_image": {
+            "enable": 0,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "1064_shutter":1,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json"
+            }
+        },
+        "rl_backscatter_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Raman Lidar Backscatter Cross Section"
+        }, 
+        "rl_extinction_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-6, 
+            "hi_color_lmt": 1e-2,
+            "doc":"Raman Lidar aerosol Extinction"
+        },
+        "rl_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 50,
+            "doc":"Raman Lidar Linear Depolarization"
+        }, 
+        "rl_aerosol_scattering_ratio_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-3, 
+            "hi_color_lmt": 100,
+            "doc":"Raman Lidar Aerosol Scattering ratio"
+        },
+        "rl_raw_scattering_ratio_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-1, 
+            "hi_color_lmt": 100,
+            "doc":"Raman Lidar Aerosol Scattering ratio"
+        },
+        "rl_backscatter_profile":{
+            "enable":1,
+            "log_linear":"log",
+            "x min": 1e-7,
+            "x max": 1e-2,
+            "doc":"Raman aerosol backscatter profile"
+        },
+         "rl_od_vs_time": {
+            "enable": 1, 
+            "altitude1": 1.4, 
+            "altitude2": 7.0,
+            "show_od_1_and_2":1,
+            "show_od_difference":1,
+            "doc":"Raman lidar optical depth vs time at 2 altitudes given in km"
+        }
+    }
+}
+

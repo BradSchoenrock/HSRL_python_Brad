@@ -1,0 +1,239 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "select_plot_altitude": {
+            "plot_altitude": 1.75,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[0.22,0.4],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        }, 
+        "short_cell_ratio": {
+            "enable": 1,
+            "type":"scaled",
+            "doc":"Short I2 cell energy ratio vs time",
+             "parameters":{
+                 "enable":"enable if = 1, disable if =0",
+                 "type": "raw for raw_ratios, scaled for values scaled by locked,unlocked ratios"
+             }
+        }, 
+        "beam_position": {
+            "enable": 1,
+            "doc":"Laser beam position on internal camera (pixels)"
+        }, 
+        "etalon_pressure": {
+            "enable": 1,
+            "doc":"Pressure in etalon chamber"
+        }, 
+        "interferometer_vs_time": {
+            "enable": 1,
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1.0,
+            "doc":"Interferometer camera over time"
+        }, 
+        "interferometer_freq": {
+            "enable": 1,
+            "doc":"Frequency change during interval measured by interferometer"
+        }, 
+        "interferometer_temp": {
+            "enable": 1,
+            "doc":"Internal temperature of interferometer"
+        },
+        "tcomp_interf_freq": {
+            "enable": 1, 
+            "doc":"Temperature compensated frequency deviation during measurement interval"
+        }, 
+        "interferometer_snapshot": {
+            "enable": 1,
+            "doc":"Sample image from interferometer camera"
+        },
+        "interferometer_spectrum":{
+            "enable":1,
+            "log_linear":"log",
+            "x min": 0.0, 
+            "x max": 50.0,
+            "doc":"Power spectrum of interometer fringe pattern"
+       }, 
+        "overhead_snapshot": {
+            "enable": 1,
+            "doc":"Picture of output window from zenith pointing camera"
+        }, 
+        "snowscope_snapshot": {
+            "enable": 1,
+            "doc":"Closeup picture of output window"
+        }, 
+        "superseed_controller_temps":{
+            "enable": 1,
+            "doc":"Temps reported by super seed laser controller"
+        },  
+        "superseed_controller_voltages":{
+            "enable": 1,
+            "doc":"Input control voltage to super seed laser controller"
+        }, 
+        "seed_voltage":{
+            "enable": 1,
+            "doc":"Input control voltage to seed laser other than superseed"
+        },
+        "superseed_peltier_power":{
+            "enable": 1,
+            "doc":"Power supplied to super seed laser controller Peltier temp cntl"
+        },
+        "l3_piezo_voltage": {
+            "enable": 1,
+            "doc":"Cavity length control voltage for main laser"
+        },
+        "l3_lockslope": {
+            "enable": 1,
+            "doc":"L3 Lock slope metric"
+        },
+        "cal_pulse_time_averaged": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "y max": 1e3,
+            "y min": 1e-5,
+            "mol/chi/clo/m_i2a/wfov/IR": "mol chi m_i2a wfov IR",
+            "doc":"Photon counts scattered as laser pulse exits system--time average to rs_mean grid"
+        }, 
+        "i2_spectrum": {
+            "enable": 1, 
+            "log_linear": "log",
+            "#freq_offset":"GHz",
+            "#freq_offset":-0.68,
+            "freq_scaling": 1.01,
+            "freq_offset": 23.8,
+            "line_type":"-", 
+            "#divide measured by gain":" ",
+            "trans_scaling": 4.0,
+            "show_theory": 1,
+            "doc":"Interferometer frequecies ploted on I2 spectrum"
+        }, 
+        "mol_cal_vs_short_cell_ratio": {
+            "enable": 1,
+            "doc":"Molecular cal pulse vs short I2 cell transmission"
+        }, 
+        "etalon_temperature": {
+            "enable": 1,
+            "doc":"Temperature of etalon cell"
+        },
+        "coolant_temperature": {
+            "enable": 1,
+            "doc":"Coolant temperature measured at laser input"
+        }, 
+        "telescope_temperature": {
+            "enable": 1,
+            "doc":"Telescope temperature"
+        }, 
+        "qswitch_buildup_time": {
+            "enable": 1,
+            "doc":"Time between sync pulse and emission of laser pulse"
+        },  
+        "humidity": {
+            "enable": 1,
+            "doc":"Ambient and optics box humidities"
+        }, 
+        "one_wire_temps": {
+            "enable": 1,
+            "doc":"System temperatures reported by one-wire sensors"
+        }, 
+        "transmitted_energy": {
+            "enable": 1,
+            "doc":"Laser power transmitted by system"
+        }, 
+        "gv_qwp_rotation": {
+            "enable": 1,
+            "doc":"Rotation angle of output quarter waveplate--gvhsrl only"
+        },
+        "optical_bench_air_pressure": {
+            "enable": 1,
+            "doc":"Air pressure within hsrl optics enclosure"
+        }, 
+         "tcs_temps": {
+             "enable":1,
+             "doc":"Temps reported by thermal control systems"
+        },
+        "select_tcsoptics_temps": {
+            "enable": 1, 
+            "value":"['Ambient','MakeUpAir']",
+            "doc":"Selected optics box TCS temps--only listed temps"
+        }, 
+        "tcs_currents": {
+            "enable": 1,
+            "doc":"Currents drawn by thermal control system" 
+        }, 
+        "select_one_wire_temps": {
+            "enable": 1, 
+            "value":"['Ambient','MakeUpAir']"
+        }, 
+        "chiller_temperatures":{
+            "enable":1,
+            "doc":"Water chiller reported temperatures"
+        },
+        "ktp_temperature": {
+            "enable":1,
+            "doc":"Temperature of laser frequency doubler crystal"
+        }, 
+        "laser_current": {
+            "enable":1,
+            "doc":"Laser pump diode current"
+        }, 
+        "laser_voltage": {
+            "enable":1,
+            "doc":"Voltage drop across laser pump diode"
+        }, 
+        "laser_diode_temp": {
+            "enable":1,
+            "doc":"Temperature of laser pump diode"
+        }, 
+        "laser_outputs": {
+            "enable":0,
+            "doc":"not currently implemented"
+        }, 
+        "altitude": {
+            "enable": 1,
+            "doc":"Lidar MSL altitude vs time--airborne systems only"
+        }, 
+        "lat_long": {
+            "enable": 1, 
+            "n plot points": 15,
+            "doc":"latitude vs longitude vs time--gvhsrl only"
+        }, 
+        "seed_percent": {
+            "enable": 1,
+            "y max":110,
+            "doc":"Percentage of laser pulses with spectral purity needed for HSRL inversion"
+        }, 
+        "pitch_roll_angles": {
+            "enable": 1,
+            "doc":"Aircraft pitch and roll angles--gvhsrl only"
+        },
+        "mode_bits":{
+            "enable": 1,
+            "doc":"System operating mode as function of time"
+        },
+        "dark_counts":{
+            "enable": 1,
+            "doc":"Dark counts as function of time"
+        }
+    }
+}

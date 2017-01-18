@@ -1,0 +1,10 @@
+# DO NOT edit with crontab -e
+#
+# 1) edit the master in <eol_hsrl_python>/archiver/eol-lidar/etc/master.crontab
+# 2) install to ~eol-lidar/etc/master.crontab
+# 3) install_crontab
+# 
+*/5 * * * * /usr/local/hsrl/etc/5min_cfradial.py >& /var/local/log/5min_cfradial.log
+*/1 * * * * /usr/local/hsrl/etc/start_cdfclient >& /dev/null
+# fetch every 12 hours
+1 0,12 * * * /usr/local/bin/fetch_gfs 12 

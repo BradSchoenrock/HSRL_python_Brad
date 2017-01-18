@@ -1,0 +1,331 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9"
+        },
+        "netcdf":{
+            "format":"uwlidar",
+            "#format":"uwlidar or cfradial",
+            "output_dir":"/home/eloranta/processed_lidar_data"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font size": 12
+        }, 
+        "image_total_xy_pixels": {
+            "#x pixels": 700, 
+            "#y pixels": 350
+        }, 
+        "mask_image": {
+            "enable": 1
+        }, 
+        "atten_backscat_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-2
+        }, 
+        "backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-4
+        }, 
+        "second_backscat_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-5, 
+            "max alt(km)": 6.5
+        }, 
+        "linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63
+        }, 
+        "second_linear_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63, 
+            "max alt(km)": 4.0
+        }, 
+        "circular_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150
+        }, 
+        "extinction_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-1
+        }, 
+        "second_extinction_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-1,
+            "max alt(km)": 4.0
+        }, 
+        "phase_function_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 0.06
+        }, 
+        "inverted_mol_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 10
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e5
+        }, 
+        "inverted_cpol_image": {
+            "enable": 0, 
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e4
+        }, 
+        "raqms_total_extinction_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e2
+        }, 
+        "depol_backscat_hist": {
+            "enable": 0,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-3,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":55,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100    
+        }, 
+        "p180_backscat_hist": {
+            "enable": 0,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":0.06,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100 
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5
+        }, 
+        "sounding": {
+            "enable": 0
+        }, 
+        "raw_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "dark_corrected_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "corrected_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "dif_geo_profiles": {
+            "enable": 0, 
+            "x min": 0.8, 
+            "x max": 2
+        }, 
+        "i2a_mol_ratio": {
+            "enable": 0, 
+            "x min": 0.85, 
+            "x max": 1.15
+        }, 
+        "backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3
+        }, 
+        "depol_profile": {
+            "enable": 0,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0
+        }, 
+        "sc_ratio_profile": {
+            "enable": 1, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0
+        }, 
+        "od_profile": {
+            "enable": 1
+        }, 
+        "extinction_profile": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 1, 
+            "p180/4pi": 0.038, 
+            "x min": -0.01, 
+            "x max": 4
+        }, 
+        "od_vs_time": {
+            "enable": 0, 
+            "altitude1": 0.25, 
+            "altitude2": 5.0
+        }, 
+        "counts_vs_time": {
+            "enable": 0, 
+            "bin1": 500, 
+            "bin2": 1000
+        }, 
+        "show_lock_ratio": {
+            "enable": 0
+        }, 
+        "show_beam_position": {
+            "enable": 0
+        }, 
+        "show_etalon_pressure": {
+            "enable": 0
+        }, 
+        "interferometer_spectrum": {
+            "enable":0,
+            "log_linear":"log",
+            "x max":50.0
+        },   
+        "show_interferometer_freq": {
+            "enable": 0
+        }, 
+        "show_interferometer_freq_deviations": {
+            "enable": 0, 
+            "polyfit degree": 2
+        }, 
+        "show_interferometer_snapshot": {
+            "enable": 0
+        }, 
+        "show_snowscope_snapshot": {
+            "enable": 0
+        }, 
+        "show_seed_voltage": {
+            "enable": 0
+        }, 
+        "show_cal_pulse": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "mol/chi/clo": "mol chi"
+        }, 
+        "show_i2_spectrum": {
+            "enable": 0, 
+            "log_linear": "log",
+            "#freq_offset":"GHz",
+            "freq_offset":-0.68, 
+            "show_theory": 0
+        }, 
+        "show_dark_counts": {
+            "enable": 0
+        }, 
+        "show_brillouin_energies": {
+            "enable": 0
+        }, 
+        "show_mol_cal_vs_brill_ratio": {
+            "enable": 0
+        }, 
+        "show_etalon_temperature": {
+            "enable": 0
+        }, 
+        "coolant_temperature": {
+            "enable": 0
+        }, 
+        "show_qswitch_buildup_time": {
+            "enable": 0
+        }, 
+        "l3_piezo_voltage": {
+            "enable": 0
+        },
+        "humidity": {
+            "enable": 0
+        }, 
+        "show_one_wire_temps": {
+            "enable": 0
+        }, 
+        "show_transmitted_energy": {
+            "enable": 0
+        },
+        "gv_qwp_rotation": {
+            "enable": 0
+        },
+        "show_optical_bench_air_pressure": {
+            "enable": 0
+        }, 
+        "cpol_vs_comb_hi_gain": {
+            "enable": 0
+        }, 
+        "show_tcs_temps": {
+             "enable":0
+        }, 
+        "show_tcs_currents": {
+            "enable": 0 
+        },
+        "show_select_one_wire_temps": {
+            "enable": 0, 
+            "value":"['airinput','centerboard','HighEndUnderBoard','LowEndUnderBoard']"
+        }, 
+        "show_chiller_temperatures":{
+            "enable":0
+        },
+        "show_ktp_temperature": {
+            "enable":0
+        }, 
+        "show_laser_current": {
+            "enable":0
+        }, 
+        "show_laser_diode_temp": {
+            "enable":0
+        }, 
+        "show_laser_outputs": {
+            "enable": 0
+        }, 
+        "altitude": {
+            "enable": 0
+        }, 
+        "lat_long": {
+            "enable": 1, 
+            "n plot points": 15
+        }, 
+        "show_seed_percent": {
+            "enable": 0,
+            "high":110
+        }, 
+        "show_pitch_roll_angles": {
+            "enable": 1
+        },
+        "mode_bits":{
+            "enable": 0
+        }
+    }
+}

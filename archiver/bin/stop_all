@@ -1,0 +1,4 @@
+#!/bin/sh
+# remove the crontab
+crontab -r
+pkill -f cdfclient.py

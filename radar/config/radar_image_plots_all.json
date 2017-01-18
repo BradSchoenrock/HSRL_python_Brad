@@ -1,0 +1,92 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        }, 
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[0.22,0.4],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        },
+        "image_altitude_above_ground_level":{
+            "enable": 1,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+        "radar_reflectivity_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": -50, 
+            "hi_color_lmt": 10,
+            "doc":"Radar Reflectivity"
+        }, 
+        "radar_backscatter_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-13, 
+            "hi_color_lmt": 1e-6,
+            "doc":"Radar Backscatter Cross Section"
+        }, 
+        "radar_backscatter_profile": {
+            "enable": 1, 
+            "log_linear":"log",
+            "x min":1e-14,
+            "x max":1e-7,
+            "doc":"Radar backscatter cross section(1/(m sr)"
+        },
+        "radar_velocity_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": -1, 
+            "hi_color_lmt": 5,
+            "doc":"Radar Velocity"
+        }, 
+        "radar_spectralwidth_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.001, 
+            "hi_color_lmt":2,
+            "doc":"Radar Spectral Width"
+        },
+         "doppler_velocity_vs_deff_prime_hist":{
+            "enable":1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y min":0.0,
+            "y max":5.0,
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, occurence of doppler velocity(m/s) vs deff_prime(mm)"  
+        },
+        "spectral_width_vs_deff_prime_hist":{
+            "enable":1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, radar spectral_width(m/s) vs deff_prime(mm)"  
+        }
+    }
+}

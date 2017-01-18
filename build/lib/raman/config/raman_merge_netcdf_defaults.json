@@ -1,0 +1,37 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "high_bins",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights","convert_from_km_to_m"]
+ },
+"selected_vars":
+    {
+    "pulse_energy":{"aliases":["pulse_energy"],"read_sel":["select"],"summode":"sum"},
+    "shots":{"aliases":["shots_summed"],"read_sel":["select"],"summode":"sum"},
+    "nitrogen_counts_high":{"aliases":["nitrogen_counts_high"],"read_sel":["select"],"summode":"sum"},
+    "elastic_counts_high":{"aliases":["elastic_counts_high"],"read_sel":["select"],"summode":"sum"},
+    "depolarization_counts_high":{"aliases":["depolarization_counts_high"],"read_sel":["select"],"summode":"sum"},
+    "liquid_counts_high":{"aliases":["liquid_counts_high"],"read_sel":["select"],"summode":"sum"},
+    "water_counts_high":{"aliases":["water_counts_high"],"read_sel":["select"],"summode":"sum"},
+    "heights":{"aliases":["height_high"],"read_sel":["select"]},
+    "nitrogen_counts_low":{"aliases":["nitrogen_counts_low"],"read_sel":["select"],"summode":"sum"},
+    "elastic_counts_low":{"aliases":["elastic_counts_low"],"read_sel":["select"],"summode":"sum"},
+    "depolarization_counts_low":{"aliases":["depolarization_counts_low"],"read_sel":["select"],"summode":"sum"},
+    "liquid_counts_low":{"aliases":["liquid_counts_low"],"read_sel":["select"],"summode":"sum"},
+    "water_counts_low":{"aliases":["water_counts_low"],"read_sel":["select"],"summode":"sum"},
+    "heights_low":{"aliases":["height_low"],"read_sel":["select"]},
+    "delta_t":{"aliases":["acquisition_time"],"read_sel":["select"],"summode":"sum"},
+    "alt":{"aliases":["alt"],"read_sel":["select"]},
+    "lat":{"aliases":["lat"],"read_sel":["select"]},
+    "lon":{"aliases":["lon"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"},
+    "water_low_dark_counts":{"aliases":["solar_background_water_low"],"read_sel":["select"],"summode":"sum"},
+    "nitrogen_low_dark_counts":{"aliases":["solar_background_nitrogen_low"],"read_sel":["select"],"summode":"sum"},
+    "elastic_low_dark_counts":{"aliases":["solar_background_elastic_low"],"read_sel":["select"],"summode":"sum"},
+    "filter_mode":{"aliases":["filter"],"read_sel":["select"]}
+    }
+}

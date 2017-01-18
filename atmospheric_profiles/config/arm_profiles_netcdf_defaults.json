@@ -1,0 +1,26 @@
+
+{"config":
+    {"#read_mode":"all / select / min / housekeeping / select",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "#altitudedim": "altitudes",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["times","convert_hsrltime_to_datetime"]
+    },
+"selected_vars":
+    { 
+    "pressures":{"aliases":["pres"],"missing_fill":"","read_sel":["min","profiles","select"]},
+    "times":{"aliases":["time_offset"],"missing_fill":"","read_sel":["min","profiles","select"]},
+    "temps":{"aliases":["tdry"],"missing_fill":"","read_sel":["min","profiles","select"]},
+    "altitudes":{"aliases":["alt"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "dew_points":{"aliases":["dp"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "relative_humidity":{"aliases":["rh"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "frost_point":{"aliases":["DNE"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "wind_dir":{"aliases":["deg"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "wind_spd":{"aliases":["wspd"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "latitude":{"aliases":["lat"],"missing_fill":"","read_sel":["min","profiles","select"]},   
+    "longitude":{"aliases":["lon"],"missing_fill":"","read_sel":["min","profiles","select"]}
+    }
+}

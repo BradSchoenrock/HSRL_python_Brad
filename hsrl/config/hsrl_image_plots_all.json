@@ -1,0 +1,283 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "select_plot_layer": {
+            "plot_alt_layer":[0.22,0.4],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        },
+        "image_altitude_above_ground_level":{
+            "enable": 1,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "1064_shutter":1,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json" 
+            }
+        },
+        "qa_mask_images":{
+            "enable":1,
+            "log_linear":"cl",
+            "doc":"images showing each QA flag"
+        }, 
+        "qc_mask_field_image":{
+            "enable":1,
+            "log_linear":"cl",
+            "doc":"image showing bits contained in data quality mask"
+        }, 
+        "atten_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Attenuated backscatter image computed from combined channel only"
+        }, 
+        "atten_IR_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Attenuated backscatter image computed from 1064 channel only"
+        }, 
+        "1064_backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"1064 backscatter cross section--uses Angstrom coef to scale 532 ext to 1064"
+        },
+        "backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image computed using all channels"
+        },
+        "backscat_SN_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 0.1, 
+            "hi_color_lmt": 1000,
+            "doc":"Backscatter signal to noise image computed using all channels"
+        },
+        "i2a_backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image from combined and argon broadened i2"
+        }, 
+        "i2_backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image using normal i2 without argon broadened i2"
+        }, 
+        "second_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3, 
+            "max alt(km)": 2.0,
+            "doc":"Allows additional backscatter cross section image with different scaling"
+
+        }, 
+        "linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 55.0,
+            "doc":"Linear depolarization image"
+        }, 
+        "second_linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 45, 
+            "max alt(km)": 4.0,
+            "doc":"Allows additional linear depolarization image with different scaling"
+        }, 
+        "particle_phase_image": {
+            "enable":1, 
+            "log_linear_class":"class",
+            "doc":"Particle phase (ice or water) based on depolarization"
+        },
+        "circular_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 200,
+            "doc":"Circular depolarization image"
+        }, 
+        "extinction_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2,
+            "doc":"Extinction image computed from decay of molecular signal"
+        }, 
+        "second_extinction_image": {
+            "enable": 1,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2,
+            "max alt(km)": 4.0,
+            "doc":"Alows additional extinction image with different scaling"
+        }, 
+        "phase_function_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.01, 
+            "hi_color_lmt": 0.06,
+            "doc":"Backscatter phase function, P(180)/4pi, image"
+        }, 
+        "lidarRatio_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 20, 
+            "hi_color_lmt": 80,
+            "doc":"Lidar ratio image, 4pi/P(180), image"
+        }, 
+        "inverted_mol_image": {
+            "enable": 1,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 10,
+            "doc":"Molecular return image"
+        }, 
+        "mol_signal_to_noise": {
+            "enable": 1,  
+            "log_linear":"log",
+            "lo_color_lmt": 1, 
+            "hi_color_lmt": 1000,
+            "doc":"Molecular counts signal/noise image"
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e5,
+            "doc":"Particulate scattering image"
+        }, 
+        "inverted_cpol_image": {
+            "enable": 1, 
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e4,
+            "doc":"Cross polarization image"
+        }, 
+        "raw_color_ratio_image": {
+            "enable": 1, 
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1.0,
+            "doc":"1064/532nm color ratio image"
+        }, 
+        "color_ratio_image": {
+            "enable": 1, 
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1,
+            "doc":"1064/532nm backscatter cross section ratio image"
+        },
+         "depol_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-3,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":55,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of linear depol vs backscatter"    
+        }, 
+        "color_ratio_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-7,
+            "x max":1e-5,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of 1064/532 backscatter ratio vs 532nm backscatter"    
+        }, 
+        "color_ratio_depol_hist": {
+            "enable": 1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "color_log_linear":"linear",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of 1064/532 backscatter ratio vs 532nm depolarization"    
+        }, 
+        "p180_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-4,
+            "y_log_linear":"linear",
+            "y min":-0.01,
+            "y max":0.06, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of P(180)/4pi vs backscatter" 
+        }, 
+            "lidarRatio_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-4,
+            "y_log_linear":"linear",
+            "y min":0,
+            "y max":100, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of lidar ratio vs backscatter" 
+        },
+         "wfov_ratio_to_geo_corr_ratio":{
+            "enable":1,
+            "log_linear_class":"linear", 
+            "lo_color_lmt": 0.9, 
+            "hi_color_lmt": 1.1,
+            "doc":" (wfov/mol )/geo_corr  image"
+        }
+   } 
+}

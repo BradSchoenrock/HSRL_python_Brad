@@ -1,0 +1,16 @@
+{
+   "h2o_depol_threshold": 0.05,
+   "p180_ice":            0.035,
+   "alpha_water":         2.0,
+   "g_water":             1.0,
+   "alpha_ice":           4.0,
+   "g_ice":               1.0,
+   "type":                "Solid Spheres",
+   "Dr":                  100.0,
+   "sigma_a":             1.0,
+   "sigma_v":             1.0,
+   "delta_a1":            2.0,
+   "delta_v1":            3.0,
+   "delta_a2":            2.0,
+   "delta_v2":            3.0
+}

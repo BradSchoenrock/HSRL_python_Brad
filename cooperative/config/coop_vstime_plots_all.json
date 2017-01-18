@@ -1,0 +1,78 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "hsrl_radar_liquid_water_vs_time":{
+             "enable":1,
+             "log_linear":"log",
+             "y min":0.0001,
+             "y max":2.0,
+             "doc":"HSRL-radar liquid water (gm/m^3) vs time at selected alititude"
+        },
+        "hsrl_radar_precip_rate_vs_time":{
+             "enable":1,
+             "log_linear":"log",
+             "y min":0.001,
+             "y max":10.0,
+             "doc":"HSRL-radar precip rate(mm/hr) vs time at selected alititude"
+        },
+        "fall_velocity_vs_time":{
+             "enable":1,
+             "log_linear":"linear",
+             "y min":0.0,
+             "y max":4.0,
+             "doc":"Doppler and calculated fall velocity (m/s) vs time at selected alititude"
+        },
+        "spectral_width_vs_time":{
+             "enable":1,
+             "log_linear":"linear",
+             "y min":0.0,
+             "y max":2.0,
+             "doc":"Doppler spectral width (m/s) vs time at selected alititude"
+        },
+        "depol_and_doppler_velocity_vs_time":{
+             "enable":1,
+             "log_linear":"linear",
+             "y min":0.0,
+             "y max":2.0,
+             "doc":"depol and Doppler velocity (%/100, m/s) vs time at selected alititude"
+        },
+        "hsrl_radar_accumulated_precip_vs_time":{
+             "enable":1,
+             "insitu_source":"pars2S2",
+             "log_linear":"linear",
+             "y min":0.0,
+             "y max":0.4,
+             "doc":"HSRL-radar accumulated precip(mm) vs time at selected alititude (km)",
+             "parameters":{
+               "enable":"1=plot,0=no plot",
+               "insitu_source":"insitu comparison--> None | pars2S1 | pars2S2 | wx1 | wx2 ",
+               "log_linear":"y-axis type--> log | linear",
+               "y min":"min accumulated rain to plot",
+               "y max":"max accumulated rain to plot" 
+            }
+        }, 
+        "multiple_scatter_corrected_optical_depth":{
+            "enable":1,
+        "doc":"optical depth profile corrected for multiple scattering"
+        },
+        "multiple_scatter_weighted_diameter":{
+            "enable":1,
+        "doc":"particle diameter profile used in ms calculation, weighted water/ice"
+        },
+        "multiple_scatter_od_correction":{
+            "enable":1,
+            "doc":"od from beta_backscat/p180 and expected multi_scat correction"
+        }
+   }
+}

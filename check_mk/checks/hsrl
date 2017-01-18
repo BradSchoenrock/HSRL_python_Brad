@@ -1,0 +1,46 @@
+
+
+
+factory_settings['hsrl_default_levels'] = {
+	"tcs_levels" : (30,40),
+}
+
+
+# the inventory function
+#
+def inventory_hsrl_temp (info):
+	inventory = []
+#	print 'inventory_hsrl_temp : info = ', info
+	for item in info:
+		inventory.append( (item[0], None ) )
+	return inventory
+
+# the check function
+def check_hsrl_temp(item, params, info):
+	#
+#	print "check_hsrl_temp : item = ", item
+#	print "check_hsrl_temp : params = ", params
+#	print "check_hsrl_temp : info = ", info
+	warn, crit = params['tcs_levels']
+	for line in info:
+	    if line[0] == item:
+		if line[1] == 'None':
+		    return (3, "Missing value!")
+		value = float(line[1])
+	    
+		if value > crit:
+			return (2, "Temperature is %fC" % value)
+		elif value > warn:
+			return (1, "Temperature is %fC" % value)
+		else:
+			return (0, "Temperature is %fC" % value)
+		return (3, "Sorry not implemented")
+
+# declare the check to Check_MK
+
+check_info["hsrl"] = {
+	'check_function': check_hsrl_temp,
+	'inventory_function' : inventory_hsrl_temp,
+	'service_description' : 'HSRL temperature %s',
+	'default_levels_variable' : "hsrl_default_levels",
+}

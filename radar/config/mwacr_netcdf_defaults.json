@@ -1,0 +1,20 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "height",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "SpectralWidth":{"aliases":["spectral_width"],"read_sel":["select"]},
+    "SignalToNoiseRatio":{"aliases":["signal_to_noise_ratio"],"read_sel":["select"]},
+    "Reflectivity":{"aliases":["reflectivity"],"read_sel":["select"]},
+    "MeanDopplerVelocity":{"aliases":["mean_doppler_velocity"],"read_sel":["select"]},
+    "heights":{"aliases":["height"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

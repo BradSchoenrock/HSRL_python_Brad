@@ -1,0 +1,416 @@
+#------------------------------------------------------------------------------
+#  Copyright (c) 2012, Enthought, Inc.
+#  All rights reserved.
+#------------------------------------------------------------------------------
+from os.path import abspath
+from enaml.stdlib.fields import IntField, FloatField
+from validator import Validator
+
+enamldef ConfigWindowForm(Form):
+    #Form for view tab once file is selected
+    id: window
+    attr path
+    visible ::
+            if visible:
+                #Updates list of attributes loaded from file
+                data_list.item_model = list_model.model
+    constraints = [vbox(config_box,
+                        hbox(spacer, buttons)),    
+                    #align_top(data_list,conf_fields, clear_invisible=False),
+                    ]
+    Container:
+        id: config_box
+        constraints = [vbox(
+                       hbox(data_list,conf_fields),
+                       comments),
+                       align_top(data_list,conf_fields),
+                       align_left(data_list,comments)
+                       ]
+        ListView:
+            id: data_list
+            item_model << list_model.model
+            constraints = [width >= 300,height >= 300]
+            hug_height = 'strong'
+            clicked :: list_model.set_index(event.new)
+            clicked :: comments.text = list_model.current_comment
+        Container:
+            id: conf_fields
+            constraints = [vbox(field_one, 
+                                field_two, 
+                                field_three, 
+                                field_four),
+                           align_left(field_one, field_two, 
+                                       field_three, field_four,
+                                       clear_invisible=False),
+                           ] 
+            #Fields used in configuration tab for editing file.
+            ConfigForm:
+                id: field_one
+                visible << list_model.fields[0].visible
+                type << list_model.fields[0].value_type
+                val := list_model.fields[0].value
+                label := list_model.fields[0].label
+                check := list_model.fields[0].checked
+                field << list_model.fields[0]
+            ConfigForm:
+                id: field_two
+                visible << list_model.fields[1].visible
+                type << list_model.fields[1].value_type
+                val := list_model.fields[1].value
+                label := list_model.fields[1].label
+                check := list_model.fields[1].checked
+                field << list_model.fields[1]
+            ConfigForm:
+                id: field_three
+                visible << list_model.fields[2].visible
+                type << list_model.fields[2].value_type
+                val := list_model.fields[2].value
+                label := list_model.fields[2].label
+                check := list_model.fields[2].checked
+                field << list_model.fields[2]
+            ConfigForm:
+                id: field_four
+                visible << list_model.fields[3].visible
+                type << list_model.fields[3].value_type
+                val := list_model.fields[3].value
+                label := list_model.fields[3].label
+                check := list_model.fields[3].checked
+                field << list_model.fields[3]
+        Label:
+            id: comments
+    
+    Container:
+        id: buttons
+        constraints = [hbox(save_button,saveas_button,load_button)]
+        PushButton:
+            #Saves configuration file
+            id: save_button
+            text = "Save"
+            clicked :: list_model.save_config()
+        PushButton:
+            id: saveas_button
+            text = 'Save as'
+            clicked ::
+                dialog = FileDialog(
+                    title='Save as...',
+                    mode='save',
+                    filename=abspath(__file__),
+                    )
+                dialog.show()
+                if dialog.result == 'accepted':
+                    list_model.save_config_as(dialog.path)
+                    model.filename = dialog.path
+                    
+        PushButton:
+            #loads configuration file
+            id: load_button
+            text = "Load"
+            clicked :: window.visible = False
+        
+enamldef FileForm(Form):
+    #Form for selected file to load.
+    id: window
+    attr path : unicode = u""
+    attr file
+    Container:
+        id: box
+        constraints = [
+            vbox(
+                hbox(file_label, field, browse_button),
+                load_button),
+            align('h_center', box, load_button),
+            align('v_center', file_label, field, browse_button),
+            browse_button.height == field.height,
+            load_button.width == box.width/3
+        ]
+        Label:
+            id: file_label
+            text = 'Load: '
+        Field:
+            id: field
+            read_only = True
+            value << window.path
+        PushButton:
+            id: browse_button
+            text = 'Browse'
+            clicked ::
+                dialog = FileDialog(
+                    title='Choose File',
+                    mode='open',
+                    filename=abspath(__file__),
+                    )
+                dialog.show()
+                if dialog.result == 'accepted':
+                    window.path = dialog.path
+        PushButton:
+            id: load_button
+            text = 'Load'
+            clicked ::
+                #Notify list model of file
+                list_model.set_file(window.path)
+                window.visible = False
+                path = window.path
+                model.filename = window.path
+    
+enamldef ConfigForm(Form):
+    #Form for fields listing attribute values
+    attr type
+    attr val
+    attr check
+    attr label: unicode = u""
+    attr field
+    Container:
+        constraints = [hbox(conf_field_label, conf_field,
+                            conf_check_label, conf_check, 
+                            conf_radio1, conf_radio2)]
+        Form:
+            #Form for data that requires a field for input.
+            Label:
+                id: conf_field_label
+                text := label
+                #label and fields are visible if data type is relevent.
+                visible << True if type == "int" or type == "str"\
+                                or type == "float" or type == "unicode" else False
+            Field:
+                id: conf_field
+                visible << True if type == "int" or type == "str"\
+                                or type == "float" or type == "unicode" else False
+                visible :: validator.set_type(type)
+                value := val
+                validator = Validator()
+                #lost_focus :: list_model.write_data()
+        Form:
+            #Form for data that is boolean.
+            Label:
+                id: conf_check_label
+                text := label
+                visible << True if type == "bool" else False
+            CheckBox:
+                id: conf_check
+                visible << True if type == "bool" else False
+                checked := check
+                toggled ::
+                    if checked:
+                        field.set_value(1)
+                    else:
+                        field.set_value(0)
+        Form:
+            #Form for data which requires a radio button.
+            RadioButton:
+                id: conf_radio1
+                text = "Log"
+                visible << True if type == "radio" else False
+                checked << True if val == 'log' else False
+                toggled :: 
+                    if checked:
+                        field.set_value('log')
+            RadioButton:
+                id: conf_radio2
+                text = "Linear"
+                visible << True if type == "radio" else False
+                checked << True if val == 'linear' else False
+                toggled :: 
+                    if checked:
+                       field.set_value('linear')
+
+                        
+enamldef DataForm(Form):
+    #Plot tab form
+    attr data
+    Form:   
+        Container:
+            id: main_window
+            constraints = [
+                vbox(
+                    title,
+                    hbox(lidar, lidar_box, spacer),
+                    hbox(year, cb_year, month, cb_month, day, cb_day, spacer),
+                    hbox(start_time, start_datetime),
+                    hbox(plot_length, plfield),
+                    hbox(slabel1, slider1, sfield1),
+                    hbox(slabel2, slider2, sfield2),
+                    hbox(slabel3, slider3, sfield3),
+                    go_button,
+                    next_button),
+                #align('h_center', main_window, slider1, slider2, slider3),
+                #align('right', main_window, sfield1, sfield2, sfield3),
+                align_left(slider1,slider2,slider3),
+                align_left(lidar_box,cb_year),
+                lidar.height == lidar_box.height,
+                year.height == cb_year.height,
+                month.height == cb_month.height,
+                day.height == cb_day.height,
+                start_time.height == start_datetime.height,
+                plot_length.height == plfield.height,
+                slabel1.height == slider1.height,
+                slabel2.height == slider2.height,
+                slabel3.height == slider3.height,
+            ]
+                    
+            Label:
+                id: title
+                text = message
+            Label:
+                id: lidar
+                text = 'Lidar'
+            ComboBox:
+                id:lidar_box
+                #constraints = [hug_width == 'strong']
+                items = ['gvhsrl', 'goes', 'in', 'here']
+                value := data.lidar
+                hug_width = 'strong'
+            Label:
+                id: year
+                text = 'Year'
+            ComboBox:
+                id: cb_year
+                items << data.year_array
+                value := data.year
+                selected :: cb_month.index = 0
+                selected :: cb_day.index = 0
+                selected :: start_datetime.datetime = model.update_time()
+            Label:
+                id: month
+                text = 'Month'
+            ComboBox:
+                id: cb_month
+                items << data.month_array[cb_year.index]
+                value := data.month
+                selected :: cb_day.index = 0
+                selected :: start_datetime.datetime = model.update_time()
+            Label:
+                id: day
+                text = 'Day'
+            ComboBox:
+                id: cb_day
+                items << data.day_array[cb_year.index][cb_month.index]
+                value := data.day
+                selected :: start_datetime.datetime = model.update_time()
+            Label:
+                id: start_time
+                text = 'Start Time: '
+            DatetimeEdit:
+                id: start_datetime
+                datetime := data.date_time
+            Label:
+                id: plot_length
+                text = 'Plot Length (Hours): '
+            FloatField:
+                id: plfield
+                value := data.plot_length
+                high = 4
+            Label:
+                id: slabel1
+                text = 'Min. Altitude (km): '
+            FloatSlider:
+                id: slider1
+                minimum = -0.5
+                maximum = 40.0
+                value := data.min_altitude
+                #Equal to altitude range/.1
+                precision = int((maximum - minimum)/.1)
+                constraints = [width >= 425,]
+                released ::
+                    if slider1.value == slider1.maximum:
+                        slider1.value = slider1.value - .2
+                        slider2.value = slider2.maximum
+                        slider3.value = slider3.maximum - .1
+                    elif slider1.value >= slider2.value:
+                        slider2.value = slider1.value + .2
+                        slider3.value = slider1.value + .1
+            FloatField:
+                id: sfield1
+                read_only = True
+                value << slider1.value
+                constraints = [width <= 40,]
+            Label:
+                id: slabel2
+                text = 'Max Altitude (km): '
+            FloatSlider:
+                id: slider2
+                value := data.max_altitude
+                minimum = -0.5
+                maximum = 40.0
+                precision = int((maximum - minimum)/.1)
+                constraints = [width >= 425,]
+                released ::
+                    if slider2.value == slider2.minimum:
+                        slider2.value += .2
+                        slider1.value = slider1.minimum
+                        slider3.value = slider3.minimum + .1
+                    elif slider2.value <= slider1.value:
+                        slider1.value = slider2.value - .2
+                        slider3.value = slider2.value - .1
+            FloatField:
+                id: sfield2
+                read_only = True
+                value := data.max_altitude
+                constraints = [width <= 40,]
+            Label:
+                id: slabel3
+                text = 'Optical Depth (km): '
+            FloatSlider:
+                id: slider3
+                value := data.optical_depth
+                minimum = -0.5
+                maximum = 40.0
+                precision = int((maximum - minimum)/.1)
+                constraints = [width >= 425,]
+            FloatField:
+                id: sfield3
+                read_only = True
+                value := data.optical_depth
+                constraints = [width <= 40,]
+            PushButton:
+                id: go_button
+                text = "Start"
+                clicked ::
+                    next_button.visible = True
+                    model.start_plot()          
+            PushButton:
+                id: next_button
+                text = "Next"
+                visible = False
+                clicked ::
+                    model.next_plot()
+
+
+                
+enamldef HSRL_GUI(MainWindow):
+    #Form of window tabs
+    id: main
+    attr model
+    attr message
+    attr list_model
+#    title = 'HSRL GUI'
+    title << model.filename
+    Container:
+        id: main_window
+        visible :: tabs.set_selected_index(1)
+        TabGroup:
+            id: tabs
+            Tab:
+                id: config_tab
+                title = 'Config'
+                Container:
+                    ConfigWindowForm:
+                        id: config_window_form
+                        path << file_form.path
+                        visible = False
+                        visible ::
+                            if not visible:
+                                file_form.visible = True
+                    FileForm:
+                        id: file_form
+                        file = model
+                        visible ::
+                            if not visible:
+                                config_window_form.visible = True
+
+            Tab:
+                id: hsrl_tab
+                title = 'Plot'
+                DataForm:
+                    data = model                       
+
+                    

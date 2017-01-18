@@ -1,0 +1,21 @@
+#
+enamldef LogView(MainWindow):
+    attr logger
+    attr msg << logger.theMsg
+    msg ::
+        log.set_text(msg)
+    event widget_needs_updating ::
+        widget
+    Container:
+        id: main_window
+        PushButton:
+            text = 'Test Log'
+            clicked ::
+                log.set_text("Hi there")
+                
+        TextEditor:
+            id: log
+            read_only = True
+            wrap_lines = True            
+
+    

@@ -1,0 +1,22 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "#altitudedim": "range",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "rh_mean_adc":{"aliases":["rh_mean_adc"],"read_sel":["select"]},
+    "rain_intensity_mean_wx1":{"aliases":["rain_intensity_mean_wx1"],"read_sel":["select"]},
+    "rain_intensity_mean_wx2":{"aliases":["rain_intensity_mean_wx2"],"read_sel":["select"]},
+    "air_temp_mean_wx1":{"aliases":["air_temp_mean_wx1"],"read_sel":["select"]},
+    "air_temp_mean_wx2":{"aliases":["air_temp_mean_wx2"],"read_sel":["select"]},
+    "rain_accumulated_wx1":{"aliases":["rain_accumulated_wx1"],"read_sel":["select"]},
+    "rain_accumulated_wx2":{"aliases":["rain_accumulated_wx2"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+#export HSRL_CONFIG=/usr/local/hsrl/config
+export HSRL_CONFIG=$HOME/hsrl_config
+export PYTHONPATH=$HOME/code/test_hsrl_python:$HOME/hsrl_pylib/lib/python2.7/site-packages
+ipython --pylab=auto --colors=NoColor -i ~/code/test_hsrl_python/scripts/my_cust_load_rti.py

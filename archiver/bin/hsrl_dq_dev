@@ -1,0 +1,13 @@
+#!/bin/bash
+source activate devel
+export HSRL_CONFIG=/usr/local/hsrl/config
+export GRIB_CACHE=/data/GFS_cache
+export OVERRIDE_SYSTEM_DEFAULTS=1
+export LANG='C'
+# use source version of HSRL_PYTHON
+export PYTHONPATH=/home/eol-lidar/code/eol_hsrl_python
+load_rti=/usr/local/hsrl/lib/default_load_rti.py
+if [ "$#" -eq 1 ] ;
+	then load_rti=$1
+fi
+/opt/anaconda/bin/ipython --pylab=auto --colors=NoColor -i $load_rti

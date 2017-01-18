@@ -1,0 +1,108 @@
+#calvals for sgp Raman lidar
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented
+#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#string return values must be written as 'string' or "string" 
+
+wavelength_elastic(nm)
+    1-feb-12 , [355.0]
+
+wavelength_nitrogen_raman(nm)
+    1-feb-12, [387.0]
+
+
+
+laser_pulse_timing(ns)
+   9-jul-14, [0,0,0]*50e-9
+
+
+
+elastic_hi_to_lo_gain_ratio()
+   #used to combine wfov and narrow fov channels
+   #vector for different filter modes [mode 0, mode 1,....mode 6]
+   2-sep-15 1:00, [1,     55. ,  55. ,1,1,1,1]
+   2-sep-15,      [1,     47.99, 47.99,1,1,1,1]
+   1-aug-15,      [1,     76.0,  76.0 ,1,1,1,1]
+   1-jul-10,      [1,     46.5,  46.5, 1,1,1,1]
+
+nitrogen_hi_to_lo_gain_ratio()
+   #used to combine wfov and narrow fov channels
+    2-sep-15,     [55.01, 55.01,55.01,1,1,1]
+    1-sep-15,     [45.84, 45.84,45.84,1,1,1]
+    1-aug-15,     [82.0, 82.0,82.0,1,1,1]
+    1-jul-10,     [55.91, 54.9, 54.9, 1 ,1 ,1]
+
+data_bin_containing_laser_pulse()
+    1-jul-10, [402]
+
+water_hi_to_lo_gain_ratio()
+   #used to combine wfov and narrow fov channels
+   1-jul-10,      [44.0,  50.0, 1,1,1,18]
+
+low_to_high_splice_bin
+   #transition from wfov to narrow fov at this range bin
+   1-jul-10, [800]
+  
+elastic_to_n2_gain_ratio()
+   #multiply n2 counts by this factor prior to inversion   
+  2-sep-15 1:00,[1.08]
+  2-sep-15,[0.94]
+  1-sep-15,[1.02] 
+  1-aug-15,[1.07]
+  1-jul-10,[0.92]
+
+wfov_elastic_to_n2_gain_ratio()
+   2-sep-15 1:00,[.95]
+   2-sep-15,[1.06]
+   1-sep-15,[0.98]
+   1-jul-10, [1.0]
+
+elastic_hi_to_depol_gain_ratio()
+  1-jul-10, [6.0]
+
+lidar_altitude(m)
+   #DOE Southern Great Plains
+   1-jul-10,[330]
+
+installation()
+   1-jul-10,'ground'
+ 
+telescope_roll_angle_offset(deg)
+    1-feb-10 , [0]
+
+latitude(deg N)
+    #DOE Southern Great Plains
+    1-jul-10,[36.579]
+
+binwidth(sec)
+    1-feb-10 ,[50e-9]
+
+laser_rep_rate(Hz)
+    1-feb-10 ,[4000]
+
+longitude(deg W)
+    #DOE Southern Great Plains
+    1-jul-10,[97.314]
+
+telescope_diameter(m)
+    1-feb-10, [0.6]
+
+telescope_fov(radians)
+    1-feb-10, [250e-6]
+
+laser_beam_divergence(radians)
+    1-feb-10, [20e-6]
+
+sounding_type
+    #28-jul-10,'NOAA raob'
+    1-jul-10, 'arm'
+
+sounding_id
+   1-jun-15, 'DDC'
+
+location_string
+   1-jul-10, 'DOE SGP'

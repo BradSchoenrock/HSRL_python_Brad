@@ -1,0 +1,965 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9"
+        }, 
+        "netcdf":{
+            "format":"uwlidar",
+            "#format":"uwlidar or cfradial",
+            "output_dir":"/home/eloranta/processed_lidar_data"
+        },
+        "figure_download_directory": {
+            "fig_dir": "/home/eloranta/hsrl_fig_dir",
+            "doc":"r.save_fig() writes figures to this dir when operated from command line"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "select_plot_altitude": {
+            "plot_altitude": 8.0,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[5.0,6.0],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+        },
+        "image_altitude_above_ground_level":{
+            "enable": 1,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":20,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":1,
+            "1064_shutter":1,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json",
+               "1064_shutter":"mask IR images if 1064 shutter is closed"
+            }
+        },
+        "qc_mask_field_image":{
+            "enable":0,
+            "log_linear":"cl",
+            "doc":"image showing bits contained in data quality mask"
+        }, 
+
+        "atten_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Attenuated backscatter image computed from combined channel only"
+        }, 
+        "atten_IR_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-5,
+            "doc":"Attenuated backscatter image computed from 1064 channel only"
+        }, 
+        "1064_backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-9, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image computed using all channels"
+        },
+        "backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 2e-4,
+            "doc":"Backscatter cross section image computed using all channels"
+        },
+        "backscat_SN_image": {
+            "enable": 0,
+            "log_linear":"log", 
+            "lo_color_lmt": 0.1, 
+            "hi_color_lmt": 1000,
+            "doc":"Backscatter signal to noise image computed using all channels"
+        },
+        "i2a_backscat_image": {
+            "enable": 0,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image from combined and argon broadened i2"
+        }, 
+        "i2_backscat_image": {
+            "enable": 0,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3,
+            "doc":"Backscatter cross section image using normal i2 without argon broadened i2"
+        }, 
+        "second_backscat_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3, 
+            "max alt(km)": 2.0,
+            "doc":"Allows additional backscatter cross section image with different scaling"
+
+        }, 
+        "linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 1.0, 
+            "hi_color_lmt": 55.0,
+            "doc":"Linear depolarization image"
+        }, 
+        "second_linear_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 45, 
+            "max alt(km)": 4.0,
+            "doc":"Allows additional linear depolarization image with different scaling"
+        }, 
+        "circular_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150,
+            "doc":"Circular depolarization image"
+        }, 
+        "extinction_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 3e-4,
+            "doc":"Extinction image computed from decay of molecular signal"
+        }, 
+        "second_extinction_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2,
+            "max alt(km)": 4.0,
+            "doc":"Alows additional extinction image with different scaling"
+        }, 
+        "phase_function_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.01, 
+            "hi_color_lmt": 0.06,
+            "doc":"Backscatter phase function, P(180)/4pi, image"
+        }, 
+        "lidarRatio_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 20, 
+            "hi_color_lmt": 80,
+            "doc":"Lidar ratio image, 4pi/P(180), image"
+        }, 
+        "inverted_mol_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 10,
+            "doc":"Molecular return image"
+        }, 
+        "mol_signal_to_noise": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1, 
+            "hi_color_lmt": 1000,
+            "doc":"Molecular counts signal/noise image"
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e5,
+            "doc":"Particulate scattering image"
+        }, 
+        "inverted_cpol_image": {
+            "enable": 0, 
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e4,
+            "doc":"Cross polarization image"
+        },
+        "raw_color_ratio_image": {
+            "enable": 1, 
+            "log_linear":"linear", 
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 1.5,
+            "doc":"1064/532nm color ratio image, gain correction but no correction for atten or mol scattering"
+        }, 
+        "color_ratio_image": {
+            "enable": 1, 
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1,
+            "doc":"1064/532nm backscatter cross section ratio image"
+        }, 
+        "raqms_total_extinction_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2,
+            "doc":"raqms aerosol transport model extinction"
+        }, 
+        "depol_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-7,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":55,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of linear depol vs backscatter"    
+        }, 
+        "color_ratio_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-7,
+            "x max":1e-4,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.5,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of 1064/532 backscatter ratio vs 532nm backscatter"    
+        }, 
+        "color_ratio_depol_hist": {
+            "enable": 1,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "color_log_linear":"linear",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of 1064/532 backscatter ratio vs 532nm depolarization"    
+        }, 
+        "p180_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":-0.01,
+            "y max":0.06, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of P(180)/4pi vs backscatter" 
+        }, 
+        "p180_vs_deff_prime_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":10e-6,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":0.1, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of P(180)/4pi vs deff_prime" 
+        }, 
+        "lidarRatio_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-7,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":10,
+            "y max":100, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of P(180)/4pi vs backscatter" 
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 6.0,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "sounding": {
+            "enable": 1,
+            "doc":"Temperature sounding used in HSRL inversion"
+        },  
+        "i2a_temperatures": {
+            "enable": 1,
+            "x min": 200.0,
+            "x max": 310,
+            "doc":"Temperature derived using argon broadened i2 cell"
+        }, 
+        "raw_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of raw photon counts in all channels"
+        }, 
+        "raw_dark_corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of raw photon counts after background subtraction"
+        },
+        "count_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of photon counts in all channels after range averaging"
+        }, 
+        "dark_corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of photon counts after background subtraction and range averaging"
+        }, 
+        "corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Inverted count profiles"
+        }, 
+        "wfov_profile": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Photon counts from small wide-fov telescope"
+        }, 
+        "wfov_ratios": {
+            "enable": 1,
+            "x min": 1e-1,
+            "x max": 1e2,
+            "x log":1,
+            "doc":"Ratio of wide-fov photon counts to other chanels"
+        },
+        "wfov_ratio_vs_time":{
+            "enable":1,
+            "altitude1":2.5,
+            "altitude2":5.5,
+            "altitude3":10.0,
+            "doc":"wfov_counts/molecular_counts at 3 altitudes (km)"
+        },
+        "wfov_geo_adjust":{
+            "enable":1,
+            "doc":"wfov adjustment to geo_corr"
+        },
+        "raw_color_ratio_profile":{
+            "enable":0,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":1.2,
+            "doc":"profile of 1064 channel / 532 combined_hi channel raw counts"
+        },
+        "color_ratio_profile":{
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "doc":"atten corrected 1064/532 aerosol backscatter using assumed angstrom coef"
+        },
+        "color_ratio_profile_by_angstrom_coef":{
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":1.5,
+            "doc":"atten corrected 1064/532 aerosol backscatter for several assumed angstrom coef's"
+        },
+        "lapse_rate":{
+            "enable":0,
+            "max_alt_km":5.0,
+            "doc":"lapse rate vs altitude"
+        },
+        "dif_geo_profiles": {
+            "enable": 0, 
+            "x min": 0.8, 
+            "x max": 2,
+            "doc":"When i2 cell is removed, shows combine_hi/mol gain"
+        },  
+        "geometry_correction": {
+            "enable": 1, 
+            "log_linear":"log",
+            "doc":"plot the geometry correction used for this data processing"
+        },  
+        "i2a_mol_ratio": {
+            "enable": 1, 
+            "x min": 1.3, 
+            "x max": 1.5,
+            "doc":"Count ratio argon-broadened-i2 / standard-i2-channel"
+        }, 
+        "raw_i2a_mol_ratio": {
+            "enable": 1, 
+            "x min": 1.3, 
+            "x max": 1.5,
+            "doc":"raw count ratio argon-broadened-i2 / standard-i2-channel"
+        }, 
+        "backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 4e-6,
+            "doc":"Backscatter cross section vs altitude"
+        }, 
+        "1064_backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 4e-6,
+            "doc":"1064nm backscatter cross section vs altitude"
+        }, 
+        "i2_and_i2a_backscat_profiles": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3,
+            "doc":"If i2a is available, backscatter profiles for both channels"
+        }, 
+        "depol_profile": {
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0,
+            "doc":"Depolarization vs altitude"
+        }, 
+        "sc_ratio_profile": {
+            "enable": 1, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0,
+            "doc":"Particulate/molecular scattering ratio vs altitude"
+        }, 
+        "sc_ratio_errors": {
+            "enable": 0, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0,
+            "doc":"Particulate/molecular scattering ratio vs altitude with std dev"
+        }, 
+        "od_profile": {
+            "enable": 1,
+            "doc":"Optical depth vs altitude"
+        }, 
+        "extinction_and_p180_profile": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1,
+            "doc":"Extinction cross section vs altitude"
+        }, 
+        "extinction_profile": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "x min": 1e-6, 
+            "x max": 2e-4,
+            "doc":"Extinction cross section vs altitude"
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 0, 
+            "p180/4pi": 0.038, 
+            "x min": -0.01, 
+            "x max": 1,
+            "doc":"Integrated backscatter cross section vs altitude" 
+        }, 
+        "od_vs_time": {
+            "enable": 0, 
+            "show_od_1_and_2":1,
+            "show_od_difference":1,
+            "doc":"Optical depth vs time at top and bottom of selected_plot_layer"
+        }, 
+        "extinction_vs_time": {
+            "enable": 0,  
+            "log_linear":"log",
+            "doc":"Aerosol Extinction vs time at altitude given in km"
+        }, 
+        "backscatter_vs_time": {
+            "enable": 0,  
+            "log_linear":"log",
+            "doc":"Aerosol backscatter vs time at altitude = selected_plot_level"
+        },
+        "int_backscat_vs_time": {
+            "enable": 0, 
+            "lidar_ratio_list":[20,30,40,50,60],
+            "y max": 3.0,
+            "doc":"Optical depth between top and bottom of plot_selected_layer "
+
+        },    
+        "mol/comb_counts_vs_time": {
+            "enable": 0,  
+            "bin_1":400,
+            "bin_2":450,
+            "y min": 0.0,
+            "y max": 3.0,
+            "doc":"mol/comb counts vs time, altitude averaged [bin_1:bin_2] "
+        },   
+
+            "calibration_coefficients": {
+            "enable": 0, 
+            "doc":"cal coef, Cmm ,Mol in mol channel and Cmc, mol in combined channel"
+
+        }, 
+        "counts_vs_time": {
+            "enable": 0, 
+            "log_linear":"log",  
+            "altitudes": [1.0,5.0],
+            "energy_normalized":1, 
+            "doc":"Raw photon counts vs time at a list of altitudes in km"
+        }, 
+        "short_cell_ratio": {
+            "enable": 0,
+            "type":"scaled",
+            "doc":"Short I2 cell energy ratio vs time, raw or scaled values",
+            "parameters":{
+                 "enable":"enable if = 1, disable if =0",
+                 "type": "raw for raw_ratios, scaled for values scaled by locked,unlocked ratios"
+            } 
+        }, 
+        "beam_position": {
+            "enable": 0,
+            "doc":"Laser beam position on internal camera (pixels)"
+        }, 
+        "etalon_pressure": {
+            "enable": 0,
+            "doc":"Pressure in etalon chamber"
+        }, 
+        "interferometer_freq": {
+            "enable": 0,
+            "doc":"Frequency change during interval measured by interferometer"
+        }, 
+        "interferometer_temp": {
+            "enable": 0,
+            "doc":"Internal temperature of interferometer"
+        },
+        "tcomp_interf_freq": {
+            "enable": 0, 
+            "doc":"Temperature compensated frequency deviation during measurement interval"
+        }, 
+        "interferometer_snapshot": {
+            "enable": 0,
+            "doc":"Sample image from interferometer camera"
+        },
+        "interferometer_spectrum":{
+            "enable":0,
+            "log_linear":"log",
+            "x min": 0.0, 
+            "x max": 50.0,
+            "doc":"Power spectrum of interometer fringe pattern"
+       }, 
+        "overhead_snapshot": {
+            "enable": 0,
+            "doc":"Picture of output window from zenith pointing camera"
+        }, 
+        "snowscope_snapshot": {
+            "enable": 0,
+            "doc":"Closeup picture of output window"
+        }, 
+        "superseed_controller_temps":{
+            "enable": 0,
+            "doc":"Temps reported by super seed laser controller"
+        },  
+        "superseed_controller_voltages":{
+            "enable": 0,
+            "doc":"Input control voltage to super seed laser controller"
+        }, 
+        "seed_voltage":{
+            "enable": 0,
+            "doc":"Input control voltage to seed laser other than superseed"
+        },
+        "superseed_peltier_power":{
+            "enable": 0,
+            "doc":"Power supplied to super seed laser controller Peltier temp cntl"
+        },
+        "l3_piezo_voltage": {
+            "enable": 0,
+            "doc":"Cavity length control voltage for main laser"
+        },
+        "cal_pulse_time_averaged": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "y max": 1e3,
+            "y min": 1e-5,
+            "mol/chi/clo/m_i2a/wfov/IR": "mol chi m_i2a wfov IR",
+            "doc":"Photon counts scattered as laser pulse exits system--time average to rs_mean grid"
+        }, 
+        "cal_pulse_raw": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "y max": 1e3,
+            "y min": 1e-5,
+            "mol/chi/clo/m_i2a/wfov/IR": "mol chi m_i2a wfov IR",
+            "doc":"Photon counts scattered as laser pulse exits system--no time averaging"
+        }, 
+        "i2_spectrum": {
+            "enable": 0, 
+            "log_linear": "log",
+            "#freq_offset":"GHz",
+            "freq_offset": -7.6,
+            "line_type":"-", 
+            "#divide measured transmision by trans_scaling":" ",
+            "trans_scaling": 4.0,
+            "show_theory": 1,
+            "doc":"Interferometer frequecies ploted on I2 spectrum"
+        }, 
+        "dark_counts": {
+            "enable": 1,
+            "log_linear":"linear",
+            "doc":"Average counts per bin vs time, measured prior to laser firing"
+        }, 
+        "short_cell_energies": {
+            "enable": 0,
+            "doc":"Energy measured prior to and after short I2 cell"
+        }, 
+        "mol_cal_vs_short_cell_ratio": {
+            "enable": 0,
+            "doc":"Molecular cal pulse vs short I2 cell transmission"
+        }, 
+        "etalon_temperature": {
+            "enable": 0,
+            "doc":"Temperature of etalon cell"
+        },
+        "coolant_temperature": {
+            "enable": 0,
+            "doc":"Coolant temperature measured at laser input"
+        }, 
+        "qswitch_buildup_time": {
+            "enable": 0,
+            "doc":"Time between sync pulse and emission of laser pulse"
+        },  
+        "humidity": {
+            "enable": 0,
+            "doc":"Ambient and optics box humidities"
+        }, 
+        "one_wire_temps": {
+            "enable": 1,
+            "doc":"System temperatures reported by one-wire sensors"
+        }, 
+        "transmitted_energy": {
+            "enable": 1,
+            "doc":"Laser power transmitted by system"
+        }, 
+        "gv_qwp_rotation": {
+            "enable": 0,
+            "doc":"Rotation angle of output quarter waveplate--gvhsrl only"
+        },
+        "optical_bench_air_pressure": {
+            "enable": 0,
+            "doc":"Air pressure within hsrl optics enclosure"
+        }, 
+        "cpol_vs_comb_hi_gain": {
+            "enable": 1,
+            "doc":"dark count in cpol vs dark count in combined high"
+        }, 
+        "tcs_temps": {
+             "enable":0,
+             "doc":"Temps reported by optics box thermal control system"
+        },
+        "select_tcsoptics_temps": {
+            "enable": 0, 
+            "value":"['Ambient','MakeUpAir']",
+            "doc":"Selected optics box TCS temps--only listed temps"
+        }, 
+        "tcs_currents": {
+            "enable": 0,
+            "doc":"Currents drawn by thermal control system" 
+        }, 
+        "select_one_wire_temps": {
+            "enable": 1, 
+            "value":"['Ambient','MakeUpAir']"
+        }, 
+        "chiller_temperatures":{
+            "enable":0,
+            "doc":"Water chiller reported temperatures"
+        },
+        "ktp_temperature": {
+            "enable":0,
+            "doc":"Temperature of laser frequency doubler crystal"
+        }, 
+        "laser_current": {
+            "enable":0,
+            "doc":"Laser pump diode current"
+        }, 
+        "laser_voltage": {
+            "enable":0,
+            "doc":"Voltage drop across laser pump diode"
+        }, 
+        "laser_diode_temp": {
+            "enable":0,
+            "doc":"Temperature of laser pump diode"
+        }, 
+        "radar_reflectivity_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": -50, 
+            "hi_color_lmt": 10,
+            "doc":"Radar Reflectivity"
+        }, 
+        "radar_backscatter_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-13, 
+            "hi_color_lmt": 1e-6,
+            "doc":"Radar Backscatter Cross Section"
+        }, 
+        "radar_backscatter_profile": {
+            "enable": 0, 
+            "log_linear":"log",
+            "x min":1e-14,
+            "x max":1e-7,
+            "doc":"Radar backscatter cross section(1/(m sr)"
+        },
+        "radar_velocity_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": -1, 
+            "hi_color_lmt": 5,
+            "doc":"Radar Velocity"
+        }, 
+        "radar_spectralwidth_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt":0.001, 
+            "hi_color_lmt":2,
+            "doc":"Radar Spectral Width"
+        }, 
+        "model_spectral_width_image": {
+            "enable": 1,
+            "log_linear":"log",
+            "lo_color_lmt":0.001,
+            "hi_color_lmt": 3,
+            "doc":"model Spectral Width (m/s)"
+        }, 
+        "effective_diameter_prime_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 40.0,
+            "doc":"Effective Diameter Prime Cooperative value"
+        }, 
+        "effective_diameter_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt":0.0, 
+            "hi_color_lmt":40.0,
+            "doc":"Effective Diameter value (mm)"
+        }, 
+        "mode_diameter_image": {
+            "enable":1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "doc":"Mode diameter Cooperative value(mm)"
+        }, 
+        "mean_diameter_image": {
+            "enable":1, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "doc":"Mean Diameter value (mm)"
+        }, 
+        "mean_mass_diameter_image": {
+            "enable":0, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01, 
+            "hi_color_lmt":5.0,
+            "doc":"Mean mass diameter value(mm)"
+        }, 
+        "particle_number_density_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt":0.01,
+            "hi_color_lmt":1e4,
+            "doc":"Particle Number Density"
+        }, 
+        "particle_phase_image": {
+            "enable":0, 
+            "log_linear":"cl",
+            "doc":"Particle phase (ice or water) based on depolarization"
+        },
+        "liquid_water_content_image": {
+            "enable": 1,
+            "log_linear":"log",
+            "lo_color_lmt":0.0001,
+            "hi_color_lmt":1.0,
+            "doc":"Liquid Water Content(gr/m^3)"
+        }, 
+        "precip_rate_image": {
+            "enable":0,
+            "log_linear":"log",
+            "lo_color_lmt":0.001,
+            "hi_color_lmt":10.0,
+            "doc":"precip rate (mm/hr)"
+        }, 
+        "radar_weighted_fall_velocity_image": {
+            "enable": 0,
+            "log_linear":"log",
+            "lo_color_lmt":0.05,
+            "hi_color_lmt":5.0,
+            "doc":"computed radar-weighted fall velocity (m/s)"
+        },
+        "fall_velocity_doppler": {
+            "enable":0,
+            "altitude":0.25,
+            "log_linear":"linear",
+            "y min":0.0,
+            "y max":6.0,
+            "doc":"computed radar weighted fall velocity and radar Doppler velocity (m/s)"
+        },
+        "spectral_width_vs_time": {
+            "enable":0,
+            "altitude":0.25,
+            "log_linear":"log",
+            "y min":0.001,
+            "y max":2.0,
+            "doc":"computed spectral width and radar measured spectral width (m/s)"
+        }, 
+        "hsrl_radar_liquid_water_vs_time":{
+             "enable":0,
+             "altitude":1.0,
+             "log_linear":"log",
+             "y min":0.0001,
+             "y max":2.0,
+             "doc":"HSRL-radar liquid water (gm/m^3) vs time at selected alititude"
+        },
+        "hsrl_radar_precip_rate_vs_time":{
+             "enable":0,
+             "altitude":0.25,
+             "log_linear":"log",
+             "y min":0.001,
+             "y max":10.0,
+             "doc":"HSRL-radar precip rate(mm/hr) vs time at selected alititude"
+        },
+        "hsrl_radar_accumulated_precip_vs_time":{
+             "enable":0,
+             "altitude":1.0,
+             "log_linear":"log",
+             "y min":0.005,
+             "y max":10,
+             "doc":"HSRL-radar accumulated precip (mm) vs time at selected alititude (km)"
+        },
+        "laser_outputs": {
+            "enable":0,
+            "doc":"not currently implemented"
+        }, 
+        "altitude": {
+            "enable": 0,
+            "doc":"Lidar MSL altitude vs time--airborne systems only"
+        }, 
+        "lat_long": {
+            "enable": 0, 
+            "n plot points": 15,
+            "doc":"latitude vs longitude vs time--gvhsrl only"
+        }, 
+        "seed_percent": {
+            "enable": 0,
+            "y max":110,
+            "doc":"Percentage of laser pulses with spectral purity needed for HSRL inversion"
+        }, 
+        "pitch_roll_angles": {
+            "enable": 0,
+            "doc":"Aircraft pitch and roll angles--gvhsrl only"
+        },
+        "mode_bits":{
+            "enable": 1,
+            "doc":"System operating mode as function of time"
+        },
+        "sfcmet_rain_rate":{
+            "enable":0,
+            "y min":-0.1,
+            "doc":"surface met rain rate mm/hr"
+        },
+        "sfcmet_rain_accumulated":{
+            "enable":0,
+            "y min":-0.1,
+            "doc":"surface met rain  mm"
+        },
+        "parsivel_fall_velocity_spectrum":{
+             "enable":0,
+             "doc":"parsivel raw fall velocity  (m/s)"
+        },
+        "parsivel_fall_velocity_vs_time":{
+             "enable":0,
+             "doc":"parsivel raw fall velocity vs time  (m/s)"
+        },
+        "parsivel_median_volume_diameter":{
+             "enable":0,
+             "doc":"parsivel median volume diameter  (mm)"
+        },
+        "parsivel_size_spectrum":{
+             "enable":0,
+             "doc":"parsivel raw size spectrum (counts)"
+        },
+        "parsivel_number_density":{
+             "enable":0,
+             "doc":"parsivel number density (1/(m^3 mm))"
+        },
+        "parsivel_liquid_water_content":{
+             "enable":0,
+             "doc":"parsivel liquid_water_content (gr/m^3)"
+        },
+        "parsivel_precip_rate":{
+             "enable":0,
+             "y min":-0.1,
+             "y max":20.0,
+             "doc":"parsivel precp rate mm/hr"
+        },
+  "multiple_scattering_ratios":{
+            "enable":0,
+        "doc":"ratio of nth order to single scattering"
+        },
+        "multiple_scatter_corrected_optical_depth":{
+            "enable":1,
+        "doc":"optical depth profile corrected for multiple scattering"
+        },
+        "multiple_scatter_weighted_diameter":{
+            "enable":0,
+        "doc":"particle diameter profile used in ms calculation, weighted water/ice"
+        },
+        "multiple_scatter_od_correction":{
+            "enable":0,
+            "doc":"od from beta_backscat/p180 and expected multi_scat correction"
+        },
+        "ms_ratio_image":{
+            "enable":0,
+            "log_linear":"linear",
+            "lo_color_lmt":0.0,
+            "hi_color_lmt":2.0,
+            "doc":"image of total multiple to single scatter ratio"
+        },
+        "selected_sample_profile":{
+             "enable":0,
+             "requested_variable":"rs_inv.extinction_aerosol",
+             "#requested time":" ",
+             "year": 2013, 
+             "month":   8, 
+             "day":  14, 
+             "hour":  17, 
+             "min":  47,
+             "sec":  0,
+             "log_linear":"linear",
+             "units":" ",
+             "x min": 0,
+             "x max":2e-4 ,
+             "doc":"plot a profile from a selected variable at a selected time"
+       }
+   }
+}

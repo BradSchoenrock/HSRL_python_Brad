@@ -1,0 +1,58 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9",
+            "doc":"r.print_fig() prints to this printer when program is operated from command line"
+        }, 
+        "figure_download_directory": {
+            "fig_dir": "/home/eloranta/hsrl_fig_dir",
+            "doc":"r.save_fig() writes figures to this dir when operated from command line"
+        },
+        "netcdf":{
+            "format":"uwlidar",
+            "#format":"uwlidar or cfradial",
+            "output_dir":"/home/eloranta/processed_lidar_data",
+            "doc":"r.write_netcdf() writes to this directory when operated from command line"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "select_plot_altitude": {
+            "plot_altitude": 5.0,
+            "doc":"altitude selection for variable_vs_time_plots"
+        }, 
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json" 
+            }
+        }
+    }
+}

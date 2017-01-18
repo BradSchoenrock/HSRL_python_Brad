@@ -1,0 +1,16 @@
+#!/bin/sh
+export PYTHONPATH=/usr/local/hsrl/lib/pythonlib
+# see if its already running 
+
+pgrep -f cdfclient.py >& /dev/null
+if [ $? == 1 ]; then
+
+# copied from ahsrl_python/ahsrlnetwork
+    /opt/anaconda/bin/python -u /usr/local/hsrl/etc/cdfclient.py -B /usr/local/hsrl/etc/startupgv -p 8005 \
+    -d /data/gvhsrldata/ -s hsrl  2>&1 | \
+    /usr/local/bin/log_with_rotate.py /var/local/log/cdfclient.log & 
+    echo starting cdfclient
+
+else
+    echo cdfclient is already running
+fi

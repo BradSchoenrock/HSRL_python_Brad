@@ -1,0 +1,7 @@
+#!/bin/sh
+# remove the fontcache to avoid interactions with EPD python
+rm -f   ~/.matplotlib/fontList.cache 
+cd ~eol-lidar/code/hsrl_python/data_stream
+LOG=$HOME/log/`date +%Y_%m_%d`.$$.log
+#script -f -a -c" ipython -pylab --colors=LightBG -pdb  rti.py" $LOG
+script -f -a -c" ipython -pylab --colors=NoColor -i rti.py" $LOG

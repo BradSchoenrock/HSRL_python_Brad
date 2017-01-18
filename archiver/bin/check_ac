@@ -1,0 +1,14 @@
+#!/bin/sh
+# check netcdf files for Aircraft data, like 'latitude'
+
+for f in $* ; do
+        # does the directory name contain raw and is it a data file?
+        echo $f |  grep raw  | grep data_fl1.nc >/dev/null
+        if [ $? -eq 0 ]; then
+              ncdump -h $f | grep iwg1_Lat | grep double >/dev/null
+                if [ $? -eq 0 ]; then
+                        echo $f
+                fi
+
+        fi
+done

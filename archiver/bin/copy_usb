@@ -1,0 +1,33 @@
+#!/bin/sh
+# copy HSRl files to a USB thumbdrive
+usb=/mnt/usb1
+
+# trap ^C 
+trap ctrl_c INT
+function ctrl_c() {
+	echo "tar INTERRUPTED -backup is INCOMPLETE"
+	umount $usb
+	exit 2
+}
+SOURCEDIR=/data/gvhsrldata/
+if [ "$#" -ne 1 ]; then
+    echo "usage: $0 2015/06 | 2016/06/19"
+    exit 1
+fi
+dir=$1
+mount $usb
+if [ "$?" -ne 0 ]; then
+    echo ERROR : could not mount USB drive
+    exit 1
+fi
+fulldir=$SOURCEDIR/${dir}
+dest=`echo $dir | sed -e s?/?_?g`
+cd $SOURCEDIR
+echo starting tar of $dir
+tar cvzf $usb/${dest}.tgz  $dir
+echo tar of  $dir complete
+umount $usb
+if [ "$?" -ne 0 ]; then
+    echo ERROR : could not unmount USB drive
+    exit 1
+fi

@@ -1,0 +1,40 @@
+#!/usr/local/anaconda/bin/python
+
+"""
+#!/bin/sh
+echo '<<<hsrl>>>'
+echo tcsaft_temp1	29
+echo tcsaft_temp2   32
+"""
+import sys
+sys.path.append("/home/vanandel/code/eol_hsrl_python")
+from hsrl.dpl.HSRLLibrarian import HSRLLibrarian
+from netCDF4 import Dataset
+from datetime import datetime
+
+# check_mk agent for HSRL data
+
+def find_latest_file():
+   lib=HSRLLibrarian(instrument='gvhsrl')
+   now = datetime.now()
+   gvnarrator = lib(start=now, end=now)
+   gvdatafileinfo=[x for x in gvnarrator]
+   if len(gvdatafileinfo):
+	return gvdatafileinfo[-1]['path']
+   return None
+
+def hsrl_agent():
+    print '<<<hsrl>>>'
+    filename = find_latest_file()
+    if filename :
+	nc = Dataset(filename, 'r')
+	for v in ('tcsaft_temp1', 'tcsaft_temp2', 'tcsaft_temp3', 'tcsaft_temp4'):
+	    data = nc.variables[v][-1]
+	    if data.mask == True:
+		print v, "None"
+	    else:
+		print v, data.data  
+        nc.close()
+	
+if __name__ == '__main__':
+    hsrl_agent()

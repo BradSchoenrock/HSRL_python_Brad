@@ -1,0 +1,87 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "image_altitude_above_ground_level":{
+            "enable": 1,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+         "multiple_scattering_ratios":{
+            "enable":1,
+        "doc":"ratio of nth order to single scattering,profile"
+        },
+        "multiple_scatter_corrected_optical_depth":{
+            "enable":1,
+        "doc":"optical depth profile corrected for multiple scattering"
+        },
+        "multiple_scatter_weighted_diameter":{
+            "enable":1,
+        "doc":"particle diameter profile used in ms calculation, weighted water/ice"
+        },
+        "multiple_scatter_od_correction":{
+            "enable":1,
+            "doc":"od from beta_backscat/p180 and expected multi_scat correction"
+        },
+        "multiple_scatter_corrected_optical_depth":{
+            "enable":1,
+        "doc":"optical depth profile corrected for multiple scattering"
+        },
+        "multiple_scatter_weighted_diameter":{
+            "enable":1,
+            "x min": -0.01,
+            "x max": 1,
+        "doc":"particle diameter profile used in ms calculation, weighted water/ice"
+        },
+        "multiple_scatter_extinction_profile":{
+            "enable":1,
+            "x min": 1e-6,
+            "x max": 1e-2,
+            "log_linear":"log",
+        "doc":"particle extinction profile used in ms calculation"
+        },
+        "multiple_scatter_od_correction":{
+            "enable":1,
+            "x min" : -0.1,
+            "x max" : 5.0,
+            "doc":"od from beta_backscat/p180 and expected multi_scat correction"
+        }, 
+        "multiple_scatter_od_correction_2":{
+            "enable":1,
+            "x min" : -0.1,
+            "x max" : 5.0,
+            "doc":"od from beta_backscat/p180 and expected multi_scat correction for second wavelength"
+        },
+         "ms_color_ratio_profile":{
+            "enable":1,
+            "x min": 0.5,
+            "x max": 1.1,
+            "doc":"ratio of multiple scattering at primary and secondary wavelengths"
+        },
+        "selected_sample_profile":{
+             "enable":1,
+             "requested_variable":"rs_particle.mean_diameter",
+             "#requested time":" ",
+             "year": 2013, 
+             "month":   8, 
+             "day":  14, 
+             "hour":  17, 
+             "min":  47,
+             "sec":  0,
+             "log_linear":"linear",
+             "units":"microns ",
+             "x min": 0,
+             "x max":200 ,
+             "doc":"plot a profile from a selected variable at a selected time"
+        }
+   }
+}

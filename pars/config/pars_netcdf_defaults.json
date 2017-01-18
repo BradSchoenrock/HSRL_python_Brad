@@ -1,0 +1,25 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "#altitudedim": "range",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "precip_rate":{"aliases":["precip_rate"],"read_sel":["select"]},
+    "number_detected_particles":{"aliases":["number_detected_particles"],"read_sel":["select"]},
+    "particle_size":{"aliases":["particle_size"],"read_sel":["select"]},
+    "class_size_width":{"aliases":["class_size_width"],"read_sel":["select"]},
+    "raw_fall_velocity":{"aliases":["raw_fall_velocity"],"read_sel":["select"]},
+    "median_volume_diameter":{"aliases":["median_volume_diameter"],"read_sel":["select"]},
+    "raw_spectrum":{"aliases":["raw_spectrum"],"read_sel":["select"]},
+    "number_density_drops":{"aliases":["number_density_drops"],"read_sel":["select"]},
+    "liquid_water_content":{"aliases":["liquid_water_content"],"read_sel":["select"]},
+    "equivalent_radar_reflectivity":{"aliases":["equivalent_radar_reflectivity"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

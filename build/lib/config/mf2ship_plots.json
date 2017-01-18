@@ -1,0 +1,132 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 13, 
+            "Y": 7
+        }, 
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "1064_shutter":0,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json" 
+            }
+        },
+        "depol_scale": {
+            "log_linear": "linear"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 75
+        }, 
+        "image_font_size": {
+            "font_points": 5
+       }, 
+        "one_wire_temps": {
+            "enable": 1,
+            "figure": "backscat_image",
+            "rect": [0.54,0.33,0.41,0.15],
+            "subplot": 246, 
+            "doc":"System temperatures reported by one-wire sensors"
+        }, 
+       "backscat_image": {
+            "enable": 1, 
+            "subplot": 221, 
+            "rect": [0.04,0.52,0.48,0.45],
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3 
+        }, 
+        "linear_depol_image": {
+            "enable": 1,
+            "rect": [0.54,0.52,0.46,0.45],
+            "figure": "backscat_image",
+            "subplot": 222, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63
+        }, 
+        "lat_long": {
+            "enable": 1, 
+            "n plot points": 15,
+            "figure": "backscat_image",
+            "rect": [0.79,0.09,0.15,0.15],
+            "subplot": 5420, 
+            "doc":"latitude vs longitude vs time--gvhsrl only"
+        }, 
+        "mode_bits":{
+            "enable": 1,
+            "figure": "backscat_image",
+            "rect": [0.20,0.09,0.12,0.15],
+            "subplot": 5417, 
+            "doc":"System operating mode as function of time"
+        },
+        "tcs_currents": {
+            "enable": 1,
+            "figure": "backscat_image",
+            "rect": [0.35,0.09,0.18,0.15],
+            "subplot": 5418, 
+            "doc":"Currents drawn by thermal control system" 
+        }, 
+        "ktp_temperature": {
+            "enable":1,
+            "figure": "backscat_image",
+            "rect": [0.29,0.33,0.19,0.15],
+            "subplot": 4414, 
+            "doc":"Temperature of laser frequency doubler crystal"
+        }, 
+
+        "raw_dark_counts": {
+            "enable": 1,
+            "log_linear":"linear",
+            "figure": "backscat_image",
+            "rect": [0.04,0.09,0.13,0.15],
+            "subplot": 5416, 
+            "doc":"Average counts per bin vs time, measured prior to laser firing"
+        }, 
+        "interferometer_vs_time": {
+            "enable": 1,
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1.0,
+            "figure": "backscat_image",
+            "rect": [0.58,0.09,0.19,0.15],
+            "subplot": 5419, 
+            "doc":"Interferometer camera over time"
+        }, 
+       "counts_vs_time": {
+            "enable": 1, 
+            "log_linear":"linear",  
+            "altitudes": [2.0,5.0],
+            "energy_normalized":1, 
+            "figure": "backscat_image",
+            "rect": [0.04,0.33,0.19,0.15],
+            "subplot": 449, 
+            "doc":"Raw photon counts vs time at a list of altitudes in km"
+        }, 
+        "circular_depol_image": {
+            "enable": 1,
+            "figure": "backscat_image",
+            "subplot": 222,
+            "rect": [0.54,0.52,0.46,0.45],
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150
+        }
+    }
+}
+

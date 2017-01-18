@@ -1,0 +1,53 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in point"
+        },
+        "parsivel_fall_velocity_spectrum":{
+             "enable":1,
+             "doc":"parsivel raw fall velocity  (m/s)"
+        },
+        "parsivel_fall_velocity_vs_time":{
+             "enable":1,
+             "doc":"parsivel raw fall velocity vs time  (m/s)"
+        },
+        "parsivel_median_volume_diameter":{
+             "enable":1,
+             "doc":"parsivel median volume diameter  (mm)"
+        },
+        "parsivel_size_spectrum":{
+             "enable":1,
+             "doc":"parsivel raw size spectrum (counts)"
+        },
+        "parsivel_number_density":{
+             "enable":1,
+             "doc":"parsivel number density (1/(m^3 mm))"
+        },
+        "parsivel_liquid_water_content":{
+             "enable":1,
+             "doc":"parsivel liquid_water_content (gr/m^3)"
+        },
+        "parsivel_precip_rate":{
+             "enable":1,
+             "y min":-0.1,
+             "y max":20.0,
+             "doc":"parsivel precp rate mm/hr"
+        },
+        "parsivel_accumulated_precip":{
+            "enable":1,
+            "log_linear":"linear",
+            "y min":0.0,
+            "y max":0.1,
+            "doc":"parsivel accumulated precipitation ( mm)"
+        }
+   }
+}

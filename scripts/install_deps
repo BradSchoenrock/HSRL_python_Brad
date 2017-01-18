@@ -1,0 +1,23 @@
+#!/bin/sh
+# install HSRL Python dependencies in a separate directory
+HLIB=$HOME/hsrl_pylib/
+HLIB_FULL=$HOME/hsrl_pylib/lib/python2.7/site-packages/
+mkdir -p $HLIB_FULL
+export PYTHONPATH=$HLIB_FULL
+
+cd ~/code/eol_hsrl_python/
+python setup.py --verbose  install --prefix $HLIB
+cd ~/code/eol_hsrl_python/dependencies
+cd pycdf-0.6-3b
+python setup.py install --prefix $HLIB
+cd ..
+# DO NOT use 'pip' to install - since this installs many existing dependencies
+tar xf virtual_radiosonde_source-0.1.1.tar.gz
+cd virtual_radiosonde_source-0.1.1
+python setup.py install --prefix $HLIB
+cd ..
+pip install --target $HLIB_FULL tenti_s6*.tar.gz
+cd ~/code/eol_hsrl_dpl_tools/DplKit/python
+python setup.py install --prefix $HLIB
+cd ~/code/eol_hsrl_dpl_tools/Picnic/
+python setup.py install --prefix $HLIB

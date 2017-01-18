@@ -1,0 +1,22 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "nheights",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "SpectralWidth":{"aliases":["SpectralWidth"],"read_sel":["select"]},
+    "SignalToNoiseRatio":{"aliases":["SignalToNoiseRatio"],"read_sel":["select"]},
+    "CloudLayerBottomHeight":{"aliases":["CloudLayerBottomHeight"],"read_sel":["select"]},
+    "CloudLayerTopHeight":{"aliases":["CloudLayerTopHeight"],"read_sel":["select"]},
+    "Reflectivity":{"aliases":["Reflectivity"],"read_sel":["select"]},
+    "MeanDopplerVelocity":{"aliases":["MeanDopplerVelocity"],"read_sel":["select"]},
+    "heights":{"aliases":["heights","Heights"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

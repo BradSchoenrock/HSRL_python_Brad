@@ -1,0 +1,33 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9",
+            "doc":"r.print_fig() prints to this printer when program is operated from command line"
+        }, 
+        "figure_download_directory": {
+            "fig_dir": ".",
+            "doc":"r.save_fig() writes figures to this dir when operated from command line"
+        },
+        "netcdf":{
+            "format":"uwlidar",
+            "#format":"uwlidar or cfradial",
+            "output_dir":".",
+            "doc":"r.write_netcdf() writes to this directory when operated from command line"
+        }
+   },
+   "display": {
+        "select_plot_altitude": {
+            "plot_altitude": 1.47,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_min":1.47,
+            "plot_alt_max":2.3,
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_min":"low_alt_limit (km)",
+                "plot_alt_max":"high_alt_limit (km)"
+            }
+        }
+    }
+}

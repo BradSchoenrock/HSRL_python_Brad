@@ -1,0 +1,133 @@
+
+{"config":
+    {"#read_mode":"all / select / min / housekeeping / profiles",
+    "read_mode": "select",
+    "timedim": "time",
+    "rangedim": "bincount",
+    "#altitudedim": "altitude",
+    "timedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["times","convert_hsrltime_to_datetime"]
+    },
+"selected_vars":
+    { 
+    "cross_pol_counts":{"aliases":["cross"],"missing_fill":"","read_sel":["min","profiles","select"],"summode":"sum"},
+    "molecular_counts":{"aliases":["molecular"],"missing_fill":"","read_sel":["min","profiles","select"],"summode":"sum"},
+    "combined_hi_counts":{"aliases":["combined_hi"],"missing_fill":"","read_sel":["min","profiles","select"],"summode":"sum"},
+    "combined_lo_counts":{"aliases":["combined_lo"],"missing_fill":"","read_sel":["min","profiles","select"],"summode":"sum"},
+    
+    "seeded_shots":{"aliases":["DATA_num_seed_shots"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select"],"summode":"sum"},
+    "times":{"aliases":["DATA_time"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select","position"],"summode":"first"},
+    "shot_count":{"aliases":["DATA_shot_count"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select"],"summode":"sum"},
+    "transmitted_energy":{"aliases":["total_energy"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select"],"summode":"sum"},
+    "filtered_energy":{"aliases":["brillouinfiltered_energy_stats"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select"]},
+    "nonfiltered_energy":{"aliases":["nonfiltered_energy_stats"],"missing_fill":"","read_sel":["min","profiles","housekeeping","select"]},
+    
+    "latitude":{"aliases":["seanav_Lat","argonne_seanav_Lat"],"missing_fill":"","read_sel":["min","profiles","select","position"]},
+    "longitude":{"aliases":["seanav_Lon","argonne_seanav_Lon"], "missing_fill":"","read_sel":["min","profiles","select","position"]},
+   
+    "builduptime_threshhold":{"aliases":["builduptime_threshhold"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "energyRatioLockPoint":{"aliases":["energyRatioLockPoint"],"missing_fill":"","read_sel":["housekeeping","select"]},   
+    "interferometer_intensity":{"aliases":["interferometer"],"missing_fill":"","read_sel":["housekeeping","select"],"summode":"first"},
+    "etalon_pressure":{"aliases":["pressure","REGISTERPROTO_test_pressure"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "seedvoltage":{"aliases":["seedvoltage"],"missing_fill":"","read_sel":["housekeeping","select"]},
+
+    "interferometer_snapshot_time":{"aliases":["interferometer_snapshot_time"],"type":" ","read_sel":["housekeeping","select"]},
+    "interf_snapshot":{"aliases":["interferometer_snapshot"],"type":" ","read_sel":["housekeeping","select"]},
+    "overhead_snapshot":{"aliases":["overhead_snapshot"],"type":" ","read_sel":["housekeeping","select"]},
+    "overhead_snapshot_time":{"aliases":["overhead_snapshot_time"],"type":" ","read_sel":["housekeeping","select"]},
+    "outgoingbeamalignment_snapshot":{"aliases":["outgoingbeamalignment_snapshot"],"type":" ","read_sel":["housekeeping","select"]},
+    "outgoingbeamalignment_snapshot_time":{"aliases":["outgoingbeamalignment_snapshot_time"],"type":" ","read_sel":["housekeeping","select"]},
+
+    "humidity":{"aliases":["humidity"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "chillertemperature":{"aliases":["chillertemperature"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "one_wire_temperatures":{"aliases":["system_temperatures"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "raw_analog_interferometertemperature":{"aliases":["raw_analog_interferometertemperature"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "raw_analog_etalontemperature":{"aliases":["raw_analog_etalontemperature"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_control_temp":{"aliases":["tcstelescope_temp1","tcstelescope_control_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_in_temp":{"aliases":["tcstelescope_temp2","tcstelescope_in_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_out_temp":{"aliases":["tcstelescope_temp3","tcstelescope_out_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_elect":{"aliases":["tcstelescope_temp4","tcstelescope_elect"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_tc_main":{"aliases":["tcstelescope_tc_main"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_control_temp":{"aliases":["tcsoptics_temp1","tcsoptics_control_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_in_temp":{"aliases":["tcsoptics_temp2","tcsoptics_in_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_out_temp":{"aliases":["tcsoptics_temp3","tcsoptics_out_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_elect":{"aliases":["tcsoptics_temp4","tcsoptics_elect"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_tc_main":{"aliases":["tcsoptics_tc_main"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_control_temp":{"aliases":["tcsopticstop_temp1","tcsopticstop_control_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_in_temp":{"aliases":["tcsopticstop_temp2","tcsopticstop_in_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_out_temp":{"aliases":["tcsopticstop_temp3","tcsopticstop_out_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_elect":{"aliases":["tcsopticstop_temp4","tcsopticstop_elect"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_tc_main":{"aliases":["tcsopticstop_tc_main"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "op_mode":{"aliases":["LIDARCTL_mode"],"missing_fill":"","read_sel":["housekeeping","select"],"summode":"or"},
+    "tcsoptics_main_current":{"aliases":["tcsoptics_main_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_main_current":{"aliases":["tcstelescope_main_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_main_current":{"aliases":["tcsopticstop_main_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_fan1_current":{"aliases":["tcsoptics_fan1_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_fan1_current":{"aliases":["tcsopticstop_fan1_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_fan1_current":{"aliases":["tcstelescope_fan1_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsoptics_fan2_current":{"aliases":["tcsoptics_fan2_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcsopticstop_fan2_current":{"aliases":["tcsopticstop_fan2_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "tcstelescope_fan2_current":{"aliases":["tcstelescope_fan2_current"],"missing_fill":"","read_sel":["housekeeping","select"]},
+
+    "RemoveLongI2Cell":{"aliases":["RemoveLongI2Cell"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "DetectorShutter":{"aliases":["DetectorShutter"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "ReceivedSignalFilter":{"aliases":["ReceivedSignalFilter"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "CalibrationPowerFilter":{"aliases":["CalibrationPowerFilter"],"missing_fill":"","read_sel":["housekeeping","select"]},
+
+    "shortcell":{"aliases":["shortcell"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+    "opticalbenchairpressure":{"aliases":["opticalbenchairpressure"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+    
+  
+    "DATA_seed_laser_temp":{"aliases":["DATA_seed_laser_temp"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+    
+   
+   
+    
+    "DATA_last_time":{"aliases":["DATA_last_time"],"missing_fill":"","read_sel":["housekeeping","select"]},
+      
+    
+    "shortcell_target":{"aliases":["shortcell_target"],"missing_fill":"","read_sel":["housekeeping","select"]},
+     
+   
+    "DATA_polarization_mode":{"aliases":["DATA_polarization_mode"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "l3stats_shotcount":{"aliases":["l3stats_shotcount"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+   
+    
+    "l3locking_stats":{"aliases":["l3locking_stats"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+   
+   
+   
+   
+   
+    "OutgoingBeamPosition_centermass":{"aliases":["OutgoingBeamPosition_centermass"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+    
+  
+    "DATA_time":{"aliases":["DATA_time"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "superseedlasercontrollog":{"aliases":["superseedlasercontrollog"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+   
+    "builduptime":{"aliases":["builduptime"],"missing_fill":"","read_sel":["housekeeping","select"]},
+   
+    "l3cavityvoltage":{"aliases":["l3cavityvoltage"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "etalonposition":{"aliases":["etalonposition"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+   
+    "l3stats_goodshotcount":{"aliases":["l3stats_goodshotcount"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+   
+    "raw_analog_coolanttemperature":{"aliases":["raw_analog_coolanttemperature"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+    
+    "laserpowervalues":{"aliases":["laserpowervalues","jnk"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    
+    "molecular_long_range_reference":{"aliases":["molecular_long_range_reference"],"missing_fill":"","read_sel":["housekeeping","select"]},
+    "LaserYAxisAlignment":{"aliases":["LaserYAxisAlignment"],"missing_fill":"","read_sel":["housekeeping","select"]}   
+    }
+}

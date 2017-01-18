@@ -1,0 +1,26 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+         "sfcmet_rain_rate":{
+            "enable":1,
+            "y min":-0.1,
+            "doc":"surface met rain rate mm/hr"
+        },
+        "sfcmet_rain_accumulated":{
+            "enable":1,
+            "y min":-0.1,
+            "doc":"surface met rain  mm"
+        }
+    }
+}

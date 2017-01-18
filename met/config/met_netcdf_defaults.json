@@ -1,0 +1,24 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "#altitudedim": "range",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["heights",null]
+ },
+"selected_vars":
+    {
+    "atmos_pressure":{"aliases":["atmos_pressure"],"read_sel":["select"]},
+    "temp_mean":{"aliases":["temp_mean"],"read_sel":["select"]},
+    "temp_std":{"aliases":["temp_std"],"read_sel":["select"]},
+    "rh_mean":{"aliases":["rh_mean"],"read_sel":["select"]},
+    "rh_std":{"aliases":["rh_std"],"read_sel":["select"]},
+    "vapor_pressure_mean":{"aliases":["vapor_pressure_mean"],"read_sel":["select"]},
+    "vapor_pressure_std":{"aliases":["vapor_pressure_std"],"read_sel":["select"]},
+    "pwd_cumul_rain":{"aliases":["pwd_cumul_rain"],"read_sel":["select"]},
+    "pwd_cumul_snow":{"aliases":["pwd_cumul_snow"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

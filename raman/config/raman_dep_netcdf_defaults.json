@@ -1,0 +1,25 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "height",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights","convert_from_km_to_m"]
+ },
+"selected_vars":
+    {
+    "average_energy":{"aliases":["average_energy"],"read_sel":["select"]},
+    "shots":{"aliases":["shots_summed"],"read_sel":["select"],"summode":"sum"},
+    "linear_depolarization":{"aliases":["depolarization_ratio"],"read_sel":["select"]},
+    "backscatter":{"aliases":["backscatter"],"read_sel":["select"]},
+    "aerosol_scattering_ratio":{"aliases":["aerosol_scattering_ratio"],"read_sel":["select"]},
+    "extinction":{"aliases":["extinction"],"read_sel":["select"]},
+    "heights":{"aliases":["height"],"read_sel":["select"]},
+    "alt":{"aliases":["alt"],"read_sel":["select"]},
+    "lat":{"aliases":["lat"],"read_sel":["select"]},
+    "lon":{"aliases":["lon"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

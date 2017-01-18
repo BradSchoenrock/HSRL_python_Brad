@@ -1,0 +1,304 @@
+#calvals for NCAR GVHSRL
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented
+#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#string return values must be written as 'string' or "string" 
+non_filtered_energy_monitor(mJ/shot)
+    01-jan-08 01:20, [0.5, 0, 0]/4000.
+
+filtered_energy_monitor(mJ/shot)
+   1-jan-08 00:00, [0.5, 0, 0]/4000
+
+transmitted_energy_monitor(mJ/shot)
+   1-jan-08 18:00,[0.5,0 ,0]/4000
+
+seed_laser_voltage_to_freq(GHz/V)
+   1-jan-08      ,[-1.8]*1e9 
+ 
+sounding_id
+   #testing flight mode in Boulder
+   04-may-15	,'virtual_cache'
+   #system in Boulder
+   01-mar-12     ,'DNR'
+   #system in San Jose, Costa Rica
+   #1-feb-12 ,'BLB'
+   #system in antofagasta,chile
+   #1-jan-12     ,'SCFA'
+   1-jan-12      ,raqms' 
+   #system in Boulder
+   22-aug-10     ,'DNR'
+   20-feb-10     ,'GRB'
+    1-feb-10     ,'DNR'
+    1-jan-08     ,'GRB'
+wavelength(nm)
+    1-jan-08 , [532.26]
+sounding_type
+    4-mar-15,	 'virtual_cache'
+    1-mar-12,    'NOAA raob'
+    1-jan-12,    'time curtain'
+    1-jan-08,    'NOAA raob'
+GRIB_radius(hr,km)
+    # date , [dt,dr]
+    #     dt=update time interval (hours)
+    #     dr=update distance interval (km)
+    1-jan-08,     [1.5,100]
+
+interferometer_temperature_cal(deg C)
+   1-jan-08 , [-.862448, 0.258456, 0.000142]/1000
+
+calibration_nd_filters
+   20-dec-08 , [ 3,3]
+   1-jan-08  , [4,2]
+
+interferometer_fft_npixels
+   #number of pixels to use in fft
+   #adjust to maximize peak in interferometer spectrum
+   1-jan-08, [640]
+interferometer_spectral_peak
+   1-jan-08,   [25]
+
+interferometer_phase_to_freq(Hz/radian)
+   1-jan-14  , [1.695e8,0]
+   1-jan-09  , [1.66e8, 0]
+   4-nov-08  , [-1.7e8, 0]
+   6-oct-08  , [1.72e8, 0]
+lock_point_freq_offset(GHz)
+   5-dec-08  , [0.04]
+   1-jan-08  , [0.025]
+
+brillouin_ratio_to_freq(1/GHz)
+   1-aug-09  , [-0.1907]
+   1-jan-08  , [-0.430]
+
+combined_hi_dead_time(sec)
+   28-mar-10 , [27.9e-9]
+   1-jan-08,   [47e-9]
+
+combined_lo_dead_time(sec)
+   28-mar-10 , [29.7e-9]
+   1-jan-08  , [47e-9]
+
+cross_pol_dead_time
+   1-jan-08,  [32e-9]
+
+molecular_dead_time(sec)
+   #this is fudge to make overlap correction look correct
+   18-jan-12,  [26.0e-9] 
+   1-aug-11,  [30.0e-9]
+   28-mar-10, [29.0e-9]
+    1-jan-08, [32.0e-9]
+
+shortcell_locked_ratio
+   #these values used to produce normalized short cell ratio
+   #normalized_short_cell_ratio = (raw_short_cell_ratio-raw_locked)/(raw_unlocked - raw_locked)
+   #set  [0.0, 1.0] in order to  determine raw values
+   #first entry: raw ratio at lock_pt
+   #second entry: raw_ratio off of I2 line
+   1-jan-14,[0.28,1.8]
+   8-nov-13,[0.57,2]
+   1-jan-08, [-9999,1.0]
+  
+dark_count_timing
+   #'first_bins' or 'last_bins' used for dark count computation
+   1-feb-08, 'first_bins'
+
+polarization_cross_talk
+   9-jun-14,[0.094]
+   01-may-14,[0.08]
+   15-apr-14,[0.0715]
+   20-nov-13,[0.11]
+   8-nov-13,[0.1]
+   31-jul-13, [11.0]
+   10-dec-12,  [0.0]
+   20-apr-12, [0.0]
+   24-feb-12, [0.015]
+   10-jan-12, [0.002]
+   12-oct-11, [0.0095]
+   25-aug-11, [0.01]
+   19-aug-11, [0.014]
+   18-aug-11, [0.02]
+   15-aug-11,[0.03]
+   1-aug-11, [0.002]
+   7-jun-11, [0.005]
+   10-sep-10, [0.013]
+   30-jul-08, [0.104]
+   22-jul-08, [0.0085]
+    1-jan-08, [0.12]
+
+polarization_is_linear
+   1-feb-04, [0]
+comb_hi_detector_dark_count
+   #counts per shot/bin
+   1-jan-08, [0.4e-4]
+
+cpol_detector_dark_count
+   #counts per shot/bin
+   1-jan-08,[0.0e-4]
+
+
+combined_to_cross_pol_gain_ratio
+  1-apr-14,[1.93]
+  31-jul-13,[2.34]
+  10-dec-12, [1.0]   
+  10-jan-12,[2.43]
+   6-jan-12,[2.64]
+   20-aug-11,[2.32]
+   15-aug-11, [2.217]
+   1-aug-11, [40]
+   1-aug-10, [2.48]
+   25-jun-10, [2.32]
+   1-jan-08, [0.84]
+   
+
+apd_pulse_timing(ns)
+   31-jul-13, [32,36,42]*50e-9
+   1-aug-11, [32, 37, 40]*50e-9
+   1-may-11, [33, 36, 42]*50e-9
+   1-aug-06, [42,46,48]*50e-9
+
+nadir_comb_gain_adjustment
+  23-jan-12,[1.03] 
+  1-aug-06, [1.0]
+
+Cam_adjustment
+   28-jan-12,[1.25]
+   27-jan-12,[81.0]
+   1-jan-08,[1.0]
+
+i2_scan_adjustment
+  9-may-14,[.80]
+  18-apr-14,[1.0]
+  1-apr-14, [0.93]
+  20-nov-13,[1.29]
+  8-nov-13,[1.25]
+  28-jan-12, [1.0]
+  23-jan-12, [1.2]
+  21-jan-12, [0.99]
+  18-jan-12, [1.12]
+  10-jan-12, [1.17]
+   6-jan-12,  [1.11]
+   30-aug-11, [1.02]
+   1-jan-08, [1.0]
+
+i2_absorption_scale_factor
+   #optical depth scale factor used to make dfb measured i2 reference
+   #spectra match long i2 cell optical depth--used in calibration
+   #file generation.
+   1-jan-08, [5.7]
+
+baseline_adjust
+   #adjust factors for baseline correction
+   #channels, [c_hi, c_lo, mol, cp, mol_i2a]
+    9-may-14, [1.5,  1.0, 1.0, 1.4, 1.0]
+   28-jan-12, [3.0,  1.0, 1.0, 0.7, 1.0]
+   1-jan-08,  [1.0,  1.0, 1.0, 1.4, 1.0]
+
+
+etalon_pressure(mb)
+   1-jan-08, [68.947]
+
+optical_bench_air_pressure_cal(mb)
+    1-jan-08, [213.5]
+ktp_temperature(deg C)
+   1-jan-08 ,[0.2,-1]/0.0035
+
+interferometer_temp_cal(deg C)
+   1-jan-08 ,[0.000862448, 0.000258456, 0.000000142]
+
+
+lidar_altitude(m)
+   #flatirons parking lot
+   01-mar-12, [5286]*0.3048
+   #San Jose, Costa Rica airport
+    1-feb-12, [920.8]
+   #Antofagasta airport
+   18-jan-12, [118]
+   #flatirons parking lot
+   22-aug-10, [5286]*0.3048
+   #space science center
+  1-jan-08, [1100]*0.3048
+latitude(deg N) 
+    #flatirons parking lot
+    01-mar-12,[40.0385]
+    #San Jose, Costa Rica airport
+    1-feb-12, [9.9938]
+    #Antofagasta airport
+    18-Jan-12, [-23.4448]
+    #flatirons parking lot
+    22-aug-10,[40.0385]
+    1-jan-08 ,[43.0707]  
+binwidth(sec)
+    1-jan-08 ,[50e-9]
+
+integration_time(sec)
+    03-may-15,[0.5]
+    31-jul-13,[2.5]
+    1-jan-12, [0.5]
+    1-jan-08, [2.5]
+
+laser_rep_rate(Hz)
+    1-jan-08 ,[4000]
+longitude(deg W) 
+    #flatirons parking lot
+    01-mar-12,[-105.2404]
+    #airport San Jose, Costa Rica
+    1-feb-12, [-84.2988]
+    #Antofagasta airport
+    12-jan-12,[70.4444]
+    #flatirons parking lot
+    22-aug-10,[-105.2404]
+    #space science center
+    1-jan-08 , [-89.4071]
+
+hi_to_low_combined_channel_gain_ratio
+   14-apr-14, [98]
+   1-jan-12,  [104]
+   15-aug-11, [95]
+   10-may-11, [140]
+   25-jun-10, [107]
+   7-jun-10 , [134]
+   28-mar-10, [100]
+   12-mar-10, [55]
+   1-feb-10,  [50]
+   1-jan-08,  [155]
+
+combined_channel_merge_threshhold
+  28-mar-10, [1.0]
+   1-jan-08, [1.0]
+   
+installation
+  #airborne or ground installation
+  1-mar-12, 'ground'
+  1-jan-12, 'airborne'
+  1-mar-10, 'ground'
+  1-feb-10, 'airborne'
+  1-jan-08, 'ground'
+
+telescope_roll_angle_offset
+  #angle (deg) measured from zenith for fixed pointing ground based operation
+  #roll angle offset of beam for zenith pointing mobile operation
+  #roll angle is + in clockwise direction
+  1-jan-13, [4.0]
+  10-dec-12,[33.0]
+  #aircraft configuration
+  1-jan-08, [-4.0]
+
+quarter_wave_plate_rotation
+  #rotation of output quarter wave plate
+  #valid options: 'rotating','fixed','none'  
+  31-jul-12,'fixed'
+  1-apr-12, 'rotating'
+  1-jan-08, 'fixed'
+
+location_string
+   1-mar-12, 'Boulder'
+   1-feb-12, 'San Jose Costa Rica'
+  18-jan-12, 'Antofagasta'
+  22-aug-10, 'Boulder'
+  20-feb-10, 'Madison'
+   1-feb-10, 'Boulder'
+   1-jan-08, 'Madison'  

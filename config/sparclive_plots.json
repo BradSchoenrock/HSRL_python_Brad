@@ -1,0 +1,94 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 13, 
+            "Y": 7
+        }, 
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "1064_shutter":1,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json" 
+            }
+        },
+        "depol_scale": {
+            "log_linear": "linear"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12
+       }, 
+        "one_wire_temps": {
+            "enable": 1,
+            "figure": "backscat_image",
+            "rect": [0.56,0.09,0.42,0.35],
+            "subplot": 224, 
+            "doc":"System temperatures reported by one-wire sensors"
+        }, 
+       "backscat_image": {
+            "enable": 1, 
+            "subplot": 221, 
+            "rect": [0.04,0.52,0.46,0.45],
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3 
+        }, 
+        "linear_depol_image": {
+            "enable": 1,
+            "rect": [0.54,0.52,0.46,0.45],
+            "figure": "backscat_image",
+            "subplot": 222, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63
+        }, 
+        "circular_depol_image": {
+            "enable": 1,
+            "figure": "backscat_image",
+            "subplot": 222,
+            "rect": [0.54,0.52,0.46,0.45],
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150
+        },
+        "raw_color_ratio_image": {
+            "enable": 0, 
+            "figure": "color_ratio_image",
+            "subplot": 223, 
+            "rect": [0.04,0.02,0.46,0.45],
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1.5,
+            "doc":"1064/532nm color ratio image"
+        }, 
+        "color_ratio_image": {
+            "enable": 1, 
+            "figure": "backscat_image",
+            "rect": [0.04,0.02,0.46,0.45],
+            "subplot": 223, 
+            "log_linear":"linear", 
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 1,
+            "doc":"1064/532nm backscatter cross section ratio image"
+        }
+    }
+}
+

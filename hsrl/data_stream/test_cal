@@ -1,0 +1,2 @@
+#!/bin/sh
+ipython -pylab --colors=LightBG -pdb  test_cal.py

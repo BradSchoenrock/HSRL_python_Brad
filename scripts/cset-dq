@@ -1,0 +1,4 @@
+#!/bin/sh
+#export HSRL_CONFIG=/usr/local/hsrl/config
+export HSRL_CONFIG=$HOME/hsrl_config
+ipython --pylab=auto --colors=NoColor -i ~/code/hsrl_python/scripts/my_load_rti.py

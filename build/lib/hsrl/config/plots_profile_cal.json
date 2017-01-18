@@ -1,0 +1,197 @@
+{
+    "display_defaults": {
+      "image_altitude_above_ground_level":{
+            "enable": 0,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        },
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "sounding":{
+             "enable":1,
+             "doc":"display atmospheric sounding profile"
+        },  
+        "i2a_temperatures": {
+            "enable": 1,
+            "x min": 200.0,
+            "x max": 310,
+            "doc":"Temperature derived using argon broadened i2 cell"
+        }, 
+        "raw_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of raw photon counts in all channels"
+        }, 
+        "dark_corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of photon counts after background subtraction"
+        }, 
+        "raw_dark_corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Profiles of photon counts after background subtraction"
+        },
+        "corrected_profiles": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Inverted count profiles"
+        }, 
+         "wfov_profile": {
+            "enable": 1,
+            "x log":1,
+            "doc":"Photon counts from small wide-fov telescope"
+        }, 
+        "wfov_ratios": {
+            "enable": 1,
+            "x min": 1e-1,
+            "x max": 1e2,
+            "x log":1,
+            "doc":"Ratio of wide-fov photon counts to other chanels"
+        }, 
+         "raw_color_ratio_profile":{
+            "enable":1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":1.2,
+            "doc":"profile of 1064 channel / 532 combined_hi channel raw counts"
+        },
+        "color_ratio_profile":{
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "doc":"atten corrected 1064/532 aerosol backscatter using assumed angstrom coef"
+        },
+        "color_ratio_profile_by_angstrom_coef":{
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":-0.1,
+            "x max":1.5,
+            "doc":"atten corrected 1064/532 aerosol backscatter for several assumed angstrom coef's"
+        },
+        "i2a_mol_ratio": {
+            "enable": 1, 
+            "x min": 1.3, 
+            "x max": 1.5,
+            "doc":"Count ratio argon-broadened-i2 / standard-i2"
+        }, 
+        "raw_i2a_mol_ratio": {
+            "enable": 1, 
+            "x min": 0, 
+            "x max": 4.0,
+            "doc":"raw count ratio argon-broadened-i2 / standard-i2-channel--dark cor only"
+        }, 
+        "dif_geo_profiles":{
+            "enable":1,
+            "x min": 0,
+            "x max": 4.0,
+            "doc":"ratios of channel counts--all range corrections"
+        },
+        "backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3,
+            "doc":"Backscatter cross section vs altitude"
+        }, 
+        "1064_backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 4e-6,
+            "doc":"1064nm backscatter cross section vs altitude"
+        }, 
+        "1064_backscat_profile_klett": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 5e-10, 
+            "x max": 4e-6,
+            "doc":"1064nm backscatter cross section vs altitude"
+        }, 
+
+        "i2_and_i2a_backscat_profiles": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3,
+            "doc":"If i2a is available, backscatter profiles for both channels"
+        }, 
+        "depol_profile": {
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0,
+            "doc":"Depolarization vs altitude"
+        }, 
+        "sc_ratio_profile": {
+            "enable": 1, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0,
+            "doc":"Particulate/molecular scattering ratio vs altitude"
+        }, 
+        "sc_ratio_errors": {
+            "enable": 0, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0,
+            "doc":"Particulate/molecular scattering ratio vs altitude with std dev"
+        }, 
+
+        "od_profile": {
+            "enable": 1,
+            "doc":"Optical depth vs altitude"
+        },
+ 
+        "extinction_and_p180_profile": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1,
+            "doc":"Extinction cross section vs altitude"
+        }, 
+        "extinction_profile": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1,
+            "doc":"Extinction cross section vs altitude"
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 0, 
+            "p180/4pi": 0.015, 
+            "x min": -0.01, 
+            "x max": 4,
+            "doc":"Integrated backscatter cross section vs altitude" 
+        },
+        "photon_counting_error_extinction": {
+            "enable": 0, 
+            "log_linear":"log",
+            "doc":"extinction error when calculated over one range bin without filtering"
+        },
+        "selected_sample_profile":{
+             "enable":0,
+             "requested_variable":"rs_inv.extinction_aerosol",
+             "#requested time":" ",
+             "year": 2013, 
+             "month":   8, 
+             "day":  14, 
+             "hour":  17, 
+             "min":  47,
+             "sec":  0,
+             "log_linear":"linear",
+             "units":" ",
+             "x min": 0,
+             "x max":2e-4 ,
+             "doc":"plot a profile from a selected variable at a selected time"
+        } 
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6,
+            "doc":"size of images (inches)"
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12,
+            "doc":"size of figure fonts in points"
+        },
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        }, 
+        "selected_sample_profile":{
+             "enable":1,
+             "requested_variable":"radar.Reflectivity",
+             "#requested time":" ",
+             "year": 2013, 
+             "month":   8, 
+             "day":  14, 
+             "hour":  17, 
+             "min":  47,
+             "sec":  0,
+             "log_linear":"linear",
+             "units":" ",
+             "x min": 50,
+             "x max": 40 ,
+             "doc":"plot a profile from a selected variable at a selected time"
+        }
+   }
+}

@@ -1,0 +1,310 @@
+{
+    "config": {
+        "small_mem": {
+            "enable": 1, 
+            "pre_ave_n_shots": 1
+        }, 
+        "printer_id": {
+            "name": "lp9"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font size": 12
+        }, 
+        "image_total_xy_pixels": {
+            "#x pixels": 700, 
+            "#y pixels": 350
+        }, 
+        "mask_image": {
+            "enable": 0, 
+            "mol_lost_level": 0
+        }, 
+        "extinction_bin_delta": {
+            "bin_half_width": 8
+        }, 
+        "extinction_pts_to_ave": {
+            "# of points": 9
+        }, 
+        "atten_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-4
+        }, 
+        "backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-4
+        }, 
+        "second_backscat_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-5, 
+            "max alt(km)": 6.5
+        }, 
+        "linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63
+        }, 
+        "second_linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63, 
+            "max alt(km)": 4.0
+        }, 
+        "circular_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150
+        }, 
+        "extinction_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2
+        }, 
+        "second_extinction_image": {
+            "enable": 1,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-2,
+            "max alt(km)": 4.0
+        }, 
+        "phase_function_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 0.06
+        }, 
+        "inverted_mol_image": {
+            "enable": 1,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 10
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e5
+        }, 
+        "inverted_cpol_image": {
+            "enable": 1, 
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e4
+        }, 
+        "raqms_total_extinction_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e2
+        }, 
+        "depol_scale": {
+            "log_linear": "linear"
+        }, 
+        "depol_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-3,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":55,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100    
+        }, 
+        "p180_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-4,
+            "y_log_linear":"linear",
+            "y min":-0.01,
+            "y max":0.06, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100 
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5
+        }, 
+        "sounding": {
+            "enable": 1
+        }, 
+        "raw_profiles": {
+            "enable": 1,
+            "x log":"log"
+        }, 
+        "dark_corrected_profiles": {
+            "enable": 1,
+            "x log":"log"
+        }, 
+        "corrected_profiles": {
+            "enable": 1,
+            "x log":"log"
+        }, 
+        "dif_geo_profiles": {
+            "enable": 1, 
+            "x min": 0.8, 
+            "x max": 2
+        }, 
+        "backscat_profile": {
+            "enable": 1,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3
+        }, 
+        "depol_profile": {
+            "enable": 1,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0
+        }, 
+        "sc_ratio_profile": {
+            "enable": 1, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0
+        }, 
+        "od_profile": {
+            "enable": 1
+        }, 
+        "extinction_profile": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 1, 
+            "p180/4pi": 0.038, 
+            "x min": -0.01, 
+            "x max": 4
+        }, 
+        "od_vs_time": {
+            "enable": 1, 
+            "altitude1": 0.25, 
+            "altitude2": 4.0
+        }, 
+        "counts_vs_time": {
+            "enable": 1, 
+            "bin1": 500, 
+            "bin2": 1000
+        }, 
+        "show_lock_ratio": {
+            "enable": 1
+        }, 
+        "show_beam_position": {
+            "enable": 1
+        }, 
+        "show_etalon_pressure": {
+            "enable": 1
+        }, 
+        "show_interferometer_freq": {
+            "enable": 1
+        }, 
+        "show_interferometer_freq_deviations": {
+            "enable": 1, 
+            "polyfit degree": 2
+        }, 
+        "show_interferometer_snapshot": {
+            "enable": 1
+        }, 
+        "show_snowscope_snapshot": {
+            "enable": 1
+        }, 
+        "show_seed_voltage": {
+            "enable": 1
+        }, 
+        "show_cal_pulse": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "mol/chi/clo": "mol chi"
+        }, 
+        "show_i2_spectrum": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "show_theory": 1
+        }, 
+        "show_dark_counts": {
+            "enable": 1
+        }, 
+        "show_brillouin_energies": {
+            "enable": 1
+        }, 
+        "show_mol_cal_vs_brill_ratio": {
+            "enable": 1
+        }, 
+        "show_etalon_temperature": {
+            "enable": 1
+        }, 
+        "show_qswitch_buildup_time": {
+            "enable": 1
+        }, 
+        "show_one_wire_temps": {
+            "enable": 1
+        }, 
+        "show_transmitted_energy": {
+            "enable": 1
+        }, 
+        "show_optical_bench_air_pressure": {
+            "enable": 1
+        }, 
+        "cpol_vs_comb_hi_gain": {
+            "enable": 1
+        }, 
+        "show_tcsoptics_temps": {
+             "enable":1
+        },
+        "show_select_one_wire_temps": {
+            "enable": 1, 
+            "value":"['topreceiver','tcsfaninput','bottomtransmitter']"
+        }, 
+        "show_chiller_temperatures":{
+            "enable":1
+        },
+        "show_ktp_temperature": {
+            "enable":1
+        }, 
+        "show_laser_current": {
+            "enable":1
+        }, 
+        "show_laser_diode_temp": {
+            "enable":1
+        }, 
+        "show_laser_outputs": {
+            "enable": 1
+        }, 
+        "altitude": {
+            "enable": 1
+        }, 
+        "lat_long": {
+            "enable": 1, 
+            "n plot points": 15
+        }, 
+        "show_seed_percent": {
+            "enable": 1,
+            "high":110
+        }, 
+        "show_pitch_roll_angles": {
+            "enable": 1
+        }
+    }
+}

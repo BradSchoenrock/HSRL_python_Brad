@@ -1,0 +1,3 @@
+#!/bin/sh
+install_crontab
+/usr/local/hsrl/etc/start_cdfclient

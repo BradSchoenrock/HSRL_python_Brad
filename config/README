@@ -1,0 +1,34 @@
+This folder is the deployed, system-resource version of the hsrl_config.
+
+when locate_file() is called, it searches folders in this order:
+- the current (execution) directory
+- the directory structure specified by the environment variable HSRL_CONFIG
+- the config folder in the calling module's folder (including if system-installed)
+- each recursive parent folder down to the module's package (which is THIS directory for the hsrl_python module)
+- the hsrl_config folder in the package, as a last resort
+
+Example case scenario:
+- current directory is '.'
+- HSRL_CONFIG is '~/hsrl_config'
+- hsrl module installed in /SYSPATH/
+- installed module hsrl.data_stream is searching for "abc.json"
+Searched locations for locate_file()
+./abc.json
+~/hsrl_config/hsrl/data_stream/abc.json
+~/hsrl_config/hsrl/abc.json
+~/hsrl_config/abc.json
+/SYSPATH/hsrl/data_stream/config/abc.json
+/SYSPATH/hsrl/config/abc.json
+/SYSPATH/config/abc.json
+/SYSPATH/hsrl_config/abc.json *LAST RESORT, WILL PRINT A WARNING*
+
+These folders should contain configuration files at the deepest possible location, as appropriate to the module using them and the purpose.
+Please follow the following guidelines:
+- 'config' folders must NEVER contain files customized by the end user.  
+- the user should ALWAYS put their personal files in a directory identify by their personal HSRL_CONFIG setting
+--- this includes path locations 'hsrl_python.json' file, if the system provided datasets are not what you desire
+- shared system resources should be installed in the /config folder (this folder)
+--- this includes path locations 'hsrl_python.json' if the system provides shared data pools.
+--- any config file in these folders (other than hsrl_python.json) should be entirely machine-independent, and committable without modification
+- shared system resources that users should copy to their personal folder can be put in hsrl_config, but generally, that folder won't exist on deployed machines
+--- effectively, anything in hsrl_config is a stop-gap resource or template, for use in development, not deployment

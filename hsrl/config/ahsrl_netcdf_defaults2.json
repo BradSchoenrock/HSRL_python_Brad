@@ -1,0 +1,121 @@
+
+{"config":
+    {"#read_mode":"all / select / min ",
+    "read_mode": "select",
+    "timedim": "time",
+    "rangedim": "bincount",
+    "#altitudedim": "altitude",
+    "timedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "#altitudedimvar": ["times","convert_hsrltime_to_datetime"]
+    },
+"selected_vars":
+    { 
+    "cross_pol_counts":{"nc_name":["cross"],"type":"tz","read_sel":["min","profiles"]},
+    "molecular_counts":{"nc_name":["molecular"],"type":"tz","read_sel":["min","profiles"]},
+    "combined_hi_counts":{"nc_name":["combined_hi"],"type":"tz","read_sel":["min","profiles"]},
+    "combined_lo_counts":{"nc_name":["combined_lo"],"type":"tz","read_sel":["min","profiles"]},
+    
+    "seeded_shots":{"nc_name":["DATA_num_seed_shots"],"type":"t","read_sel":["min","profiles","housekeeping"]},
+    "times":{"nc_name":["DATA_time"],"t","read_sel":["min","profiles","housekeeping"]},
+    "shot_count":{"nc_name":["DATA_shot_count"],"type":"t","read_sel":["min","profiles","housekeeping]},
+    "transmitted_energy":{"nc_name":["total_energy"],"type":"t","read_sel":["min","profiles","housekeeping"]},
+    "filtered_energy":{"nc_name":["brillouinfiltered_energy_stats"],"type":"t","read_sel":["min","profiles","housekeeping"]},
+    "nonfiltered_energy":{"nc_name":["nonfiltered_energy_stats"],"type":"t","read_sel":["min","profiles","housekeeping"]},
+
+   
+    "builduptime_threshhold":{"nc_name":["builduptime_threshhold"],"type":"t","read_sel":["housekeeping"]},
+    "energyRatioLockPoint":{"nc_name":["energyRatioLockPoint"],"type":"t","read_sel":["housekeeping"]},   
+    "interferometer_intensity":{"nc_name":["interferometer"],"type":"t","read_sel":["housekeeping"]},
+    "etalon_pressure":{"nc_name":["pressure"],"type":"t","read_sel":["housekeeping"]},
+    "seedvoltage":{"nc_name":["seedvoltage"],"type":"t","read_sel":["housekeeping"]},
+
+    "interferometer_snapshot_time":{"nc_name":["interferometer_snapshot_time"],"type":" ","read_sel":["housekeeping"]},
+    "interf_snapshot":{"nc_name":["interferometer_snapshot"],""type": ","read_sel":["housekeeping"]},
+    "overhead_snapshot":{"nc_name":["overhead_snapshot"],"type":" ","read_sel":["housekeeping"]},
+    "overhead_snapshot_time":{"nc_name":["overhead_snapshot_time"],"type":" ","read_sel":["housekeeping"]},
+    "outgoingbeamalignment_snapshot":{"nc_name":["outgoingbeamalignment_snapshot"],"type":" ","read_sel":["housekeeping"]},
+    "outgoingbeamalignment_snapshot_time":{"nc_name":["outgoingbeamalignment_snapshot_time"],"type":" ","read_sel":["housekeeping"]},,
+
+    "humidity":{"nc_name":["humidity"],"type":"t","read_sel":["housekeeping"]},
+    "chillertemperature":{"nc_name":["chillertemperature"],"type":"t","read_sel":["housekeeping"]},
+    "one_wire_temperatures":{"nc_name":["system_temperatures"],"type":"t","read_sel":["housekeeping"]},
+    "interferometer_temp":{"nc_name":["raw_analog_interferometertemperature"],"type":"t","read_sel":["housekeeping"]},
+    "raw_analog_etalontemperature":{"nc_name":["raw_analog_etalontemperature"],"type":"t","read_sel":["housekeeping"]},
+    "tcsoptics_control_temp":{"nc_name":["tcsoptics_temp1"],"type":"t","read_sel":["housekeeping"]},
+    "tcsoptics_in_temp":{"nc_name":["tcsoptics_temp2"],"type":"t","read_sel":["housekeeping"]},
+    "tcsoptics_out_temp":{"nc_name":["tcsoptics_temp3"],"type":"t","read_sel":["housekeeping"]},
+    "tcsoptics_elect":{"nc_name":["tcsoptics_temp4"],"type":"t","read_sel":["housekeeping"]},
+    "tcsopticstop_control_temp":{"nc_name":["tcsopticstop_temp1"],"type":"t","read_sel":["housekeeping"]},
+    "tcsopticstop_in_temp":{"nc_name":["tcsopticstop_temp2"],"type":"t","read_sel":["housekeeping"]},
+    "tcsopticstop_out_temp":{"nc_name":["tcsopticstop_temp3"],"type":"t","read_sel":["housekeeping"]},
+    "tcsopticstop_tc_main":{"nc_name":["tcsopticstop_tc_main"],"type":"t","read_sel":["housekeeping"]},
+    "op_mode":{"nc_name":["LIDARCTL_mode"],"type":"t","read_sel":["housekeeping"]},
+
+    "RemoveLongI2Cell":{"nc_name":["RemoveLongI2Cell"],"type":"t","read_sel":["housekeeping"]},
+    "DetectorShutter":{"nc_name":["DetectorShutter"],"type":"t","read_sel":["housekeeping"]},
+    "ReceivedSignalFilter":{"nc_name":["ReceivedSignalFilter"],"type":"t","read_sel":["housekeeping"]},
+    "CalibrationPowerFilter":{"nc_name":["CalibrationPowerFilter"],"type":"t","read_sel":["housekeeping"]},
+
+    "shortcell":{"nc_name":["shortcell"],"type":"t","read_sel":["housekeeping"]},
+   
+    "opticalbenchairpressure":{"nc_name":["opticalbenchairpressure"],"type":"t","read_sel":["housekeeping"]},
+   
+    
+  
+    "DATA_seed_laser_temp":{"nc_name":["DATA_seed_laser_temp"],"type":"t","read_sel":["housekeeping"]},
+   
+    
+   
+   
+    
+    "DATA_last_time":{"nc_name":["DATA_last_time"],"type":"t","read_sel":["housekeeping"]},
+   
+   
+   
+   
+    
+    "shortcell_target":["shortcell_target"],"type":"t","read_sel":["housekeeping"]},
+    
+   
+    
+    
+   
+    "DATA_polarization_mode":{"nc_name":["DATA_polarization_mode"],"type":"t","read_sel":["housekeeping"]},
+    "l3stats_shotcount":{"nc_name":["l3stats_shotcount"],"type":"t","read_sel":["housekeeping"]},
+    
+   
+    
+    
+   
+   
+   
+   
+   
+    "OutgoingBeamPosition_centermass":{"nc_name":["OutgoingBeamPosition_centermass"],"type":"t","read_sel":["housekeeping"]},
+   
+    
+  
+    "DATA_time":{"nc_name":["DATA_time"],"type":"t","read_sel":["housekeeping"]},
+    "superseedlasercontrollog":{"nc_name":["superseedlasercontrollog"],"type":"t","read_sel":["housekeeping"]},
+   
+   
+    "builduptime":{"nc_name":["builduptime"],"type":"t","read_sel":["housekeeping"]},
+   
+    "l3cavityvoltage":{"nc_name":["l3cavityvoltage"],"type":"t","read_sel":["housekeeping"]},
+    "etalonposition":{"nc_name":["etalonposition"],"type":"t","read_sel":["housekeeping"]},
+    
+   
+    "l3stats_goodshotcount":{"nc_name":["l3stats_goodshotcount"],"type":"t","read_sel":["housekeeping"]},
+    
+   
+    "raw_analog_coolanttemperature":{"nc_name":["raw_analog_coolanttemperature"],"type":"t","read_sel":["housekeeping"]},
+    
+    
+    "laserpowervalues":{"nc_name":["laserpowervalues"],"type":"t","read_sel":["housekeeping"]},
+    
+    "molecular_long_range_reference":{"nc_name":["molecular_long_range_reference"],"type":"t","read_sel":["housekeeping"]},
+    "LaserYAxisAlignment":{"nc_name":["LaserYAxisAlignment"],"type":"t","read_sel":["housekeeping"]}
+   
+    }
+}

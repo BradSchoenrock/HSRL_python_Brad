@@ -1,0 +1,253 @@
+{
+    "config": {
+        "small_mem": {
+            "enable": 1, 
+            "pre_ave_n_shots": 1
+        }, 
+        "printer_id": {
+            "name": "lp9"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 4
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font size": 12
+        }, 
+        "image_total_xy_pixels": {
+            "#x pixels": 700, 
+            "#y pixels": 350
+        }, 
+        "mask_image": {
+            "enable": 0, 
+            "mol_lost_level": 400
+        }, 
+        "extinction_bin_delta": {
+            "bin_half_width": 1
+        }, 
+        "extinction_pts_to_ave": {
+            "# of points": 9
+        }, 
+        "atten_backscat_image": {
+            "enable": 0, 
+            "log(lo_color_lmt)": -8, 
+            "log(hi_color_lmt)": -4
+        }, 
+        "backscat_image": {
+            "enable": 0, 
+            "log(lo_color_lmt)": -8, 
+            "log(hi_color_lmt)": -4
+        }, 
+        "second_backscat_image": {
+            "enable": 0, 
+            "log(lo_color_lmt)": -8, 
+            "log(hi_color_lmt)": -2, 
+            "max alt(km)": 4.0
+        }, 
+        "linear_depol_image": {
+            "enable": 0, 
+            "low": -2, 
+            "high": 1.8
+        }, 
+        "second_linear_depol_image": {
+            "enable": 0, 
+            "low": -2, 
+            "high": 1.8, 
+            "max alt(km)": 4.0
+        }, 
+        "circular_depol_image": {
+            "enable": 0, 
+            "low": -2, 
+            "high": 2.2
+        }, 
+        "extinction_image": {
+            "enable": 0, 
+            "low": -5, 
+            "high": -2
+        }, 
+        "second_extinction_image": {
+            "enable": 0, 
+            "low": -5, 
+            "high": -2, 
+            "max alt(km)": 4.0
+        }, 
+        "phase_function_image": {
+            "enable": 0, 
+            "low": 0, 
+            "high": 0.06
+        }, 
+        "inverted_mol_image": {
+            "enable": 0, 
+            "low": -5, 
+            "high": 5
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 0, 
+            "low": -5, 
+            "high": 5
+        }, 
+        "inverted_cpol_image": {
+            "enable": 0, 
+            "low": -5, 
+            "high": 4
+        }, 
+        "raqms_total_extinction_image": {
+            "enable": 1, 
+            "low": -5, 
+            "high": -2
+        }, 
+        "depol_scale": {
+            "log_linear": "l"
+        }, 
+        "show_2d_histograms": {
+            "enable": 0
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5
+        }, 
+        "sounding": {
+            "enable": 0
+        }, 
+        "raw_profiles": {
+            "enable": 0
+        }, 
+        "dif_geo_profiles": {
+            "enable": 0, 
+            "x min": 0.8, 
+            "x max": 2
+        }, 
+        "backscat_profile": {
+            "enable": 0, 
+            "x min": -9, 
+            "x max": -3
+        }, 
+        "depol_profile": {
+            "enable": 0
+        }, 
+        "sc_ratio_profile": {
+            "enable": 0, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0
+        }, 
+        "od_profile": {
+            "enable": 0
+        }, 
+        "extinction_profile": {
+            "enable": 0, 
+            "log_linear": "linear", 
+            "x min": -0.01, 
+            "x max": 0.1
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 0, 
+            "p180/4pi": 0.038, 
+            "x min": -0.01, 
+            "x max": 4
+        }, 
+        "od_vs_time": {
+            "enable": 0, 
+            "altitude1": 2.0, 
+            "altitude2": 4.0
+        }, 
+        "counts_vs_time": {
+            "enable": 0, 
+            "bin1": 500, 
+            "bin2": 1000
+        }, 
+        "show_lock_ratio": {
+            "enable": 0
+        }, 
+        "show_beam_position": {
+            "enable": 0
+        }, 
+        "show_etalon_pressure": {
+            "enable": 0
+        }, 
+        "show_interferometer_freq": {
+            "enable": 0
+        }, 
+        "show_interferometer_freq_deviations": {
+            "enable": 0, 
+            "polyfit degree": 1
+        }, 
+        "show_interferometer_snapshot": {
+            "enable": 0
+        }, 
+        "show_snowscope_snapshot": {
+            "enable": 0
+        }, 
+        "show_seed_voltage": {
+            "enable": 0
+        }, 
+        "show_cal_pulse": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "mol/chi/clo": "mol chi"
+        }, 
+        "show_i2_spectrum": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "show theory": 1
+        }, 
+        "show_dark_counts": {
+            "enable": 0
+        }, 
+        "show_brillouin_energies": {
+            "enable": 0
+        }, 
+        "show_mol_cal_vs_brill_ratio": {
+            "enable": 0
+        }, 
+        "show_etalon_temperature": {
+            "enable": 0
+        }, 
+        "show_qswitch_buildup_time": {
+            "enable": 0
+        }, 
+        "show_one_wire_temps": {
+            "enable": 0
+        }, 
+        "show_transmitted_energy": {
+            "enable": 0
+        }, 
+        "show_optical_bench_air_pressure": {
+            "enable": 0
+        }, 
+        "cpol_vs_comb_hi_gain": {
+            "enable": 0
+        }, 
+        "show_select_one_wire_temps": {
+            "enable": 0, 
+            "value": "toptransmitter Optical Bench"
+        }, 
+        "show_ktp_temperature": {
+            "enable": 0
+        }, 
+        "show_laser_parameters": {
+            "enable": 0
+        }, 
+        "show_laser_outputs": {
+            "enable": 0
+        }, 
+        "altitude": {
+            "enable": 0
+        }, 
+        "lat_long": {
+            "enable": 0, 
+            "n plot points": 15
+        }, 
+        "show_seed_percent": {
+            "enable": 0
+        }, 
+        "show_pitch_roll_angles": {
+            "enable": 0
+        }
+    }
+}

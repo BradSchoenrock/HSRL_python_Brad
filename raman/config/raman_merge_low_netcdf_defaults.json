@@ -1,0 +1,27 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "low_bins",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights","convert_from_km_to_m"]
+ },
+"selected_vars":
+    {
+    "pulse_energy":{"aliases":["pulse_energy"],"read_sel":["select"]},
+    "shots":{"aliases":["shots_summed"],"read_sel":["select"],"summode":"sum"},
+    "nitrogen_counts":{"aliases":["nitrogen_counts_low"],"read_sel":["select"]},
+    "elastic_counts":{"aliases":["elastic_counts_low"],"read_sel":["select"]},
+    "depolarization_counts":{"aliases":["depolarization_counts_low"],"read_sel":["select"]},
+    "liquid_counts":{"aliases":["liquid_counts_low"],"read_sel":["select"]},
+    "water_counts":{"aliases":["water_counts_low"],"read_sel":["select"]},
+    "heights":{"aliases":["height_low"],"read_sel":["select"]},
+    "delta_t":{"aliases":["acquisition_time"],"read_sel":["select"],"summode":"sum"},
+    "alt":{"aliases":["alt"],"read_sel":["select"]},
+    "lat":{"aliases":["lat"],"read_sel":["select"]},
+    "lon":{"aliases":["lon"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

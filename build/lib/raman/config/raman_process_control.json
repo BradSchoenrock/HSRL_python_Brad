@@ -1,0 +1,124 @@
+{
+    "raman_process_defaults": {
+        "mol_norm_alt": {
+            "meters": 1000,
+            "doc": "molecular profile normalized to clear air at this altitude",
+            "parameters":{
+                "meters":"altitude at which to normalize in meters"
+                 }
+        },
+        "atten_backscat_norm_range": {
+            "range": 200.0,
+            "doc": "atten backscat normalized to backscatter at this range",
+            "parameters":{
+                "range":"range at which to normalize in meters"
+                 }
+        },
+        "extinction_processing":{
+            "filter_type": "savitzky_golay",
+            "adaptive": 0, 
+            "alt_window_length": 505,
+            "time_window_length": 600,
+            "polynomial_order":1,
+            "min_alt": 0.0,
+            "od_threshhold": 0.01,
+            "doc":"determines how extinction is computed from molecular signal",
+            "parameters":{
+                 "filter_type":"savitzky_golay is the only filtering now applied to the molecular signal",
+                 "adaptive":"if =1, decrease window length if needed to keep od difference < od_thres",
+                 "alt_window_length":"length of altitude filter window in meters",
+                 "t_window_length":"length of filter window in seconds",
+                 "polynomial_order":"order of the fitting polynominal",
+                 "min_alt":"don't fit below this altitude in meters",
+                 "od_threshhold":"if adaptive shorten window to keep window od below threshhold"
+            }
+         },
+        "use_wfov":{
+            "enable": 1,
+            "splice_range": 2.5,
+            "doc":"if enabled, use wfov below splice range(km), else all nfov."
+        }, 
+        "signal_lost_mask": {
+            "enable": 0,
+            "lost_level": 0,
+            "doc":"mask range bins after molecular signal first falls to lost level phontons per bin--bit 6",
+            "parameters":{
+                "enable":"enable if =1, disable if = 0",
+                "lost_level":"remaining bins of profile mask after # photons/bin <= lost_level"
+                }
+        }, 
+        "cloud_mask": {
+            "enable": 0, 
+            "backscat_threshhold":1e-4, 
+            "cloud_buffer_zone": 0,
+            "mask_entire_profile":0,
+            "max_cloud_alt":15,
+            "doc":"mask cleared after first bin with backscatter > threshhold ormask entire profile with cloud",
+            "parameters":{
+                "enable":"enable if = 1 ,disable if =0",
+                "backscatter_threshhold":"mask after backscatter_cross_section > threshhold, 1/(m sr)",
+                "cloud_buffer_zone":"clear mask this distance before cloud is encountered (m)",
+                "mask_entire_profile":"mask entire profile if any cloud at this time",
+                "max_cloud_alt":"when mask entire profile ignore clouds above this altitude (km)"
+                }
+        }, 
+        "mol_signal_to_noise_mask":{
+            "enable": 1,
+            "threshhold": 0.25,
+            "doc":"clear bits 0 and 4 of qc_mask if mol signal/noise  < threshhold (for all ranges beyound first occurance)",
+            "parameters":{
+                "enable":"enable if 1, disable if =0",
+                "tolerance":"mask ranges after  mol_signal_to_noise < threshhold "
+            }
+        },
+        "averaged_profiles": {
+            "apply_mask": 0,
+            "telescope_pointing":"all",
+            "doc":"don't include masked data in average profiles",
+            "parameters":{
+                "apply_mask":"apply qc_mask and cloud mask before creating ave profiles",
+                "telescope_pointing":"dir to included in ave profiles(all/zenith/nadir)"
+                }
+        }, 
+        "first_bin_to_process": {
+            "bin_number": 5,
+            "docs":"Set first data bins to Nan's",
+            "parameters":{
+                "bin_number":"data bins <= bin_number = Nan's--applied to raw data bins"
+            }
+             
+        }, 
+        "compute_stats": {
+            "enable": 1,           
+            "docs": "request computation of photon counting statistics",
+            "parameters":{
+                "enable": "enable if = 1, disable if = 0"
+            } 
+        },
+        "depolarization_is_aerosol_only":{
+            "enable":1,
+            "doc":"If enabled separate molecular before computing depolarization"
+        },
+        "signal_in_dark":{
+            "enable":0,
+            "doc":"apply correction for signal from previous laser pulse in dark count"
+        },
+        "alternate_cal_dir": {
+            "#full_dir_path":"/Volumes/HSRL-CSET2/",
+            "#full_dir_path":"/Users/eloranta/data",
+            "full_dir_path": "None",
+            "#full_dir_path": "/home/eloranta/rubidium",
+            "#full_dir_path": "/data/sharedcaldev",
+            "docs":"set up alternate dir for default calibration files in month dir",
+            "parameters":{
+               "full_dir_path":"eg. /home/eloranta/alt_dir, to standard subdir structure, eg. ahsrldata/2024/04"
+            } 
+        } 
+    },
+    "corr_adjusts": {
+        "nitrogen_to_combined_gain":1.0,
+        "c_pol_dark_count": 1.0, 
+        "geo_corr": 1.0,
+        "pol_x_talk": 1.0
+    }
+}

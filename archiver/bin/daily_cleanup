@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/local/bin/hsrl_tidy /data/gvhsrldata /data/gvhsrldata.save

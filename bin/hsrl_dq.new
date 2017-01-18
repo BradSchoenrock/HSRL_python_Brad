@@ -1,0 +1,4 @@
+#!/bin/sh
+LOG=$HOME/log/`date +%Y_%m_%d`.$$.log
+cd ~eol-lidar/code/hsrl_python/data_stream
+script -f -a -c "/opt/epd-7.2-1/bin/ipython --pylab=wx --colors=NoColor -i rti.py" $LOG

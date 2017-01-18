@@ -1,0 +1,99 @@
+{
+    "display_defaults": {
+        "image_size": {
+            "X": 9, 
+            "Y": 6
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 12
+        },
+        "profile_graph_size": {
+            "X": 5.0, 
+            "Y": 4.5,
+            "doc":"Set size of profile graphs (inches)"
+        },   
+        "image_altitude_above_ground_level":{
+            "enable": 0,
+            "doc":"convert requested msl altitudes to above ground altitudes for plots"
+        }, 
+        "#select_plot_altitude": {
+            "plot_altitude": 0.21,
+            "doc":"altitude selection for variable_vs_time_plots (km)"
+        }, 
+        "select_plot_layer": {
+            "plot_alt_layer":[0.21,0.31],
+            "doc":"altitude layer selection for plots showing layer properties",
+            "parameters":{
+                "plot_alt_layer":"[low_alt_limit,high_alt_limit] (km)"
+            }
+         },
+        "rl_raw_scattering_ratio_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1000,
+            "doc":"Raman Lidar Aerosol Scattering ratio"
+        },
+        "rl_linear_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 60,
+            "doc":"Raman Lidar linear depol image"
+        },
+        "rl_backscatter_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-2,
+            "doc":"Raman Lidar Aerosol backscatter cross section"
+        },
+       "rl_h2o_to_n2_count_ratio_image": {
+            "enable": 1,
+            "log_linear":"log",
+            "lo_color_lmt": 1e-4,
+            "hi_color_lmt": 1.0,
+            "doc":"Raman Lidar ratio of water to n2 counts section"
+        },
+        "rl_backscatter_profile":{
+        "enable":1,
+        "log-linear":"log",
+        "x min":1e-8,
+        "x max":1e-2,
+        "doc":"Raman backscatter cross section vs altitude"
+        },     
+        "rl_merge_count_profiles": {
+            "enable": 1, 
+            "log_linear": "log",
+            "x min": 1e3, 
+            "x max": 1e9,
+            "doc":"Raman Lidar Backscatter Cross Section"
+        },
+        "rl_hi_to_lo_channel_ratios":{
+            "enable": 1,
+            "y min": 0.0,
+            "y max": 70.0,
+            "doc":"ratio of high to low channel counts vs time"
+        },
+        "rl_filter_mode":{
+            "enable": 1,
+            "y min": 0.0,
+            "y max": 6.0,
+            "doc":"Raman filter mode"
+        }, 
+        "rl_dark_counts_vs_time":{
+            "enable":1,
+            "log_linear":"log",
+            "doc":"Raman dark count rates"
+         },
+        "rl_count_rates_vs_time":{
+            "enable": 1,
+            "log_linear":"log",
+            "doc":"count rates at plot_alt vs time"
+        }
+    }
+}
+

@@ -1,0 +1,34 @@
+{"config":
+    {"#read_mode":"all / select / min",
+    "read_mode": "select",
+    "timedim": "time",
+    "#rangedim": "bincount",
+    "altitudedim": "height",
+    "timedimvar": ["times","convert_cf_basetime_to_datetime"],
+    "#rangedimvar": ["times","convert_hsrltime_to_datetime"],
+    "altitudedimvar": ["heights","convert_from_km_to_m"]
+ },
+"selected_vars":
+    {
+    "average_energy":{"aliases":["average_energy"],"read_sel":["select"]},
+    "shots":{"aliases":["shots_summed"],"read_sel":["select"],"summode":"sum"},
+    "linear_depol":{"aliases":["dep"],"read_sel":["select"]},
+    "aerosol_backscatter_ratio":{"aliases":["asr"],"read_sel":["select"]},
+    "extinction_n2":{"aliases":["ext_n2"],"read_sel":["select"]},
+    "extinction_bscat":{"aliases":["ext_bscat"],"read_sel":["select"]},
+    "extinction_to_backscatter_ratio":{"aliases":["sa"],"read_sel":["select"]},
+    "beta":{"aliases":["beta"],"read_sel":["select"]},
+    "linear_depol_error":{"aliases":["dep_error"],"read_sel":["select"]},
+    "aerosol_backscatter_ratio_error":{"aliases":["asr_error"],"read_sel":["select"]},
+    "extinction_n2_error":{"aliases":["ext_n2_error"],"read_sel":["select"]},
+    "extinction_bscat_error":{"aliases":["ext_bscat_error"],"read_sel":["select"]},
+    "extinction_to_backscatter_ratio_error":{"aliases":["sa_error"],"read_sel":["select"]},
+    "beta_error":{"aliases":["beta_error"],"read_sel":["select"]},
+    "aerosol_scattering_ratio_overlap":{"aliases":["asr_olap"],"read_sel":["select"]},
+    "heights":{"aliases":["height"],"read_sel":["select"]},
+    "alt":{"aliases":["alt"],"read_sel":["select"]},
+    "lat":{"aliases":["lat"],"read_sel":["select"]},
+    "lon":{"aliases":["lon"],"read_sel":["select"]},
+    "times":{"aliases":["time_offset"],"read_sel":["select"],"summode":"first"}
+    }
+}

@@ -1,0 +1,17 @@
+#!/opt/anaconda/envs/production/bin/python
+from atmospheric_profiles.dpl.fill_cache import main as fc_main
+import sys
+
+def main():
+   oldargv = sys.argv[1:] 
+   if len(sys.argv) == 1:
+	fc_main()  # show usage
+   else:
+	sys.argv = [oldargv[0]] + ['/data/GFS_cache'] + oldargv
+	print 'sys.argv = ', sys.argv
+	fc_main()
+
+if __name__ ==  '__main__':
+   main()
+
+     

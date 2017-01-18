@@ -1,0 +1,409 @@
+#calvals for DOE MF2HSRL
+#
+#variable names must be entered starting in column 0
+#variable names can not include spaces or - signs
+#effective date lines must be indented#units may be included at the end of the variable names--e.g. name(GHz)
+#dates must be separated from cal values, or strings by a comma
+#cal_vectors must be included in square brackets
+#string return values must be written as 'string' or "string" 
+
+telescope_diameter(m)
+    01-jan-08, [0.4]
+telescope_fov(rad)
+    01-jan-08, [100.0e-6]
+1/e_laser_beam_width(m)
+    01-jan-08, [0.2]
+laser_beam_divergence(rad)
+    01-jan-08, [20.0e-6]
+non_filtered_energy_monitor(mJ/shot)
+    01-jan-08 01:20, [0.5, 0, 0]/4000.
+
+filtered_energy_monitor(mJ/shot)
+   1-jan-08 00:00, [0.5, 0, 0]/4000
+
+transmitted_energy_monitor(mJ/shot)
+   1-jan-08 18:00,[0.5,0 ,0]/4000
+
+seed_laser_voltage_to_freq(GHz/V)
+   1-jan-08      ,[-1.8]*1e9 
+
+seedlaser_temp_to_freq(GHz/K)
+   #used with super seed laser controller
+   20-dec-14 , [-39.871] 
+   1-feb-12 , [-6.0995] 
+   1-feb-08 , [-6.0995] 
+
+#default_particle_parameters
+#   #can specify a specific particle parameter set for a time window for this platform's deployment.
+#   1-jan-08,  'particle_parameters_Bullet_Rosettes.json'
+
+wavelength(nm)
+    1-jan-08 , [532.26]
+
+sounding_type
+    13-jun-15,    'NOAA raob'
+    12-Dec-14,    'virtual'
+    10-Dec-13,    'NOAA raob'
+    20-Apr-13,    'virtual'
+    #1-feb-12,    'NOAA GFS'
+    1-jan-08,    'NOAA raob'
+
+interferometer_temperature_cal(deg C)
+   1-jan-08 , [-.862448, 0.258456, 0.000142]/1000
+
+calibration_nd_filters
+   #calibration_nd_filters[0] = OD of filter removed for narrow scan
+   #calibration_nd_filters[1] = OD of filter always present durring cal scan
+   20-dec-08 , [ 3,3]
+   1-jan-08  , [4,2]
+
+interferometer_fft_npixels
+   #number of pixels to use in fft
+   #adjust to maximize peak in interferometer spectrum
+   1-jan-08, [636]
+
+interferometer_spectral_peak
+   1-aug-12,   [29]
+   1-jan-08,   [26]
+interferometer_phase_to_freq(Hz/radian)
+   1-dec-12  , [1.72e8,0]
+   1-jan-09  , [-1.66e8, 0]
+   4-nov-08  , [-1.7e8, 0]
+   6-oct-08  , [1.72e8, 0]
+ 
+lock_point_freq_offset(GHz)
+   5-dec-08  , [0.04]
+   1-jan-08  , [0.025]
+
+shortcell_locked_ratio
+   #entry 1, normalized filtered/nonfiltered short cell ratio at lock point
+   #entry 2, normalization value so filtered/nonfiltered= 1 off I2 line
+   1-jan-14,[0.65,5.0]
+   1-jun-13,[0.144,3.4]
+   #-9999 indicates no value supplied
+   1-jan-08, [-9999,1.0]
+
+l3slope_to_frequency
+   1-jan-08, [-0.00075984,0.153806,65.8639,-10764.1,-4.34007e+06,6.42259e+06]
+
+brillouin_ratio_to_freq(1/GHz)
+   1-aug-09  , [-0.1907]
+   1-jan-08  , [-0.430]
+
+combined_hi_dead_time(sec)
+   28-mar-10 , [27.9e-9]
+   1-jan-08,   [47e-9]
+
+combined_lo_dead_time(sec)
+   28-mar-10 , [29.7e-9]
+   1-jan-08  , [47e-9]
+
+cross_pol_dead_time
+   28-mar-10, [29.4e-9]
+   1-jan-08,  [32e-9]
+
+molecular_dead_time(sec)
+   28-mar-10, [29.0e-9]
+    1-jan-08, [32.0e-9]
+
+comb_hi_detector_dark_count
+   1-jan-08, [0.35e-4]
+
+cpol_detector_dark_count
+   1-jan-08,[0.4e-4]
+
+polarization_is_linear
+   1-feb-12, [0]
+   1-jan-08, [0]
+
+dark_count_timing
+   #'first_bins' or 'last_bins' used for dark count computation
+   1-feb-08, 'first_bins'
+
+polarization_cross_talk
+    15-sep-16,[0.033]
+    1-sep-16,[0.034]
+    15-aug-16,[0.024]
+    15-jul-16,[0.025]
+    1-jul-16,[0.027]
+    1-jun-16,[0.025]
+    25-may-16,[0.023]
+    4-may-16,[0.028]
+    2-may-16,[0.033]
+    #end of new calibration enter on 29-sep-16, ewe
+    29-apr-16 5:00,[0.029] 
+    27-apr-16,[0.06]  
+    9-apr-16,[0.03]     
+    4-apr-16 23:00,[0.032] 
+    1-apr-16,[0.072] 
+    24-mar-16,[0.072]
+    21-mar-16 16:00,[0.09]
+    21-mar-16 9:00,[0.02]
+    21-mar-16, [0.029]
+    #start of new calibration entered on 29-sep-16, ewe      
+    9-dec-15 22:00,[0.0144]
+    9-dec-15 8:00, [0.01]
+    2-dec-15,[0.0144]
+   20-nov-15,[0.018]
+   1-jan-15,[0.01]
+   19-dec-14,[0.0065]
+   11-jun-14,[0.005] 
+   18-apr-14,[0.011]
+   21-jan-14,[0.021]
+   11-may-13,[0.007]
+   18-apr-13,[0.02]
+    1-mar-13,[0.03]
+   10-jan-13,[0.025]
+    7-dec-12,[0.02]
+   13-nov-12,[0.041]
+   3-nov-12, [0.082]
+   26-oct-12, [.04]
+   1-oct-12,  [0.0045]
+   1-aug-12,  [0.015]
+   11-apr-11, [0.026]
+   7-apr-11,  [0.008]
+   10-feb-11, [0.022]
+   20-nov-10, [0.024]
+   10-sep-10, [0.008]
+
+quarter_wave_plate_rotation
+   #output quarter wave plate
+   #valid options: 'rotating','fixed','none'
+   10-sep-10, 'fixed'
+
+Cam_adjustment
+   10-sep-10,[1.0]
+
+i2_scan_adjustment
+     15-sep-16,[1.0]
+      1-sep-16,[1.05]
+      1-aug-16,[1.02]
+      1-jul-16,[1.01]
+      9-jun-16 17:00,[1.01]
+      1-jun-16,[1.18]
+      1-may-16, [0.99]  
+      9-apr-16,[1.0]       #calibration value added 29-sep-16
+      4-apr-16 23:00,[1.03] #calibration value added 29-sep-16
+      21-mar-16,[1.0]
+      9-dec-15 22:00,[0.95] 
+      9-dec-15 8:00 ,[1.0]  
+      2-dec-15,[0.95]
+     20-nov-15,[0.98]
+     24-jun-15,[1.0]
+     13-jun-15,[0.88]
+     1-jan-15,[0.85]
+     19-dec-14,[0.82]
+     10-jun-14,[0.96]
+     18-apr-14,[1.0]
+     9-mar-14,[1.072]
+     24-jan-14,[1.14]
+     23-jan-14,[1.27]
+     14-jan-14,[1.176]
+     21-jul-13,[1.05]
+     20-jul-13,[1.10]
+     15-jul-13,[1.15]
+     30-may-13,[1.03]
+     11-apr-13,[1.0]
+     5-mar-13,[1.10]
+     1-mar-13,[1.15]
+     10-jan-13,[1.08]
+     21-dec-12,[1.0]
+     13-nov-12,[0.97]
+     3-nov-12, [1.068]
+    26-oct-12, [0.98]
+    04-apr-11, [1.05]
+     1-sep-10, [1.0]
+
+i2_absorption_scale_factor
+   #optical depth scale factor used to make dfb measured i2 reference
+   #spectra match long i2 cell optical depth--used in calibration
+   #file generation.
+   1-jan-08, [4.8]
+
+baseline_adjust
+   #adjust factors for baseline correction
+   #channels, [c_hi, c_lo, mol, cp, mol_2a]
+    2-dec-15, [1.0,  1.0, 1.0, 0.5, 1.0]
+   21-nov-15, [1.0,  1.0, 1.0, 1.0, 1.0]
+   20-nov-15, [5.0,  1.0, 1.0, 1.5, 1.0]
+   19-dec-14, [15.0, 1.0, 1.0, 1.0, 1.0]
+   11-jun-14, [16.2,1.0,  1.0, 2.0, 1.0]
+   18-apr-14, [16.2,1.0,  1.0, 1.0, 1.0]
+   24-jan-14, [8.2, 1.0,  1.0, 1.0, 1.0]
+   23-jan-14, [6.3, 1.0,  1.0,  1.0, 1.0]
+   21-jan-14, [12.6, 1.0, 1.0, 2.0,1.0]
+   12-jul-13, [25.2, 1.0, 1.0, 2.0,1.0]
+   6-jun-13,  [24,   1.0, 1.0, 1.0 ,1.0]
+   1-mar-13,  [20,   1.0, 1.0, 2.0, 1.0]
+   1-jan-03,  [1.0,  1.0, 1.0, 1.0, 1.0]
+
+
+combined_to_cross_pol_gain_ratio
+    1-sep-16,[2.35]
+    1-apr-16,[2.27]
+   26-nov-15,[2.43]
+   20-nov-15,[2.585]
+   11-jun-14,[2.49]
+   11-apr-13,[2.47]
+   24-feb-13,[2.43]
+   20-aug-11,[2.32]
+   15-aug-11, [2.217]
+   1-aug-11, [40]
+   1-aug-10, [2.48]
+   25-jun-10, [2.32]
+   1-jan-08, [0.84]
+   
+
+apd_pulse_timing(ns)
+   26-nov-15,[41,49,56]*50e-9
+   20-nov-15,[41,48,56]*50e-9
+   13-jun-15,[41,50,58]*50e-9
+   29-oct-12 20:40 ,[43,48,54]*50e-9
+   25-oct-12,[60,65,71]*50e-9
+   1-aug-11, [47, 52, 58]*50e-9
+   1-may-11, [33, 36, 42]*50e-9
+   1-aug-06, [42,46,48]*50e-9
+
+nadir_comb_gain_adjustment
+  23-jan-12,[1.03] 
+  1-aug-06, [1.0]
+
+
+etalon_pressure(mb)
+   1-jan-08, [68.947]
+
+optical_bench_air_pressure_cal(mb)
+   14-jun-10, [-200]
+    1-jan-08, [-200]
+ktp_temperature(deg C)
+   1-jan-08 ,[0.2,-1]/0.0035
+
+interferometer_temp_cal(deg C)
+   1-jan-08 ,[0.000862448, 0.000258456, 0.000000142]
+
+
+telescope_roll_angle_offset
+   #angle (deg) measured from zenith for fixed pointing ground based operation
+   #roll angle offset of beam for zenith pointing mobile operation
+   1-jan-08, [4.0]
+
+lidar_altitude(m)
+   #McMurdo Antarctica
+   20-Nov-15,[80]*0.3048
+   #pagosa springs CO
+   13-jun-15,[7000]*0.3048
+   #Ron Brown research vessel
+   19-dec-14,[10.0]
+   #Hyytiala, Finland 
+   21-jan-14, [178.0]
+   #magic deployment on the Horizon Spirit
+   18-apr-13, [20.0]
+   #space science center
+   1-aug-12, [1100]*0.3048
+   #Gan Maldives
+   1-oct-11, [0]
+   #thunderhead lodge
+   15-jan-11, [2759]
+   #space science center
+    1-jan-08, [1100]*0.3048
+latitude(deg N)
+    #McMurdo Antarctica
+    20-Nov-15, [-77.84954]
+    #Ron Brown deployment mobile
+    19-dec-14,[21.36]
+    #Hyytiala Finland
+    21-jan-14, [61.845]
+    #magic deployment mobile
+    18-apr-13, [33.0]
+    #space science center
+    1-aug-12, [43.0707]
+    #Gan Maldives
+    1-oct-11,[-0.6]
+    #thunderhead lodge
+    15-jan-11,[40.4541]
+    1-jan-08 ,[43.0707]  
+binwidth(sec)
+    1-jan-08 ,[50e-9]
+
+integration_time(sec)
+    # 10 second on low res
+    1-dec-15, [10.0]
+    1-jan-08, [2.5]
+
+laser_rep_rate(Hz)
+    1-jan-08 ,[4000]
+longitude(deg W)
+    #McMurdo Antarctica
+    20-Nov-15, [-166.72888]
+    #Ron Brown deployment mobile
+    19-dec-14,[157.9]
+    #Hyytiala Finland
+    21-jan-14, [-24.288]
+    #magic deployment mobile
+    18-apr-13, [115.0]
+    #space science center
+    1-aug-12, [89.4071]
+    #Gan, maldives
+    1-oct-11,[-73.1]
+    #thunderhead lodge
+    15-jan-11,[106.7730]
+    #space science center
+    1-jan-08 , [89.4071]
+
+hi_to_low_combined_channel_gain_ratio
+   20-nov-15,[174]
+   21-jan-14,[240]
+   1-jul-13, [232]
+   6-dec-11, [200]
+   1-oct-11, [1000]
+   7-apr-11, [600]
+   1-jan-08 , [190]
+
+
+combined_channel_merge_threshhold
+   1-jan-08, [1.0]
+   
+installation
+  13-jun-15,'ground'
+  12-dec-14, 'shipborne'
+  21-jan-14, 'ground'
+  18-apr-13, 'shipborne'
+  1-aug-08,'ground'
+
+sounding_id
+  #McMurdo Antarctica
+   20-Nov-15, 'MCMR' 
+  #Grand Junction CO
+   13-jun-15, 'GJT' 
+  #Hilo, Hi sounding
+   19-dec-14,'ITO'
+   # Jyvaskyla, Finland
+   21-jan-14,'EFJY'
+   #Hilo, HI sounding
+   11-jun-13 12:00, 'ITO'
+   #San Diego sounding
+    4-jun-13 12:00, 'NKX'
+   #Hilo, HI sounding
+    28-may-13 12:00,'ITO'
+   #San Diego sounding
+    21-may-13, 'NKX'
+   #Hilo, HI sounding
+   14-apr-13 12:00, 'ITO'
+   #green bay sounding
+   1-aug-12, 'GRB'
+   #system in Boulder
+   1-oct-11  ,'COL'   
+   20-jan-10 ,'GJT'
+   1-jan-08  ,'GRB'
+
+location_string
+  20-Nov-15,'McMurdo Antarctica'
+  13-jun-15,'Pagosa Springs, CO'
+  12-dec-14,'Pearl Harbor, Hawaii'
+  21-jan-14,'Hyytiala Finland'
+  11-may-13,'Horizon Spirit'
+  18-apr-13, 'Premier Trucking, CA'
+  1-aug-12, 'Madison'
+  1-sep-11,'Maldives'
+  15-jan-11, 'Steamboat'
+  1-jan-08, 'Madison'  

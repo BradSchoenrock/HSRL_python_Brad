@@ -1,0 +1,605 @@
+{
+    "config": {
+        "printer_id": {
+            "name": "lp9"
+        },
+        "netcdf":{
+            "format":"uwlidar",
+            "#format":"uwlidar or cfradial",
+            "output_dir":"/home/eloranta/processed_lidar_data"
+        }
+    }, 
+    "display_defaults": {
+        "image_size": {
+            "X": 24, 
+            "Y": 18
+        }, 
+        "image_pixels_per_inch": {
+            "ppi": 100
+        }, 
+        "image_font_size": {
+            "font_points": 24
+        }, 
+        "select_plot_altitude": {
+            "plot_altitude":16.0,
+            "doc":"altitude selection for variable_vs_time_plots"
+        }, 
+        "mask_image": {
+            "enable": 1,
+            "mol_lost": 0,
+            "mol_sn_ratio":1,
+            "I2_lock_lost":0,
+            "cloud_mask":0,
+            "radar_sn_mask":0,
+            "doc":"apply data quality mask bits from qc_mask to images",
+            "parameters":{
+               "enable":"if zero no mask applied to images",
+               "mol_lost":"mask if mol counts below value from process_control.json",
+               "mol_sn_ratio":"mask if mol signal/noise below value from process_control.json",
+               "i2_lock_lost":"mask if frequency lock to i2 line is lost",
+               "cloud_mask":"mask if backscatter higher than value from process_control.json",
+               "radar_sn_mask":"mask if radar s/n below value from radar_processing_defaults.json" 
+            }
+        },
+        "atten_backscat_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-2
+        }, 
+        "backscat_image": {
+            "enable": 1,
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-3
+        }, 
+        "second_backscat_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-8, 
+            "hi_color_lmt": 1e-5, 
+            "max alt(km)": 6.5
+        }, 
+        "linear_depol_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 50.0
+        }, 
+        "second_linear_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 63, 
+            "max alt(km)": 4.0
+        }, 
+        "circular_depol_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.5, 
+            "hi_color_lmt": 150
+        }, 
+        "extinction_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-1
+        }, 
+        "second_extinction_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e-1,
+            "max alt(km)": 4.0
+        }, 
+        "phase_function_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0, 
+            "hi_color_lmt": 0.06
+        },
+        "lidarRatio_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 20, 
+            "hi_color_lmt": 80,
+            "doc":"Lidar ratio image, 4pi/P(180), image"
+        }, 
+        "inverted_mol_image": {
+            "enable": 0,  
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 10
+        }, 
+        "inverted_aerosol_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e5
+        }, 
+        "inverted_cpol_image": {
+            "enable": 0, 
+            "log_linear":"log", 
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e4
+        }, 
+        "raqms_total_extinction_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-5, 
+            "hi_color_lmt": 1e2
+        }, 
+        "depol_backscat_hist": {
+            "enable": 0,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-3,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":55,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100    
+        }, 
+        "p180_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-2,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":0.06,
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100 
+        }, 
+        "lidarRatio_backscat_hist": {
+            "enable": 1,
+            "x_log_linear":"log",
+            "x min":1e-6,
+            "x max":1e-4,
+            "y_log_linear":"linear",
+            "y min":0,
+            "y max":100, 
+            "color_log_linear":"log",
+            "number_ybins":50,
+            "number_xbins":100,
+            "doc":"2-d histogram, occurence of lidar ratio vs backscatter" 
+        }, 
+        "profile_graph_size": {
+            "X": 5, 
+            "Y": 4.5
+        }, 
+        "sounding": {
+            "enable": 0
+        }, 
+        "raw_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "dark_corrected_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "corrected_profiles": {
+            "enable": 0,
+            "x log":"log"
+        }, 
+        "wfov_ratios": {
+            "enable": 0,
+            "x min": 1e-1,
+            "x max": 1e2,
+            "x log":1,
+            "doc":"Ratio of wide-fov photon counts to other chanels"
+        }, 
+        "wfov_ratio_vs_time":{
+            "enable":1,
+            "altitude1": 0.5,
+            "altitude2": 1.0,
+            "altitude3": 2.0,
+            "y min": 0.0,
+            "y max": 0.4,
+            "log_linear": "linear",
+            "doc":"wfov_counts/molecular_counts at altitude"
+        },
+        "wfov_ratio_vs_time":{
+            "enable":1,
+            "altitude1": 0.5,
+            "altitude2": 1.0,
+            "altitude3": 2.0,
+            "y min": 0.0,
+            "y max": 0.4,
+            "log_linear": "linear",
+            "doc":"wfov_counts/molecular_counts at 3 altitudes (km)"
+        },
+        "wfov_geo_corr_vs_time":{
+            "enable":1,
+            "altitude1": 0.5,
+            "altitude2": 1.0,
+            "altitude3": 2.0,
+            "y min": 0.0,
+            "y max": 0.5,
+            "log_linear": "linear",
+            "doc":"wfov_geo_corr vs time at 3 altitudes (km)"
+        },
+        "lapse_rate":{
+            "enable":0,
+            "max_alt_km": 5.0 ,
+            "doc":"lapse rate vs altitude"
+        },
+        "dif_geo_profiles": {
+            "enable": 0, 
+            "x min": 0.8, 
+            "x max": 2
+        }, 
+        "i2a_mol_ratio": {
+            "enable": 0, 
+            "x min": 0.85, 
+            "x max": 1.15
+        }, 
+        "backscat_profile": {
+            "enable": 0,
+            "log_linear":"log", 
+            "x min": 1e-9, 
+            "x max": 1e-3
+        }, 
+        "depol_profile": {
+            "enable": 0,
+            "log_linear":"linear",
+            "x min":0.0,
+            "x max":55.0
+        }, 
+        "sc_ratio_profile": {
+            "enable": 0, 
+            "log_linear": "linear", 
+            "x min": -0.1, 
+            "x max": 3.0
+        }, 
+        "od_profile": {
+            "enable": 0
+        }, 
+        "extinction_profile": {
+            "enable": 1, 
+            "log_linear": "log", 
+            "x min": 1e-7, 
+            "x max": 1e-1
+        }, 
+        "integrated_backscatter_profile": {
+            "enable": 0, 
+            "p180/4pi": 0.038, 
+            "x min": -0.01, 
+            "x max": 4
+        }, 
+        "od_vs_time": {
+            "enable": 1, 
+            "altitude1": 0.5, 
+            "altitude2": 16.0,
+            "show_od_1_and_2":1,
+            "show_od_difference":1,
+            "doc":"Optical depth vs time at 2 altitudes given in km"
+        }, 
+        "extinction_vs_time": {
+            "enable": 1, 
+            "altitude": 1.0, 
+            "log_linear":"linear",
+            "doc":"Aerosol Extinction vs time at altitude given in km"
+        }, 
+        "scattering_ratio_vs_time": {
+            "enable": 1,  
+            "log_linear":"linear",
+            "y min":-0.1,
+            "y max":0.5,
+            "ave_z_bins":5,
+            "doc":"scat ratio vs t at plot_altitude, ave 2*ave_z_bins+1 alt bins"
+        },  
+        "layer_int_backscat_vs_time": {
+            "enable": 1, 
+            "altitude1": 0.5, 
+            "altitude2": 2.0,
+            "y max": 1.0,
+            "y min": 0.0,
+            "doc":"Optical depth between 2 altitudes(km) vs time "
+        },
+        "od_from_int_backscat_vs_time": {
+            "enable": 1, 
+            "altitude1": 1.0, 
+            "altitude2": 5.0,
+            "altitude3": 15.0,
+            "lidar_ratio":70.0,
+            "y max": 1.0,
+            "y min": 0.0,
+            "doc":"Optical depth at 3 altitudes(km) from integrated backscatter vs time "
+        },
+        "counts_vs_time": {
+            "enable": 1,
+            "log_linear":"linear", 
+            "altitudes":[0.25,0.5],
+            "energy_normalized":1,
+            "doc":"Raw photon counts vs time at a list of altitudes in km"  
+        }, 
+        "lock_ratio": {
+            "enable": 0
+        }, 
+        "beam_position": {
+            "enable": 0
+        }, 
+        "etalon_pressure": {
+            "enable": 0
+        }, 
+        "interferometer_spectrum": {
+            "enable":0,
+            "log_linear":"log",
+            "x max":50.0
+        },   
+        "interferometer_freq": {
+            "enable": 0
+        }, 
+        "interferometer_freq_deviations": {
+            "enable": 0, 
+            "polyfit degree": 2
+        }, 
+        "show_interferometer_snapshot": {
+            "enable": 0
+        }, 
+        "snowscope_snapshot": {
+            "enable": 0
+        }, 
+        "seed_voltage": {
+            "enable": 0
+        }, 
+        "cal_pulse": {
+            "enable": 0, 
+            "log_linear": "log", 
+            "mol/chi/clo": "mol chi"
+        }, 
+        "i2_spectrum": {
+            "enable": 0, 
+            "log_linear": "log",
+            "#freq_offset":"GHz",
+            "freq_offset":-0.68, 
+            "show_theory": 0
+        }, 
+        "dark_counts": {
+            "enable": 0
+        }, 
+        "brillouin_energies": {
+            "enable": 0
+        }, 
+        "mol_cal_vs_brill_ratio": {
+            "enable": 0
+        }, 
+        "etalon_temperature": {
+            "enable": 0
+        }, 
+        "coolant_temperature": {
+            "enable": 0
+        }, 
+        "qswitch_buildup_time": {
+            "enable": 0
+        }, 
+        "l3_piezo_voltage": {
+            "enable": 0
+        },
+        "humidity": {
+            "enable": 0
+        }, 
+        "one_wire_temps": {
+            "enable": 0
+        }, 
+        "transmitted_energy": {
+            "enable": 0
+        },
+        "gv_qwp_rotation": {
+            "enable": 0
+        },
+        "optical_bench_air_pressure": {
+            "enable": 0
+        }, 
+        "cpol_vs_comb_hi_gain": {
+            "enable": 0
+        }, 
+        "tcs_temps": {
+             "enable":0
+        }, 
+        "tcs_currents": {
+            "enable": 0 
+        },
+        "select_one_wire_temps": {
+            "enable": 0, 
+            "value":"['airinput','centerboard','HighEndUnderBoard','LowEndUnderBoard']"
+        }, 
+        "chiller_temperatures":{
+            "enable":0
+        },
+        "ktp_temperature": {
+            "enable":0
+        }, 
+        "laser_current": {
+            "enable":0
+        }, 
+        "laser_diode_temp": {
+            "enable":0
+        }, 
+        "laser_outputs": {
+            "enable": 0
+        }, 
+        "altitude": {
+            "enable": 0
+        }, 
+        "lat_long": {
+            "enable": 0, 
+            "n plot points": 15
+        }, 
+        "seed_percent": {
+            "enable": 0,
+            "high":110
+        }, 
+        "pitch_roll_angles": {
+            "enable": 0
+        },
+        "mode_bits":{
+            "enable": 0
+        },
+ "radar_backscatter_image": {
+            "enable": 1, 
+            "log_linear":"log",
+            "lo_color_lmt": 1e-13, 
+            "hi_color_lmt": 1e-5,
+            "doc":"Radar Backscatter Cross Section"
+        }, 
+        "radar_velocity_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": -0.5, 
+            "hi_color_lmt": 4,
+            "doc":"Radar Velocity"
+        }, 
+        "radar_spectralwidth_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 0.01, 
+            "hi_color_lmt": 3,
+            "doc":"Radar Spectral Width(m/s)"
+        },
+         "radar_backscatter_profile": {
+            "enable": 0, 
+            "log_linear":"log",
+            "x min":1e-14,
+            "x max":1e-7,
+            "doc":"Radar backscatter cross section(1/(m sr)"
+        },
+          "model_spectral_width_image": {
+            "enable": 0,
+            "log_linear":"log",
+            "lo_color_lmt": 0.01,
+            "hi_color_lmt": 3,
+            "doc":"model Spectral Width(m/s)"
+        }, 
+        "effective_diameter_prime_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 0.010, 
+            "hi_color_lmt": 5,
+            "doc":"Effective Diameter Prime Cooperative value(microns)"
+        },
+        "liquid_water_content_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 0.001, 
+            "hi_color_lmt": 1.0,
+            "doc":"Liquid Water Content(gr/m^3)"
+        }, 
+        "precip_rate_image": {
+            "enable": 0, 
+            "log_linear":"log",
+            "lo_color_lmt": 0.001, 
+            "hi_color_lmt": 5.0,
+            "doc":"precipitation rate"
+        }, 
+        "radar_weighted_fall_velocity_image": {
+            "enable": 0, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 5.0,
+            "doc":"computed radar-weighted fall velocity(m/s)"
+        },
+        "fall_velocity_doppler": {
+            "enable": 0, 
+            "altitude": 1.0,
+            "log_linear":"linear",
+            "y min": 0.0, 
+            "y max": 5.0,
+            "doc":"computed radar weighted fall velocity and radar Doppler velocity(m/s)"
+        },
+        "radar_weighted_fall_velocity_image": {
+            "enable": 1, 
+            "log_linear":"linear",
+            "lo_color_lmt": 0.0, 
+            "hi_color_lmt": 5.0,
+            "doc":"computed radar-weighted fall velocity(m/s)"
+        },
+        "fall_velocity_doppler": {
+            "enable": 0, 
+            "altitude": 1.0,
+            "log_linear":"linear",
+            "y min": 0.0, 
+            "y max": 5.0,
+            "doc":"computed radar weighted fall velocity and radar Doppler velocity(m/s)"
+        },
+        "platform_vertical_velocity":{
+            "enable": 1,
+            "doc":"vertical velocity of platform (m/s)"
+        },
+        "spectral_width_vs_time": {
+            "enable": 0, 
+            "log_linear":"log",
+            "y min": 0.01, 
+            "y max": 5.0,
+            "doc":"computed spectral width and radar measured spectral width"
+        },
+        "hsrl_radar_liquid_water_vs_time":{
+             "enable":0,
+             "y min":0.0,
+             "y max": 1,
+             "doc":"HSRL-radar liquid water vs time at selected alititude (km)"
+         },
+         "hsrl_radar_precip_rate_vs_time":{
+             "enable":1,
+             "log_linear":"linear",
+             "y min":0.001,
+             "y max":5,
+             "doc":"HSRL-radar precip rate(mm/hr) vs time at selected alititude (km)"
+         },
+         "hsrl_radar_accumulated_precip_vs_time":{
+             "enable":0,
+             "log_linear":"linear",
+             "y min":0.0,
+             "y max":0.4,
+             "doc":"HSRL-radar accumulated precip(mm) vs time at selected alititude (km)"
+         },
+        "doppler_velocity_vs_deff_prime":{ 
+            "enable":0,
+            "x min":0,
+            "x max": 2,
+            "y min":-0.05,
+            "y max": 5.0,
+            "doc":"doppler velocity (m/s) vs effective diameter prime (mm)"
+        },
+        "doppler_velocity_vs_model_velocity":{ 
+            "enable":0,
+            "x min":0,
+            "x max": 3,
+            "y min":0,
+            "y max": 3.0,
+            "doc":"doppler velocity (m/s) vs model radar weighted fall velocity  (m/s)"
+        },
+        "doppler_velocity_vs_deff_prime_hist":{
+            "enable":0,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":5.0,
+            "altitude_limits":[0.2,0.3],
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, occurence of doppler velocity(m/s) vs deff_prime(mm)"  
+        },
+          "spectral_width_vs_deff_prime_hist":{
+            "enable":0,
+            "x_log_linear":"linear",
+            "x min":0.0,
+            "x max":1.0,
+            "y_log_linear":"linear",
+            "y min":0.0,
+            "y max":1.0,
+            "altitude_limits":[0.2,0.3],
+            "color_log_linear":"log",
+            "number_ybins":100,
+            "number_xbins":200,
+            "doc":"2-d histogram, radar spectral_width(m/s) vs deff_prime(mm)"  
+        } 
+    }
+}

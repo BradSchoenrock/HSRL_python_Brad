@@ -1,0 +1,43 @@
+{
+   "h2o_depol_threshold":     1.0,
+   "size_distribution":{
+        "form":          "modified_gamma",
+        "alpha_water":   1.0,
+        "g_water":       1.0,
+        "alpha_ice":     1.0,
+        "g_ice":         1.0
+        
+    },
+   "zeta":                    0.6,
+   "ext_source":              "bs/p180",
+   "p180_ice":                0.04,
+   "p180_water":              0.04,
+   "background_aerosol_bs":   2.5e-6,
+   "type":                    "rain",
+   "radar_model"       :      "Mie",
+   "Dr":                      3e-6,
+   "parameters":{
+      "h2o_depol_threshold":   "linear depolarization ratio threshold, linear_depol<threshold identified as liquid",
+      "size_distribution":{
+         "modified_gamma" :{
+             "alpha_water":           "size dist shape param alpha for liquid,  ~(D/Do)**alpha*exp(-(alpha/g)*(D/Do)**g)",
+             "g_water":               "size dist  param g for liquid",
+             "alpha_ice":             "size distribution shape parameter alpha for ice",
+             "g_ice":                 "size distribution parameter g for ice",
+             "or":                    "alt size distribution "
+             },
+         "oconnor_gamma":{
+             "alpha_water":           "size distribution shape parameter alpha for liquid, ~ (D/Do)**alpha*exp(-(3.67-alpha)*D/Do)",
+             "alpha_ice":             "size distribution shape parameter alpha for ice"
+             }
+      },
+      "zeta":                  "exponent describing vertical thickness of  ice crystals, h = Dr * (D/Dr)**zeta",
+      "ext_source":            "when Radar_model == Rayleigh----direct extinction or bs/p180 or Mie adusted bs/p180, 'ext'|'bs/p180'|'adjusted_bs/p180'",
+      "p180_ice":              "value of p180/4pi used to compute ice extinction when ext_source = bs/p180",
+      "p180_water":             "value of p180/4pi",
+      "background_aerosol_ext":"extinction due to aerosols undetected by radar (1/m)",
+      "type":                  "particle type, if=='rain', don't display ice parameters on size plots",
+      "radar_model       ":    "Use Rayleigh or Mie model to calculate return from rain, 'Rayleigh'|'Mie'", 
+      "Dr":                    "Ice crystal power aspect ratio power law scaling diameter--particles of this diameter are spherical"
+   }
+}

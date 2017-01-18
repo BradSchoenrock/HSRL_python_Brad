@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+from datetime import datetime
+import os, os.path
+import sys
+
+# hsrl_tidy:  tidy up a specified data directory so only current data is
+# stored in the YYYY/MM/DD directories
+
+def process_dirs(data_dir, backup_dir, year_range, month_range, last_day=31):
+    for year in year_range:
+        saveYearDir = os.path.join(backup_dir,"%04d"%(year))
+        # create the 'save' directory, if necessary
+        if not os.path.exists(saveYearDir):
+            os.mkdir(saveYearDir)
+        for month in month_range:
+            monthDir = os.path.join(data_dir,"%04d/%02d" %(year,month))
+            if os.path.exists(monthDir):
+                for day in range(1, last_day+1):
+                    dayDir = os.path.join(data_dir, "%04d/%02d/%02d" % (year,month,day))
+                    if os.path.exists(dayDir):
+                        saveDay = os.path.join(saveYearDir, "%02d/%02d"%(month,day))
+                        print 'renaming %s to %s' % (dayDir, saveDay)
+			try:
+				os.renames(dayDir, saveDay)
+			except OSError, e:
+				print 'Skipping: ', saveDay
+
+
+def hsrl_tidy(data_dir, backup_dir):
+    # data_dir is the directory containing YYYY directories
+    
+    # get the current date.
+    now = datetime.utcnow()
+
+    # process prior years
+    process_dirs(data_dir, backup_dir, range(now.year-10, now.year), range(1, 13))
+
+    # process all months prior to current month of the current year
+    process_dirs(data_dir, backup_dir, range(now.year, now.year+1), range(1, now.month))
+
+    # process days of current month before today
+    process_dirs(data_dir, backup_dir, range(now.year, now.year+1) , range( now.month,now.month+1), 
+                 now.day-1)
+    
+            
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print "usage %s original_dir backup_dir" % sys.argv[0]
+        sys.exit(1)
+    hsrl_tidy(sys.argv[1], sys.argv[2])
+                           
+                         
+
+
+    
+
