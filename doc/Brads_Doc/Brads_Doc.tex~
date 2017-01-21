@@ -1,0 +1,34 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{cite}
+
+\begin{document}
+
+\author{Brad Schoenrock} 
+\title{Documentation of the HSRL python data processing code}
+\maketitle
+
+The purpose of this document is to aid in my (and others) understanding of the inner workings of the HSRL data processing taking place in the practical operation of the HSRL by NCAR. The goal of this work is to be able to maintain the software which is performing this data processing while replacing it with C++ processing for efficiency and maintainability.
+
+\section{Introduction}
+\label{SECTION-Introduction}
+
+The High Spectral Resolution Lidar (HSRL) is a system that can be deployed on the National Science Foundation/NCAR HIAPER Gulfstream V (GV) aircraft or in a customized shipping container to study atmospheric phenomena around the world. The Gulfstream V High Spectral Resolution Lidar (G5-HSRL) is an eye-safe calibrated lidar system that can measure back scatter cross section, extinction and depolarization properties of atmospheric aerosols and clouds~\cite{HSRLpage}.
+
+The HSRL was originally designed and built by the University of Wisconsin Lidar Group. This group also provided some data processing code in MATLAB, and later switched to python to suit its needs. One function of the UW processing is that it provides real time and archived data which can be viewed at the GVHSRL in Madison WI website. Scientists have expressed interest in keeping this functionality and on improving the error estimation on the extinction as a measure of data quality. 
+
+\section{Python}
+\label{SECTION-python}
+
+To begin there is a wiki describing how to set up the python environment nessicary for the execution of the python processing code~\cite{PythonEnvWiki}. 
+
+\section{HSRL2Radx}
+\label{SECTION-HSRL2Radx}
+
+
+\newpage
+
+
+\bibliography{bibmain}{}
+\bibliographystyle{plain}
+
+\end{document}

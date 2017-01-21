@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+
+\bibitem{HSRLpage}
+UCAR/NCAR Earth~Observing Laboratory and University of~Wisconsin.
+\newblock High spectral resolution lidar for the gulfstream-v; g5-hsrl, 2010.
+
+\bibitem{PythonEnvWiki}
+Joe VanAndel.
+\newblock Creating a python environment for hsrl python.
+
+\end{thebibliography}
