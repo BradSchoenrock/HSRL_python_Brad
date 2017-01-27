@@ -201,6 +201,8 @@ class Rti(object):
             filterclasses and filterparams --- in-order lists of classes and initialziation parameters respectively to append to the dpl frame stream before accumulation
             fullfilterclasses and fillfilterparams --- in-order lists of classes and initialziation parameters respectively to append to the dpl frame stream before accumulation
         """
+        
+        print "*****************hi******************"
 
         self.calibration_overrides=None
         self.libs=OrderedDict()
@@ -1388,12 +1390,15 @@ class Rti(object):
         return
 
     def write_netcdf(self,tag=None,netcdf_format=None,output_dir=None):
-        print
-        print
-        print
+        print '\n'
+        print '\n'
+        print '\n'
         print 'entering write_netcdf------------------------------------'
         print 'usage: write_netcdf(tag=None,netcdf_format=None,output_dir=None)'
-        print
+        print "i am getting here &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        print '\n'
+        print '\n'
+        print '\n'
         
         timerange=[self.start_time,self.start_time+self.delta_t]
         start_time_str = timerange[0].strftime("%Y%m%dT%H%M")
@@ -1406,7 +1411,14 @@ class Rti(object):
         else:
             filename=self.instrument +'_'+start_time_str \
                 +'_' + end_time_str+'_' +tag+'.nc'
-
+            
+        print '\n'
+        print '\n'
+        print "tag is "
+        print tag
+        print '\n'
+        print '\n'
+           
         if netcdf_format is None:
             if self.config is None:
                 raise RuntimeError('Need netcdf_format parameter')

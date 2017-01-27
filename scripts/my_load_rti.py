@@ -6,9 +6,11 @@ from maestro.rti_maestro import Rti
 #print """
 #sample run:
 
-r=Rti(instruments= 'gvhsrl',start_time = '29-jul-15 19:30', 
-plot_length=0.5, min_alt=1.5, max_alt=15, mon_norm_alt=2.1, 
-display='bm_plots.json')
+
+r = Rti('gvhsrl', '29-jul-15 19:30', '20:00:00', 0, 15, display='bm_plots.json',t_res={'manual':15.0},z_res={'manual':30})
+
+r.write_netcdf(netcdf_format='bm_hsrl_cfradial.cdl', tag='', output_dir='/tmp')
+
 #"""
 
 # default 04-Feb-12 14:00

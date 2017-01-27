@@ -150,6 +150,7 @@ lg_dpl_toolbox/core/CDL.py
 lg_dpl_toolbox/core/CDL2NetCDF4.py
 lg_dpl_toolbox/core/__init__.py
 lg_dpl_toolbox/core/archival.py
+lg_dpl_toolbox/core/tmpcache_optimizedlextab_brads.py
 lg_dpl_toolbox/dpl/ARMNarrator.py
 lg_dpl_toolbox/dpl/NetCDFZookeeper.py
 lg_dpl_toolbox/dpl/TimeSource.py

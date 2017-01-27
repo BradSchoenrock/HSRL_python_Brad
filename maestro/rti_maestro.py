@@ -201,6 +201,8 @@ class Rti(object):
             filterclasses and filterparams --- in-order lists of classes and initialziation parameters respectively to append to the dpl frame stream before accumulation
             fullfilterclasses and fillfilterparams --- in-order lists of classes and initialziation parameters respectively to append to the dpl frame stream before accumulation
         """
+        
+        print "*****************hi******************"
 
         self.calibration_overrides=None
         self.libs=OrderedDict()
@@ -1388,13 +1390,22 @@ class Rti(object):
         return
 
     def write_netcdf(self,tag=None,netcdf_format=None,output_dir=None):
-        print
-        print
-        print
+        print '\n'
+        print '\n'
         print 'entering write_netcdf------------------------------------'
         print 'usage: write_netcdf(tag=None,netcdf_format=None,output_dir=None)'
-        print
-        
+        print "tag is "
+        print tag
+        print "netcdf_format is "
+        print netcdf_format
+        print "output_dir is "
+        print output_dir
+        print '\n'
+        print '\n'
+
+
+
+
         timerange=[self.start_time,self.start_time+self.delta_t]
         start_time_str = timerange[0].strftime("%Y%m%dT%H%M")
         end_time_str = timerange[-1].strftime("%Y%m%dT%H%M")
@@ -1406,7 +1417,8 @@ class Rti(object):
         else:
             filename=self.instrument +'_'+start_time_str \
                 +'_' + end_time_str+'_' +tag+'.nc'
-
+            
+                  
         if netcdf_format is None:
             if self.config is None:
                 raise RuntimeError('Need netcdf_format parameter')
@@ -1677,6 +1689,20 @@ class Rti(object):
             return {prefix:content}
 
     def makeNewNCOutputFor(self,framestream,template,filename):
+
+        print '\n'
+        print '\n'
+        print 'entering makeNewNCOutputFor '
+        print "framestream "
+        print framestream
+        print "template "
+        print template
+        print "filename "
+        print filename
+        print '\n'
+        print '\n'
+
+        
         import lg_dpl_toolbox.dpl.dpl_artists as artists
         output=None
         attrs=OrderedDict()
