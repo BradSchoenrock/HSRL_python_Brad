@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage{cite}
 
 \begin{document}
@@ -7,7 +7,20 @@
 \title{Documentation of the HSRL python data processing code}
 \maketitle
 
-The purpose of this document is to aid in my (and others) understanding of the inner workings of the HSRL data processing taking place in the practical operation of the HSRL by NCAR. The goal of this work is to be able to maintain the software which is performing this data processing while replacing it with C++ processing for efficiency and maintainability.
+\begin{abstract}
+Documentation - what a neat concept.
+\newline
+\newline
+---------------------------------
+\newline
+\newline
+The purpose of this document is to aid in my (and others) understanding of the inner workings of the HSRL data processing taking place in the practical operation of the HSRL by NCAR. The goal of this work is to develop maintainable software in C++ to replace the current Python framework which is poorly understood and maintained. 
+
+\end{abstract}
+
+\tableofcontents
+
+\newpage
 
 \section{Introduction}
 \label{SECTION-Introduction}
@@ -16,113 +29,11 @@ The High Spectral Resolution Lidar (HSRL) is a system that can be deployed on th
 
 The HSRL was originally designed and built by the University of Wisconsin Lidar Group. This group also provided some data processing code in MATLAB, and later switched to python to suit its needs. One function of the UW processing is that it provides real time and archived data which can be viewed at the GVHSRL in Madison WI website. Scientists have expressed interest in keeping this functionality and on improving the error estimation on the extinction as a measure of data quality. 
 
-\section{Python}
-\label{SECTION-python}
+\input{Python.tex}
 
-To begin there is a wiki describing how to set up the python environment nessicary for the execution of the python processing code~\cite{PythonEnvWiki}. 
+\input{Commands.tex}
 
-
-The HSRL\_Python package can be checked out from the NCAR GitHub here: 
-
-https://github.com/NCAR/hsrl\_python
-\newline
-\newline
-Also of interest are the following repositories: 
-
-https://github.com/NCAR/hsrl\_dpl\_tools
-
-https://github.com/NCAR/hsrl\_configuration
-
-https://github.com/NCAR/hsrl\_instrument
-\newline
-\newline
-I have a personal copy with some edits here aimed at probing for understanding: 
-
-https://github.com/BradSchoenrock/HSRL\_python\_Brad
-\newline
-\newline
-
-\subsection{the data processing}
-\label{SECTION-Data-Processing}
-
-The data processing begins with some control scripts hsrl\_dq and cset-cfradial.py which can be used to generate plots and create some Pseudo CFRadial files respectivly. These call functions in the python codebase which start the processing from Raw NetCDF files which are located on /scr/eldora1/HSRL\_data. The first functions called are in maestro/rti\_maestro.py. 
-
-\subsubsection{write\_netcdf}
-\label{SECTION-writenetcdf}
-
-This function sanatizes some inputs, and acts as a switch for different lidar setups. Ultimitly it calls another function called makeNewNCOutputFor and pasess it the format of files and directory locations. 
-
-\subsubsection{makeNewNCOutputFor}
-\label{SECTION-makeNewNCOutputFor}
-
-This function takes in a framestream (which is what?) as well as format and file location for output. 
-
-There are some try except statements in here which are not clear why they are needed. 
-
-This function has some strange lines of python which confuse me. 
-
-Line 1735: if True:\#not cfradial: then it does stuff. Why the if true statement? 
-
-Line 1753: loop which does nothing in it (just a pass), but seems to be doing all the writing. The resulting CFRad file has no actual data in it if this is commented out. In the for loop it is itterating over an instance of the class dpl\_netcdf\_artist which is found in lg\_dpl\_toolbox/dpl/dpl\_artists.py. 
-
-This is the line for reference. 
-
-\noindent for f in artists.dpl\_netcdf\_artist(framestream,template,outputfilename=filename,output=output,forModule=[sys.modules[\_\_name\_\_],artists],addAttributes=attrs):
-
- pass
-
-\subsubsection{dpl\_netcdf\_artist}
-\label{SECTION-dplnetcdfartist}
-
-\section{HSRL2Radx}
-\label{SECTION-HSRL2Radx}
-
-
-\section{Hawkeye}
-\label{SECTION-Hawkeye}
-
-\newpage
-
-\section{Commands}
-\label{SECTION-Commands}
-
-
-
-
-Raw NetCDF files to Pseudo CFRadial files
-
-Python code 
-
-./scripts/cset\-cfradial.py 
-\newline
-\newline
-
-
-
-Pseudo CFRadial files to CFradial
-
-Hsrl2Radx
-
-/h/eol/brads/git/hsrl\_configuration/projDir/ingest/params
-
-Hsrl2Radx -params Hsrl2Radx.test -debug -f /tmp/gvhsrl\_20150729T1930\_20150729T2000.nc
-\newline
-\newline
-
-
-CFRadial to HawkEye display
-
-/h/eol/brads/test/display/params
-
-HawkEye -params HawkEye.hsrl-brad
-\newline
-\newline
-
-See the contents of a NETCDF file
-
-ncdump gvhsrl\_20150729T1930\_20150729T2000.nc | less
-
-
+\input{Misc.tex}
 
 \newpage
 

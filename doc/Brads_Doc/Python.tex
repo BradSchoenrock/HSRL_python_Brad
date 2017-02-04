@@ -1,0 +1,69 @@
+
+\chapter{Python}
+\label{SECTION-python}
+
+To begin there is a wiki describing how to set up the python environment nessicary for the execution of the python processing code~\cite{PythonEnvWiki}. 
+
+
+The HSRL\_Python package can be checked out from the NCAR GitHub here: 
+
+https://github.com/NCAR/hsrl\_python
+\newline
+\newline
+Also of interest are the following repositories: 
+
+https://github.com/NCAR/hsrl\_dpl\_tools
+
+https://github.com/NCAR/hsrl\_configuration
+
+https://github.com/NCAR/hsrl\_instrument
+\newline
+\newline
+I have a personal copy with some edits here aimed at probing for understanding: 
+
+https://github.com/BradSchoenrock/HSRL\_python\_Brad
+\newline
+\newline
+
+\section{the python data processing}
+\label{SECTION-Data-Processing}
+
+The data processing begins with some control scripts hsrl\_dq and cset-cfradial.py which can be used to generate plots and create some Pseudo CFRadial files respectivly. These call functions in the python codebase which start the processing from Raw NetCDF files which are located on /scr/eldora1/HSRL\_data. The first functions called are in maestro/rti\_maestro.py. 
+
+\subsection{write\_netcdf}
+\label{SECTION-writenetcdf}
+
+This function sanatizes some inputs, and acts as a switch for different lidar setups. Ultimitly it calls another function called makeNewNCOutputFor and pasess it the format of files and directory locations. 
+
+\subsection{makeNewNCOutputFor}
+\label{SECTION-makeNewNCOutputFor}
+
+This function takes in a framestream (which is what?) as well as format and file location for output. 
+
+There are some try except statements in here which are not clear why they are needed. 
+
+This function has some strange lines of python which confuse me. 
+
+Line 1735: if True:\#not cfradial: then it does stuff. Why the if true statement? 
+
+Line 1753: loop which does nothing in it (just a pass), but seems to be doing all the writing. The resulting CFRad file has no actual data in it if this is commented out. In the for loop it is itterating over an instance of the class dpl\_netcdf\_artist which is found in lg\_dpl\_toolbox/dpl/dpl\_artists.py. 
+
+This is the line for reference. 
+
+\noindent for f in artists.dpl\_netcdf\_artist(framestream,template,outputfilename=filename,output=output,forModule=[sys.modules[\_\_name\_\_],artists],addAttributes=attrs):
+
+ pass
+
+\subsection{dpl\_netcdf\_artist}
+\label{SECTION-dplnetcdfartist}
+
+This is a class being called by makeNewNCOutputFor and has several functions.  \_\_init\_\_ for initialization, acceptableMetaframe, \_\_opentemplate, render, and \_\_del\_\_. All of these functions seem nessicary for getting full and properly formatted output, some of which are being called multiple times for unknown reasons. 
+
+\section{HSRL2Radx}
+\label{SECTION-HSRL2Radx}
+
+
+\section{Hawkeye}
+\label{SECTION-Hawkeye}
+
+\newpage

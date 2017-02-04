@@ -1,0 +1,41 @@
+
+\chapter{Commands}
+\label{SECTION-Commands}
+
+
+
+
+Raw NetCDF files to Pseudo CFRadial files
+
+Python code 
+
+./scripts/cset\-cfradial.py 
+\newline
+\newline
+
+
+
+Pseudo CFRadial files to CFradial
+
+Hsrl2Radx
+
+/h/eol/brads/git/hsrl\_configuration/projDir/ingest/params
+
+Hsrl2Radx -params Hsrl2Radx.test -debug -f /tmp/gvhsrl\_20150729T1930\_20150729T2000.nc
+\newline
+\newline
+
+
+CFRadial to HawkEye display
+
+/h/eol/brads/test/display/params
+
+HawkEye -params HawkEye.hsrl-brad
+\newline
+\newline
+
+See the contents of a NETCDF file
+
+ncdump gvhsrl\_20150729T1930\_20150729T2000.nc | less
+
+

@@ -163,6 +163,7 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
     def __init__(self,framestream,template,outputfilename=None,format=None,usecfradial=None,
         selected_bindings=None,output=None, 
         basetime=None,**kwargs):
+        print "i'm in init"
         super(dpl_netcdf_artist,self).__init__(framestream)
         self.template=template
         self.outputfilename=outputfilename
@@ -199,8 +200,10 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
             self.templateargs['withBasetime']=basetime
         if self.acceptableMetaframe(framestream.provides):
             self.__opentemplate(framestream.provides)
+        print "i'm done with init" 
 
     def acceptableMetaframe(self,metaframe):
+        print "i'm in acceptableMetaframe"
         if not isinstance(metaframe,dict):
             return False
         if 'shape' in metaframe:
@@ -209,8 +212,10 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
         if len(keys)==0:
             return False
         return self.acceptableMetaframe(metaframe[keys[0]])
+        print "i'm done with acceptableMetaframe" 
 
     def __opentemplate(self,metaframe):
+        print "i'm in opentemplate" 
         if self.outnetcdf==None:
             from netCDF4 import Dataset
             self.outnetcdf=Dataset(self.outputfilename,'w',clobber=True,format=self.format)
@@ -223,8 +228,10 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
             self.nctemplate=dpl_ctnc.dpl_create_templatenetcdf(self.template,self.outnetcdf,metaframe#,cfradial=self.cfradial
                 ,bindings_to_keep=selvar,**self.templateargs)#withUnlimited=self.withUnlimited,withBasetime=self.basetime,addAttributes=self.attributes,
 #                group=self.group,forModule=self.modules)
+        print "i'm done with opentemplate" 
 
     def render(self):
+        print "i'm in render"
         for frame in self.framestream:
             if frame==None:
                 yield frame
@@ -237,8 +244,10 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
                 self.nctemplate.appendtemplatedata(frame)
             self.outnetcdf.sync()
             yield frame
+        print "i'm done with render" 
 
     def __del__(self):
+        print "i'm in del"
         # oddly enough, __del__ can be called with an incomplete object.
         # don't assume any attributes actually exist
         if  hasattr(self, 'nctemplate') and self.nctemplate!=None:
@@ -246,6 +255,7 @@ class dpl_netcdf_artist(dplkit.role.artist.aArtist):
             
         if hasattr(self, 'outnetcdf') and self.outnetcdf and self.willclose:
             self.outnetcdf.close()
+        print "i'm done with del"
 
 
 

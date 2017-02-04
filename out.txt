@@ -1,0 +1,1048 @@
+./hsrl/data_stream/input_translators.py:82: RuntimeWarning: invalid value encountered in greater
+  raw.filtered_energy[raw.filtered_energy > 1e10] = np.NaN
+./hsrl/data_stream/input_translators.py:83: RuntimeWarning: invalid value encountered in greater
+  raw.nonfiltered_energy[raw.nonfiltered_energy > 1e10] = np.NaN
+./hsrl/data_stream/input_translators.py:276: RuntimeWarning: invalid value encountered in greater
+  =np.NaN
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+./atmospheric_profiles/dpl/dpl_temperature_profiles.py:181: RuntimeWarning: invalid value encountered in greater_equal
+  realmask=numpy.logical_and(realmask,v>=goodrange[0])
+./atmospheric_profiles/dpl/dpl_temperature_profiles.py:183: RuntimeWarning: invalid value encountered in less_equal
+  realmask=numpy.logical_and(realmask,v<=goodrange[1])
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+*****************hi******************
+cal_file_reader: opening  /h/eol/brads/code/HSRL_python_Brad/hsrl/config/calvals_gvhsrl.txt
+cal_file_reader: opening  /h/eol/brads/code/HSRL_python_Brad/hsrl/config/calvals_gvhsrl.txt
+fetching display info from  bm_plots.json
+using RTI config /h/eol/brads/hsrl_config/rti_default_config.json
+VRS SAMPLING FREQUENCY:  0:05:00
+Got latitude stream
+ new raw hsrl window is  2015-07-29 19:30:00  to  2015-07-29 20:00:00
+datafile    /scr/eldora1/HSRL_data/2015/07/29/raw/gvhsrl_20150729T190000_data_fl1.nc
+read in raw frame  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:59:58.749937], 1200 steps, 1.5 seconds avg per>>
+getting soundings for  gvhsrl {'chunk_end_time': datetime.datetime(2015, 7, 29, 20, 0), 'rs_constants': {'installation': 'airborne', 'next_cal_time': datetime.datetime(2015, 9, 1, 0, 0), 'sounding_id_units': None, 'longitude': -121.298, 'latitude_units': 'deg N', 'longitude_units': 'deg E', 'sounding_type_units': None, 'installation_units': None, 'latitude': 38.554, 'prior_cal_time': datetime.datetime(2015, 7, 1, 0, 0), 'sounding_type': 'virtual', 'sounding_id': 'DNR'}, 'chunk_start_time': datetime.datetime(2015, 7, 29, 19, 30)}
+VRS SAMPLING FREQUENCY:  0:05:00
+Got latitude stream
+read_baseline: theTime =  2015-07-29 19:30:00
+index=  48  baseline energy (mJ/shot)=  0.05917
+baseline energy =  0.05917
+#profile data from 22-Jun-15 16:30 -->20:14 UTC
+#ave energy per shot= 0.05917    mJ
+#bin_num  combined_hi   combined_lo    molecular  crosspol    mol_I2A   comb_1064
+
+ 
+************WARNING---1064 energy not found in baseline file header ************
+*****using 532nm value ***** 
+
+baseline corr- /scr/eldora1/HSRL_data/2015/07/baseline_correction_20150601T0000.blc
+
+
+geofile------- /scr/eldora1/HSRL_data/2015/07/geofile_default_20150601T0000.geo
+
+
+no exponetial wfov correction applied
+
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:00
+Couldn't find cal file qw_baseline for gvhsrl time 2015.07.29T19:30:00
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+
+diff geofile-- /scr/eldora1/HSRL_data/2015/07/diff_default_geofile_20120201T0000.geo
+
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:00
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+
+absorption filter------------ /scr/eldora1/HSRL_data/2015/07/i2-default-scan-20150701T0000.cal
+
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:00
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:00
+New cal vectors read at  2015-07-29 19:30:00
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.142095  seconds
+Yielding calframe  2015-07-29 19:30:00 2015-07-29 19:30:01 2015-07-29 19:30:00
+ prior window was  2015-07-29 19:30:00  to  2015-07-29 19:30:01 terminating at  2015-07-29 19:30:01 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>> None
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>>
+Now 14 intervals NOINC 2015-07-29 19:30:00 2015-07-29 19:33:43.752408
+ new window is  2015-07-29 19:30:00  to  2015-07-29 19:33:43.752408
+process_data: from 2015-07-29 19:30:00 to 2015-07-29 19:33:43
+time for dark correction =  0:00:00.008944
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.074323
+Mean QWP Rotation Rate in deg/s:   0.0
+
+
+entering mean_filter_setup
+
+getting soundings for  gvhsrl {'chunk_end_time': datetime.datetime(2015, 7, 29, 20, 0), 'rs_constants': {'installation': 'airborne', 'next_cal_tiWARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+./hsrl/calibration/calibration_utilities.py:579: RuntimeWarning: invalid value encountered in less
+  rs.circular_depol[rs.circular_depol < 0.0] = 0.0
+./hsrl/calibration/calibration_utilities.py:580: RuntimeWarning: invalid value encountered in greater
+  rs.circular_depol[rs.circular_depol > 3.0] = 3.0
+./lg_base/core/array_utils.py:404: RuntimeWarning: divide by zero encountered in divide
+  return super(Z_Array,self).__div__(other).__degrademean(other)
+./lg_base/core/array_utils.py:404: RuntimeWarning: invalid value encountered in divide
+  return super(Z_Array,self).__div__(other).__degrademean(other)
+./hsrl/data_stream/processing_utilities.py:1167: RuntimeWarning: invalid value encountered in less
+  temp[temp < mol_sn_threshhold] = np.NaN
+me': datetime.datetime(2015, 9, 1, 0, 0), 'sounding_id_units': None, 'longitude': -121.298, 'latitude_units': 'deg N', 'longitude_units': 'deg E', 'sounding_type_units': None, 'installation_units': None, 'latitude': 38.554, 'prior_cal_time': datetime.datetime(2015, 7, 1, 0, 0), 'sounding_type': 'virtual', 'sounding_id': 'DNR'}, 'chunk_start_time': datetime.datetime(2015, 7, 29, 19, 30)}
+VRS SAMPLING FREQUENCY:  0:05:00
+Got latitude stream
+read_baseline: theTime =  2015-07-29 19:30:00
+index=  48  baseline energy (mJ/shot)=  0.05917
+baseline energy =  0.05917
+#profile data from 22-Jun-15 16:30 -->20:14 UTC
+#ave energy per shot= 0.05917    mJ
+#bin_num  combined_hi   combined_lo    molecular  crosspol    mol_I2A   comb_1064
+
+ 
+************WARNING---1064 energy not found in baseline file header ************
+*****using 532nm value ***** 
+
+baseline corr- /scr/eldora1/HSRL_data/2015/07/baseline_correction_20150601T0000.blc
+
+
+geofile------- /scr/eldora1/HSRL_data/2015/07/geofile_default_20150601T0000.geo
+
+
+no exponetial wfov correction applied
+
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:00
+Couldn't find cal file qw_baseline for gvhsrl time 2015.07.29T19:30:00
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+
+diff geofile-- /scr/eldora1/HSRL_data/2015/07/diff_default_geofile_20120201T0000.geo
+
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:00
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+
+absorption filter------------ /scr/eldora1/HSRL_data/2015/07/i2-default-scan-20150701T0000.cal
+
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:00
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:00
+New cal vectors read at  2015-07-29 19:30:00
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.127239  seconds
+Yielding calframe  2015-07-29 19:30:00 2015-07-29 19:30:01 2015-07-29 19:30:00
+ prior window was  2015-07-29 19:30:00  to  2015-07-29 19:30:01 terminating at  2015-07-29 19:30:01 None
+ new raw hsrl window is  2015-07-29 19:30:00  to  2015-07-29 20:00:00
+datafile    /scr/eldora1/HSRL_data/2015/07/29/raw/gvhsrl_20150729T190000_data_fl1.nc
+read in raw frame  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:59:58.749937], 1200 steps, 1.5 seconds avg per>>
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>> None
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>>
+Now 14 intervals NOINC 2015-07-29 19:30:00 2015-07-29 19:33:43.752408
+ new window is  2015-07-29 19:30:00  to  2015-07-29 19:33:43.752408
+process_data: from 2015-07-29 19:30:00 to 2015-07-29 19:33:43
+time for dark correction =  0:00:00.008209
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.071850
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000018
+time for photon statistics =  0:00:00.000647
+ 
+    extinction computed with fixed window Savitzky_Golay filter
+    z_window width      =  200  (m)
+    t_window width      =  300  (sec)
+    polynomial order    =  1
+    min altitude applied =  0.0  (m)
+('Filter window is ', datetime.timedelta(0, 300), ' minimum of ', 3)
+getting soundings for  gvhsrl {'chunk_end_time': datetime.datetime(2015, 7, 29, 20, 0), 'rs_constants': {'installation': 'airborne', 'next_cal_time': datetime.datetime(2015, 9, 1, 0, 0), 'sounding_id_units': None, 'longitude': -121.298, 'latitude_units': 'deg N', 'longitude_units': 'deg E', 'sounding_type_units': None, 'installation_units': None,WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+/h/eol/brads/anaconda2/lib/python2.7/site-packages/numpy/lib/nanfunctions.py:675: RuntimeWarning: Mean of empty slice
+  warnings.warn("Mean of empty slice", RuntimeWarning)
+ 'latitude': 38.554, 'prior_cal_time': datetime.datetime(2015, 7, 1, 0, 0), 'sounding_type': 'virtual', 'sounding_id': 'DNR'}, 'chunk_start_time': datetime.datetime(2015, 7, 29, 19, 30)}
+VRS SAMPLING FREQUENCY:  0:05:00
+Got latitude stream
+read_baseline: theTime =  2015-07-29 19:30:00
+index=  48  baseline energy (mJ/shot)=  0.05917
+baseline energy =  0.05917
+#profile data from 22-Jun-15 16:30 -->20:14 UTC
+#ave energy per shot= 0.05917    mJ
+#bin_num  combined_hi   combined_lo    molecular  crosspol    mol_I2A   comb_1064
+
+ 
+************WARNING---1064 energy not found in baseline file header ************
+*****using 532nm value ***** 
+
+baseline corr- /scr/eldora1/HSRL_data/2015/07/baseline_correction_20150601T0000.blc
+
+
+geofile------- /scr/eldora1/HSRL_data/2015/07/geofile_default_20150601T0000.geo
+
+
+no exponetial wfov correction applied
+
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:00
+Couldn't find cal file qw_baseline for gvhsrl time 2015.07.29T19:30:00
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+
+diff geofile-- /scr/eldora1/HSRL_data/2015/07/diff_default_geofile_20120201T0000.geo
+
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:00
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+
+absorption filter------------ /scr/eldora1/HSRL_data/2015/07/i2-default-scan-20150701T0000.cal
+
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:00
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:00
+New cal vectors read at  2015-07-29 19:30:00
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.129916  seconds
+Yielding calframe  2015-07-29 19:30:00 2015-07-29 19:30:01 2015-07-29 19:30:00
+ prior window was  2015-07-29 19:30:00  to  2015-07-29 19:30:01 terminating at  2015-07-29 19:30:01 None
+ new raw hsrl window is  2015-07-29 19:30:00  to  2015-07-29 20:00:00
+datafile    /scr/eldora1/HSRL_data/2015/07/29/raw/gvhsrl_20150729T190000_data_fl1.nc
+read in raw frame  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:59:58.749937], 1200 steps, 1.5 seconds avg per>>
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>> None
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:30:00.252859, 2015-07-29 19:33:43.752408], 150 steps, 1.5 seconds avg per>>
+Now 14 intervals NOINC 2015-07-29 19:30:00 2015-07-29 19:33:43.752408
+ new window is  2015-07-29 19:30:00  to  2015-07-29 19:33:43.752408
+process_data: from 2015-07-29 19:30:00 to 2015-07-29 19:33:43
+time for dark correction =  0:00:00.008525
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.072055
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000017
+time for photon statistics =  0:00:00.000630
+read_baseline: theTime =  2015-07-29 19:30:01
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:01
+Couldn't find cal file qw_baseline for gvhsrl time 2015.07.29T19:30:01
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:01
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+ext window  2015-07-29 19:30:00 2015-07-29 19:32:15 19
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:01
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:01
+New cal vectors read a./hsrl/dpl/calibration/dpl_calibration.py:308: UserWarning: dpl_table_calibration trying to use 0-length window. source is behind
+  warnings.warn("dpl_table_calibration trying to use 0-length window. source is behind")
+./hsrl/filters/dpl_filtered_extinction.py:286: RuntimeWarning: invalid value encountered in log
+  *(r_inv.beta_r_backscat[:-start_pt]/r_inv.beta_r_backscat[start_pt:]))
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+./hsrl/filters/filtered_extinction.py:229: RuntimeWarning: invalid value encountered in log
+  *(beta_r_array[:,:-start_pt]/beta_r_array[:,start_pt:]))
+t  2015-07-29 19:30:01
+behind times 2015-07-29 20:00:00 2015-07-29 19:30:01 2015-07-29 19:30:01 2015-07-29 19:30:01
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+Yielding calframe  2015-07-29 19:30:01 2015-07-29 19:32:30.502577 2015-07-29 19:30:00
+ext window  2015-07-29 19:30:00 2015-07-29 19:32:30 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:32:45 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:33:00 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:33:15 19
+sounding= "NWP Virt" [ 29-Jul-15 19:35 ; 28.516700N -146.097000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.128455  seconds
+Yielding calframe  2015-07-29 19:32:30.502577 2015-07-29 19:37:31.001998 2015-07-29 19:35:00
+ prior window was  2015-07-29 19:33:43.752408  to  2015-07-29 19:37:31.001998 terminating at  2015-07-29 19:37:31.001998 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:33:45.252410, 2015-07-29 19:37:28.752005], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:33:30.252457, 2015-07-29 19:33:43.752408], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:33:45.252410, 2015-07-29 19:37:28.752005], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:33:43.752408 2015-07-29 19:37:28.752005
+ new window is  2015-07-29 19:33:43.752408  to  2015-07-29 19:37:28.752005
+process_data: from 2015-07-29 19:33:43 to 2015-07-29 19:37:28
+time for dark correction =  0:00:00.008356
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.072465
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000018
+time for photon statistics =  0:00:00.000631
+ext window  2015-07-29 19:30:00 2015-07-29 19:33:30 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:33:45 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:34:00 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:34:15 19
+ext window  2015-07-29 19:30:00 2015-07-29 19:34:30 19
+ext window  2015-07-29 19:30:15 2015-07-29 19:34:45 19
+ext window  2015-07-29 19:30:30 2015-07-29 19:35:00 19
+ext window  2015-07-29 19:30:45 2015-07-29 19:35:15 19
+ext window  2015-07-29 19:31:00 2015-07-29 19:35:30 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 900000.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 840000.]
+profiles DONE PROFILES**************
+ prior window was  2015-07-29 19:37:28.752005  to  2015-07-29 19:37:31.001998 terminating at  2015-07-29 19:37:31.001998 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:37:30.251977, 2015-07-29 19:41:13.751609], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:37:15.252037, 2015-07-29 19:37:28.752005], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:37:30.251977, 2015-07-29 19:41:13.751609], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:37:28.752005 2015-07-29 19:41:13.751609
+ new window is  2015-07-29 19:37:28.752005  to  2015-07-29 19:41:13.751609
+process_data: from 2015-07-29 19:37:28 to 2015-07-29 19:41:13
+ext window  2015-07-29 19:31:15 2015-07-29 19:35:45 19
+ext window  2015-07-29 19:31:30 2015-07-29 19:36:00 19
+time for dark correction =  0:00:00.016307
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+ext window  2015-07-29 19:31:45 2015-07-29 19:36:15 19
+ext window  2015-07-29 19:32:00 2015-07-29 19:36:30 19
+ext window  2015-07-29 19:32:15 2015-07-29 19:36:45 19
+ext window  2015-07-29 19:32:30 2015-07-29 19:37:00 19
+cpol_diff_geometry_corrWARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+ection: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.112604
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000020
+time for photon statistics =  0:00:00.000732
+ext window  2015-07-29 19:32:45 2015-07-29 19:37:15 19
+ext window  2015-07-29 19:33:00 2015-07-29 19:37:30 19
+ext window  2015-07-29 19:33:15 2015-07-29 19:37:45 19
+ext window  2015-07-29 19:33:30 2015-07-29 19:38:00 19
+ext window  2015-07-29 19:33:45 2015-07-29 19:38:15 19
+ext window  2015-07-29 19:34:00 2015-07-29 19:38:30 19
+ext window  2015-07-29 19:34:15 2015-07-29 19:38:45 19
+ext window  2015-07-29 19:34:30 2015-07-29 19:39:00 19
+ext window  2015-07-29 19:34:45 2015-07-29 19:39:15 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 1799987.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 1739987.]
+profiles DONE PROFILES**************
+ext window  2015-07-29 19:35:00 2015-07-29 19:39:30 19
+ext window  2015-07-29 19:35:15 2015-07-29 19:39:45 19
+ext window  2015-07-29 19:35:30 2015-07-29 19:40:00 19
+ext window  2015-07-29 19:35:45 2015-07-29 19:40:15 19
+ext window  2015-07-29 19:36:00 2015-07-29 19:40:30 19
+ext window  2015-07-29 19:36:15 2015-07-29 19:40:45 19
+sounding= "NWP Virt" [ 29-Jul-15 19:40 ; 28.638700N -145.683000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.126962  seconds
+Yielding calframe  2015-07-29 19:37:31.001998 2015-07-29 19:42:31.501441 2015-07-29 19:40:01
+ prior window was  2015-07-29 19:41:13.751609  to  2015-07-29 19:42:31.501441 terminating at  2015-07-29 19:42:31.501441 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:41:15.251548, 2015-07-29 19:44:58.751181], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:41:00.251605, 2015-07-29 19:41:13.751609], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:41:15.251548, 2015-07-29 19:44:58.751181], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:41:13.751609 2015-07-29 19:44:58.751181
+ new window is  2015-07-29 19:41:13.751609  to  2015-07-29 19:44:58.751181
+process_data: from 2015-07-29 19:41:13 to 2015-07-29 19:44:58
+time for dark correction =  0:00:00.009866
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.073155
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000019
+time for photon statistics =  0:00:00.000696
+ext window  2015-07-29 19:36:30 2015-07-29 19:41:00 19
+ext window  2015-07-29 19:36:45 2015-07-29 19:41:15 19
+ext window  2015-07-29 19:37:00 2015-07-29 19:41:30 19
+ext window  2015-07-29 19:37:15 2015-07-29 19:41:45 19
+ext window  2015-07-29 19:37:30 2015-07-29 19:42:00 19
+ext window  2015-07-29 19:37:45 2015-07-29 19:42:15 19
+ext window  2015-07-29 19:38:00 2015-07-29 19:42:30 19
+ext window  2015-07-29 19:38:15 2015-07-29 19:42:45 19
+ext window  2015-07-29 19:38:30 2015-07-29 19:43:00 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 2699984.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 2639984.]
+profiles DONE PROFILES**************
+ext window  2015-07-29 19:38:45 2015-07-29 19:43:15 19
+ext window  2015-07-29 19:39:00 2015-07-29 19:43:30 19
+ext window  2015-07-29 19:39:15 2015-07-29 19:43:45 19
+ext window  2WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+015-07-29 19:39:30 2015-07-29 19:44:00 19
+ext window  2015-07-29 19:39:45 2015-07-29 19:44:15 19
+ext window  2015-07-29 19:40:00 2015-07-29 19:44:30 19
+sounding= "NWP Virt" [ 29-Jul-15 19:45 ; 28.647400N -145.224000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.125749  seconds
+Yielding calframe  2015-07-29 19:42:31.501441 2015-07-29 19:47:32.000956 2015-07-29 19:45:01
+ prior window was  2015-07-29 19:44:58.751181  to  2015-07-29 19:47:32.000956 terminating at  2015-07-29 19:47:32.000956 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:45:00.251248, 2015-07-29 19:48:43.750810], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:44:45.251239, 2015-07-29 19:44:58.751181], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:45:00.251248, 2015-07-29 19:48:43.750810], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:44:58.751181 2015-07-29 19:48:43.750810
+ new window is  2015-07-29 19:44:58.751181  to  2015-07-29 19:48:43.750810
+process_data: from 2015-07-29 19:44:58 to 2015-07-29 19:48:43
+time for dark correction =  0:00:00.008631
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.073134
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000018
+time for photon statistics =  0:00:00.000639
+ext window  2015-07-29 19:40:15 2015-07-29 19:44:45 19
+ext window  2015-07-29 19:40:30 2015-07-29 19:45:00 19
+ext window  2015-07-29 19:40:45 2015-07-29 19:45:15 19
+ext window  2015-07-29 19:41:00 2015-07-29 19:45:30 19
+ext window  2015-07-29 19:41:15 2015-07-29 19:45:45 19
+ext window  2015-07-29 19:41:30 2015-07-29 19:46:00 19
+ext window  2015-07-29 19:41:45 2015-07-29 19:46:15 19
+ext window  2015-07-29 19:42:00 2015-07-29 19:46:30 19
+ext window  2015-07-29 19:42:15 2015-07-29 19:46:45 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 3599984.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 3539984.]
+profiles DONE PROFILES**************
+ext window  2015-07-29 19:42:30 2015-07-29 19:47:00 19
+ext window  2015-07-29 19:42:45 2015-07-29 19:47:15 19
+ext window  2015-07-29 19:43:00 2015-07-29 19:47:30 19
+ext window  2015-07-29 19:43:15 2015-07-29 19:47:45 19
+ext window  2015-07-29 19:43:30 2015-07-29 19:48:00 19
+ext window  2015-07-29 19:43:45 2015-07-29 19:48:15 19
+sounding= "NWP Virt" [ 29-Jul-15 19:50 ; 28.654700N -144.751000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.127499  seconds
+Yielding calframe  2015-07-29 19:47:32.000956 2015-07-29 19:52:32.500517 2015-07-29 19:50:02
+ prior window was  2015-07-29 19:48:43.750810  to  2015-07-29 19:52:32.500517 terminating at  2015-07-29 19:52:32.500517 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:48:45.250854, 2015-07-29 19:52:28.750501], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:48:30.250877, 2015-07-29 19:48:43.750810], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:48:45.250854, 2015-07-29 19:52:28.750501], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:48:43.750810 2015-07-29 19:52:28.750501
+ new window is  2015-07-29 19:48:43.750810  to  2015-07-29 19:52:28.750501
+process_data: from 2015-07-29 19:48:43 to 2015-07-29 19:52:28
+time for dark correction =  0:00:00.009028
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.075824
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000018
+time for photon statistics =  0:00:00.000662
+ext window  2015-07-29 19:44:00 2015-07-29 19:48:30 19
+ext window  2015-07-29 19:44:15 2015-07-29 19:48:45 19
+ext window  2015-07-29 19:44:30 2015-07-29 19:49:00 19
+ext window  2015-07-29 19:44:45 2015-07-29 19:49:15 19
+ext window  2015-07-29 19:45:00 2015-07-29 19:49:30 19
+ext window  2015-07-29 19:45:15 2015-07-29 19:49:45 19
+ext window  2015-07-29 19:45:30 2015-07-29 19:50:00 19
+ext window  2015-07-29 19:45:45 2015-07-29 19:50:15 19
+ext window  2015-07-29 19:46:00 2015-07-29 19:50:30 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 4499976.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 4439976.]
+profiles DONE PROFILES**************
+ prior window was  2015-07-29 19:52:28.750501  to  2015-07-29 19:52:32.500517 terminating at  2015-07-29 19:52:32.500517 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:52:30.250463, 2015-07-29 19:56:13.750198], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:52:15.250427, 2015-07-29 19:52:28.750501], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:52:30.250463, 2015-07-29 19:56:13.750198], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:52:28.750501 2015-07-29 19:56:13.750198
+ new window is  2015-07-29 19:52:28.750501  to  2015-07-29 19:56:13.750198
+process_data: from 2015-07-29 19:52:28 to 2015-07-29 19:56:13
+ext window  2015-07-29 19:46:15 2015-07-29 19:50:45 19
+ext window  2015-07-29 19:46:30 2015-07-29 19:51:00 19
+ext window  2015-07-29 19:46:45 2015-07-29 19:51:15 19
+ext window  2015-07-29 19:47:00 2015-07-29 19:51:30 19
+time for dark correction =  0:00:00.014843
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+ext window  2015-07-29 19:47:15 2015-07-29 19:51:45 19
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+ext window  2015-07-29 19:47:30 2015-07-29 19:52:00 19
+airborne lidar
+time for convert_range_to_msl 0:00:00.090180
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000020
+time for photon statistics =  0:00:00.000696
+ext window  2015-07-29 19:47:45 2015-07-29 19:52:15 19
+ext window  2015-07-29 19:48:00 2015-07-29 19:52:30 19
+ext window  2015-07-29 19:48:15 2015-07-29 19:52:45 19
+ext window  2015-07-29 19:48:30 2015-07-29 19:53:00 19
+ext window  2015-07-29 19:48:45 2015-07-29 19:53:15 19
+ext window  2015-07-29 19:49:00 2015-07-29 19:53:30 19
+ext window  2015-07-29 19:49:15 2015-07-29 19:53:45 19
+ext window  2015-07-29 19:49:30 2015-07-29 19:54:00 19
+ext window  2015-07-29 19:49:45 2015-07-29 19:54:15 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 5399968.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 5339968.]
+profiles DONE PROFILES**************
+ext window  2015-07-29 19:50:00 2015-07-29 19:54:30 19
+ext window  2015-07-29 19:50:15 2015-07-29 19:54:45 19
+ext window  2015-07-29 19:50:30 2015-07-29 19:55:00 19
+ext window  2015-07-29 19:50:45 2015-07-29 19:55:15 19
+ext window  2015-07-29 19:51:00 2015-07-29 19:55:30 19
+ext window  2015-07-29 19:51:15 2015-07-29 19:55:45 19
+couldn't find sample_time in None
+sounding= "NWP Virt" [ 29-Jul-15 19:55 ; 28.660300N -144.273000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.157935  seconds
+Yielding calframe  2015-07-29 19:52:32.500517 2015-07-29 20:00:00 2015-07-29 19:55:02
+ prior window was  2015-07-29 19:56:13.750198  to  2015-07-29 20:00:00 terminating at  2015-07-29 20:00:00 None
+read in raw frame to mean <Time_Z_Group TIME <T_Array [2015-07-29 19:56:15.250179, 2015-07-29 19:59:58.749937], 150 steps, 1.5 seconds avg per>> <Time_Z_Group TIME <T_Array [2015-07-29 19:56:00.250160, 2015-07-29 19:56:13.750198], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  <Time_Z_Group TIME <T_Array [2015-07-29 19:56:15.250179, 2015-07-29 19:59:58.749937], 150 steps, 1.5 seconds avg per>>
+Now 15 intervals NOINC 2015-07-29 19:56:13.750198 2015-07-29 19:59:58.749937
+ new window is  2015-07-29 19:56:13.750198  to  2015-07-29 19:59:58.749937
+process_data: from 2015-07-29 19:56:13 to 2015-07-29 19:59:58
+time for dark correction =  0:00:00.009174
+Apply nadir gain adjustment
+nadir gain adj=  1.03
+cpol_diff_geometry_correction: NOTE: skipping cross polar geo correction - none available
+airborne lidar
+time for convert_range_to_msl 0:00:00.082360
+Mean QWP Rotation Rate in deg/s:   0.0
+time for qc_mask =  0:00:00.000027
+time for photon statistics =  0:00:00.000722
+ext window  2015-07-29 19:51:30 2015-07-29 19:56:00 19
+ext window  2015-07-29 19:51:45 2015-07-29 19:56:15 19
+ext window  2015-07-29 19:52:00 2015-07-29 19:56:30 19
+ext window  2015-07-29 19:52:15 2015-07-29 19:56:45 19
+ext window  2015-07-29 19:52:30 2015-07-29 19:57:00 19
+ext window  2015-07-29 19:52:45 2015-07-29 19:57:15 19
+ext window  2015-07-29 19:53:00 2015-07-29 19:57:30 19
+ext window  2015-07-29 19:53:15 2015-07-29 19:57:45 19
+ext window  2015-07-29 19:53:30 2015-07-29 19:58:00 19
+raw_profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 6299968.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 6239968.]
+profiles DONE PROFILES**************
+ prior window was  2015-07-29 19:59:58.749937  to  2015-07-29 20:00:00 terminating at  2015-07-29 20:00:00 None
+datafile    /scr/eldora1/HSRL_data/2015/07/29/raw/gvhsrl_20150729T200000_data_fl1.nc
+ext window  2015-07-29 19:53:45 2015-07-29 19:58:15 19
+ext window  2015-07-29 19:54:00 2015-07-29 19:58:30 19
+ext window  2015-07-29 19:54:15 2015-07-29 19:58:45 19
+ext window  2015-07-29 19:54:30 2015-07-29 19:59:00 19
+Raw HSRL stream is ended
+read in raw frame to mean None <Time_Z_Group TIME <T_Array [2015-07-29 19:59:45.249967, 2015-07-29 19:59:58.749937], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+trimmed  None
+***********timesource finished iterating
+Now 1 intervals INC 2015-07-29 19:59:58.749937 2015-07-29 20:00:00
+ new window is  2015-07-29 19:59:58.749937  to  2015-07-29 20:00:00
+process_data: from 2015-07-29 19:59:58 to 2015-07-29 20:00:00
+*************** remainder swap  <Time_Z_Group TIME <T_Array [2015-07-29 19:59:45.249967, 2015-07-29 19:59:58.749937], 10 steps, 1.5 seconds avg per>, ALT <Z_Array [0.0, 15000.0], 501 steps, 30.0 avg per>>
+Mean QWP Rotation Rate in deg/s:   0.0
+ext window  2015-07-29 19:54:45 2015-07-29 19:59:15 19
+time for qc_mask =  0:00:00.000023
+time for photon statistics =  0:00:00.000949
+ext window  2015-07-29 19:55:00 2015-07-29 19:59:30 19
+ext window  2015-07-29 19:55:15 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:55:30 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:55:45 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:56:00 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:56:15 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:56:30 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:56:45 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:57:00 2015-07-29 19:59:45 19
+ext window  2015-07-29 19:57:15 2015-07-29 19:59:45 19
+raw_profiles PROFILES*******************
+qc_mask has not been ./hsrl/dpl/calibration/dpl_calibration.py:379: UserWarning: retrieving HSRL_CXX attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending
+  warnings.warn("retrieving HSRL_CXX attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending")
+./hsrl/dpl/calibration/dpl_calibration.py:375: UserWarning: retrieving HSRL_SOUNDING attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending
+  warnings.warn("retrieving HSRL_SOUNDING attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending")
+./hsrl/dpl/calibration/dpl_calibration.py:261: UserWarning: Warning: retrieving HSRL_CAL attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending
+  warnings.warn("Warning: retrieving HSRL_CAL attribute is deprecated. It changes, so you should be using a data stream directly or indirectly. Detailed plan pending")
+/h/eol/brads/anaconda2/lib/python2.7/site-packages/matplotlib/scale.py:101: RuntimeWarning: invalid value encountered in less_equal
+  a[a <= 0.0] = 1e-300
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 7199961.]
+raw_profiles DONE PROFILES**************
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 7139961.]
+profiles DONE PROFILES**************
+ext window  2015-07-29 19:57:30 2015-07-29 19:59:45 19
+profiles PROFILES*******************
+qc_mask has not been applied to time averaged profiles
+Selecting all telescope pointing directions for profiles
+Total seeded shots for profile = [ 7199961.]
+profiles DONE PROFILES**************
+slice from display config 1.47 1.47 2.3
+<lg_base.formats.json_dictionary_utils.jsonListAccumulator object at 0x7f3cbbc99ad0>
+new entry for default 0
+<lg_base.formats.json_dictionary_utils.jsonListAccumulator object at 0x7f3cbbc99ad0>
+reusing default 0
+Showing images for HSRL subframe rs_mean
+got frame  rs_mean
+for timerange, using times and delta_t
+Masking is enabled, but no mask. available subframes are  ['rs_raw', 'rs_mean', 'times']
+Showing images for HSRL subframe profiles
+got frame  profiles
+for timerange, using start and width
+Masking is enabled, but no mask. available subframes are  ['profiles', 'times']
+widths should be None
+Showing images for HSRL subframe times
+couldn't find a time range
+Masking is enabled, but no mask. available subframes are  ['times']
+Showing images for HSRL subframe rs_inv
+got frame  rs_inv
+for timerange, using start and width
+1
+0
+0
+None
+0
+rendering backscat_image
+
+
+
+****************************************************************************
+entering show_all_profiles
+
+
+alprofiles artist has  []
+
+loop
+
+
+cmds-->
+        r.next()    r.cnext()       r.print_fig(#)   r.cal_gen('cal_type') 
+        r.clear()   r.list_vars()   r.inspect_data() r.print_mscat_defaults()
+        r.replot()  r.save_fig(#)   r.cmp_calfile()  r.print_particle_defaults()   
+        r.addplot() r.plot_model()  r.reprocess()    r.print_display_defaults()             
+        r.close()   r.cmp_aeronet() r.cal_scale()    r.print_hsrl_defaults()
+        r.loop()                    r.write_netcdf()
+
+        
+Matplotlib not interactive mode. calling ion()
+use process=False to have Rti initialize without processing
+
+
+
+
+entering write_netcdf------------------------------------
+usage: write_netcdf(tag=None,netcdf_format=None,output_dir=None)
+tag is 
+
+netcdf_format is 
+bm_hsrl_cfradial.cdl
+output_dir is 
+/tmp
+
+
+
+
+  /tmp/gvhsrl_20150729T1930_20150729T2000.nc
+writing cfradial format netcdf to location  /tmp
+
+
+
+
+entering makeNewNCOutputFor 
+framestream 
+<lg_dpl_toolbox.filters.fill.FillIn object at 0x7f3cbb4feb50>
+template 
+bm_hsrl_cfradial.cdl
+filename 
+/tmp/gvhsrl_20150729T1930_20150729T2000.nc
+
+
+
+
+getting soundings for  gvhsrl {'chunk_end_time': datetime.datetime(2015, 7, 29, 20, 0), 'rs_constants': {'installation': 'airborne', 'next_cal_time': datetime.datetime(2015, 9, 1, 0, 0), 'sounding_id_units': None, 'longitude': -121.298, 'latitude_units': 'deg N', 'longitude_units': 'deg E', 'sounding_type_units': None, 'installation_units': None, 'latitude': 38.554, 'prior_cal_time': datetime.datetime(2015, 7, 1, 0, 0), 'sounding_type': 'virtual', 'sounding_id': 'DNR'}, 'chunk_start_time': datetime.datetime(2015, 7, 29, 19, 30)}
+VRS SAMPLING FREQUENCY:  0:05:00
+Got latitude stream
+read_baseline: theTime =  2015-07-29 19:30:00
+index=  48  baseline energy (mJ/shot)=  0.05917
+baseline energy =  0.05917
+#profile data from 22-Jun-15 16:30 -->20:14 UTC
+#ave energy per shot= 0.05917    mJ
+#bin_num  combined_hi   combined_lo    molecular  crosspol    mol_I2A   comb_1064
+
+ 
+************WARNING---1064 energy not found in baseline file header ************
+*****using 532nm value ***** 
+
+baseline corr- /scr/eldora1/HSRL_data/2015/07/baseline_correction_20150601T0000.blc
+
+
+geofile------- /scr/eldora1/HSRL_data/2015/07/geofile_default_20150601T0000.geo
+
+
+no exponetial wfov correction applied
+
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:00
+Couldn't find WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tkel cannot be mapped to sonde variable
+Using name: tkel
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: tdry cannot be mapped to sonde variable
+Using name: tdry
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: alt cannot be mapped to sonde variable
+Using name: alt
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: rh cannot be mapped to sonde variable
+Using name: rh
+WARNING:virtual_radiosonde_source.vrsNarrator:gfs variable: pres cannot be mapped to sonde variable
+Using name: pres
+Traceback (most recent call last):
+  File "./maestro/rti_maestro.py", line 1746, in makeNewNCOutputFor
+    addAttributes=attrs):
+  File "./lg_dpl_toolbox/dpl/dpl_artists.py", line 202, in __init__
+    self.__opentemplate(framestream.provides)
+  File "./lg_dpl_toolbox/dpl/dpl_artists.py", line 229, in __opentemplate
+    ,bindings_to_keep=selvar,**self.templateargs)#withUnlimited=self.withUnlimited,withBasetime=self.basetime,addAttributes=self.attributes,
+  File "./lg_dpl_toolbox/dpl/dpl_create_templatenetcdf.py", line 331, in __init__
+    assert(self.setFileBasetime(withBasetime))
+  File "./lg_dpl_toolbox/dpl/dpl_create_templatenetcdf.py", line 382, in setFileBasetime
+    btv=self.getBasetime(require=False)
+  File "./lg_dpl_toolbox/dpl/dpl_create_templatenetcdf.py", line 355, in getBasetime
+    bt=v.variables['time_coverage_start']
+KeyError: 'time_coverage_start'
+cal file qw_baseline for gvhsrl time 2015.07.29T19:30:00
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+
+diff geofile-- /scr/eldora1/HSRL_data/2015/07/diff_default_geofile_20120201T0000.geo
+
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:00
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+
+absorption filter------------ /scr/eldora1/HSRL_data/2015/07/i2-default-scan-20150701T0000.cal
+
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:00
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:00
+New cal vectors read at  2015-07-29 19:30:00
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.128732  seconds
+Yielding calframe  2015-07-29 19:30:00 2015-07-29 19:30:01 2015-07-29 19:30:00
+read_baseline: theTime =  2015-07-29 19:30:01
+Couldn't find cal file n_geo for gvhsrl time 2015.07.29T19:30:01
+Couldn't find cal file qw_baseline for gvhsrl time 2015.07.29T19:30:01
+******qw_baseline file not found--no quarter wave plate angle corr applied******
+qw_baseline_file-- None
+Couldn't find cal file cpol_diff_geo for gvhsrl time 2015.07.29T19:30:01
+******cross_pol differential geo file was not found--no cross pol diff geo corr applied******
+
+cross pol diff geofile-- None
+
+no i2a_temp_table for  gvhsrl
+Couldn't find cal file pol for gvhsrl time 2015.07.29T19:30:01
+******pol_cal file not found--no quarter wave plate angle corr applied******
+pol_cal file------- None
+Couldn't find cal file i2offset for gvhsrl time 2015.07.29T19:30:01
+New cal vectors read at  2015-07-29 19:30:01
+behind times 2015-07-29 20:00:00 2015-07-29 19:30:01 2015-07-29 19:30:01 2015-07-29 19:30:01
+sounding= "NWP Virt" [ 29-Jul-15 19:30 ; 28.266800N -146.409000E ]
+Yielding calframe  2015-07-29 19:30:01 2015-07-29 19:32:30.502577 2015-07-29 19:30:00
+sounding= "NWP Virt" [ 29-Jul-15 19:35 ; 28.516700N -146.097000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.128701  seconds
+Yielding calframe  2015-07-29 19:32:30.502577 2015-07-29 19:37:31.001998 2015-07-29 19:35:00
+sounding= "NWP Virt" [ 29-Jul-15 19:40 ; 28.638700N -145.683000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.128828  seconds
+Yielding calframe  2015-07-29 19:37:31.001998 2015-07-29 19:42:31.501441 2015-07-29 19:40:01
+sounding= "NWP Virt" [ 29-Jul-15 19:45 ; 28.647400N -145.224000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.169196  seconds
+Yielding calframe  2015-07-29 19:42:31.501441 2015-07-29 19:47:32.000956 2015-07-29 19:45:01
+sounding= "NWP Virt" [ 29-Jul-15 19:50 ; 28.654700N -144.751000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.1288  seconds
+Yielding calframe  2015-07-29 19:47:32.000956 2015-07-29 19:52:32.500517 2015-07-29 19:50:02
+couldn't find sample_time in None
+sounding= "NWP Virt" [ 29-Jul-15 19:55 ; 28.660300N -144.273000E ]
+tenti_s6
+RBS computed with tenti_s6 spectrum
+tenti_s6 computed for  49  altitudes in  0.128529  seconds
+Yielding calframe  2015-07-29 19:52:32.500517 2015-07-29 20:00:00 2015-07-29 19:55:02
+i'm in init
+i'm in acceptableMetaframe
+i'm in acceptableMetaframe
+i'm in acceptableMetaframe
+i'm in acceptableMetaframe
+i'm in opentemplate
+templatename= bm_hsrl_cfradial.cdl
+dimension 1 sondenamelength is now 20 from CDL template.
+WARNING: variable sondenamelength doesn't match size
+dimension 1 i2header is now 1000 from CDL template.
+WARNING: variable i2header doesn't match size
+dimension 1 geoheader is now 1000 from CDL template.
+WARNING: variable geoheader doesn't match size
+exception occurred when trying to store calibration info
+i'm before confusing loop
+i'm in init
+i'm in acceptableMetaframe
+i'm in acceptableMetaframe
+i'm in acceptableMetaframe
+i'm in opentemplate
+templatename= bm_hsrl_cfradial.cdl
+dimension 0 profile_time is now 1 from CDL template.
+WARNING: dimension sweep already in output, likely from layared netcdf artists. skipping initialization
+WARNING: dimension range already in output, likely from layared netcdf artists. skipping initialization
+WARNING: dimension string_length_short already in output, likely from layared netcdf artists. skipping initialization
+WARNING: variable sweep_number already in output, likely from layared netcdf artists. skipping initialization
+WARNING: variable sweep_mode already in output, likely from layared netcdf artists. skipping initialization
+WARNING: variable fixed_angle already in output, likely from layared netcdf artists. skipping initialization
+WARNING: variable sweep_start_ray_index already in output, likely from layared netcdf artists. skipping initialization
+WARNING: variable sweep_end_ray_index already in output, likely from layared netcdf artists. skipping initialization
+i'm done with opentemplate
+i'm done with init
+i'm in render
+setting base time from  time
+f= 
+<Time_Z_Group TIME <T_Array [2015-07-29 19:30:00, 2015-07-29 19:59:45], 120 steps, 15.0 seconds avg per>>
+i'm done with render
+i'm in del
+i'm done with del
+i'm in del
+i'm done with del

@@ -1,0 +1,125 @@
+\chapter{Misc}
+\label{SECTION-Misc}
+
+
+-------------------------------------
+
+
+Hi Ed,
+Is there an option to write out the raw photon counts from each channel when writing a netcdf of processed data?  I see that it writes out the profile counts (time integrated as I understand), but what about the time resolved counts?
+
+Can you point me to where in the code write\_netcdf() resides?
+
+Thanks,
+Matt
+
+
+Hi Matt,
+
+The fields stored in the netcdf are configured by a “CDL” template file.
+
+I think NCAR usually uses the template lg\_dpl\_toolbox/config/hsrl\_cfradial.cdl . The fields in the file are bound to the runtime fields using the “dpl\_py\_binding” attribute.  It does look to me like the counts are in the template (e.g. netCDF field ‘molecular\_counts' bound to python's rs\_mean.molecular\_counts).  The parts in the ‘rs\_mean’ substructure match the same time axis as the inverted data, but are already corrected for dark count, afterpulse, and pileup. There is also rs\_mean.raw\_molecular\_counts for just pileup-corrected counts. The true raw form doesn’t exist on the final grid, or with a real altitude axis (different from the native range “distance-from-instrument” axis). The rs\_mean structure contains resampled data either by average or sum (photon and energy counts are always summed, making it statistically more sound).
+
+Does this help?
+
+-------------------------------------
+
+
+Joe and Ray:
+As I am trying to debug makearchiveimages.py, I realize that I simply don’t have any way to proceed w/o more explanation and documentation of how the code is intended to work.
+I’ve been examining this code for days, and stepping through it with the WingIDE debugger (which I highly recommend) and I’m still quite baffled how this code is supposed to work.
+
+
+
+Correct me if I’m wrong, but I don’t think that anyone else but Ray and Joe can maintain a significant amount of this code in its present state.  There needs to be much better documentation so other programmers can comprehend and maintain this code.
+
+I strongly suggest for all the classes in Picnic and DplKit (and in the older HSRL python code)
+
+       Each class needs a description of its intended use.
+       Each class method needs a description of its purpose and what object(s) it returns.
+       Each parameter of each method needs to be documented.
+       Each complex class should have examples of use along with test cases (using unittest, as was done for dplkit/simple/filter.py)
+
+We also need a more high level descriptions of how these classes are used together.
+
+
+ For example, in dplkit/role/decorator.py, I have little idea what any of the classes are trying to do, or what problem they are trying to solve.
+
+ 1) what is a nested frame description and why would I want/need to use it?
+
+ 2) what is the scopelockraiser protecting against?
+
+ 3) What does autoprovidenested accomplish?
+
+ 4) What does autoprovide accomplish?
+
+ 5) What do the methods “has\_requires" and “has\_provides" accomplish?
+
+ 6) Why does \_\_autoprovidesbase.\_\_call\_\_ contain both \_\_fakeIter\_\_ and \_\_iter\_\_ methods?
+ What problem does this technique solve?
+
+
+ Elsewhere in the code:
+
+ 7) In  DplKit/python/dplkit/role/librarian.py, the documentation for the search() method is very helpful in explaining how librarian, zookeeper, narrator interact.
+ 7a) It would be very helpful if this description were expanded to discuss the role of “artists"
+
+ 7b) Is this description consistent with how the hsrl.dpl.dpl\_hsrl class is coded?  dpl\_hsrl is derived from aLibrarian, but then creates an instance of HSRLLibrarian, which is also derived from ALibrarian
+
+ 8)  Why does
+ HSRLRawNarrator.read() yield pathnames for files that can't possibly contain the requested interval?
+ What's the point of generating/yielding data that wasn't asked for?
+
+ I am running makearchiveimage.py with the arguments "gvhsrl 2013.01.02.13-2013.01.02.18"
+ However, HSRLRawNarrator.read() yields:
+ {'path': u'/scr/eldora1/HSRL\_data/2013/01/02/raw/gvhsrl\_20130102T020002\_data\_fl1\_pol.nc', 'width': datetime.timedelta(0, 3960), 'start': datetime.datetime(2013, 1, 2, 2, 0, 2), 'filename': u'gvhsrl\_20130102T020002\_data\_fl1\_pol.nc’}
+
+ ‘gvhsrl\_20130102T020002\_data\_fl1\_pol.nc’ can not possibly contain data between 2013.01.02.13-2013.01.02.18
+
+ 9) In lg\_dpl\_toolbox/filters/substruct.py, I have no way of knowing what any of the classes are supposed to be used for.
+
+
+
+
+Joe Garcia writes:
+
+I’ve noticed that in many cases, the RTI Maestro object is what’s being used to interact with the processed data.  While this is the oldest and most interactive interface for processing HSRL data, it isn’t intended to be the most flexible or efficient. It’s mostly geared as a lab environment, which is why it does so much work at initialization to create images and hold on to intermediate data with the intent of allowing the user to decide what to do next.
+
+Underlying all of this are objects that we call ‘Actors’, in the grand scheme of a “Data Pot Luck”, or DPL.  For an example of what these are capable of doing, take a look at hsrl/dpl/dpl\_live.py . It’s a rudimentary but simple script that creates and uses actors the same way RTI does, but for a single use-case instead of one that is general or adaptive.  It initializes the HSRL processing engine, and feeds that into an ‘artist’ to make images, and iterates upon this continuously to create a much more efficient form of Rti’s loop() command.
+
+In this way, you can replace the image artist with a netcdf artist, provide a start and end time (so it’s not open-ended), and create a batch-process script without as much overhead as the Rti implementation.  Specifically, a deliberate script could skip making images and in-memory data accumulation, instead opting to dump the data chunk-by-chunk into a CFRadial file. Short of a bug or missing feature, additional manipulations of the data can be done by injecting additional “filter” actors, in the same way similar the ‘dpl\_window\_caching\_filter’ is used in the script, which does nothing more than maintain a rolling cache of the last couple hours, storing new frames while it drops the oldest. A filter simply consists of an object that iterates on a source actor, operates upon each frame, and yields the result for downstream actors to consume.
+
+The interfaces between actors aren’t very well defined or mature, but it is already useful to us.
+
+===========================
+More explanation about DPL frame streams
+
+Joe,
+
+1) with the DPL frame streams, a 'simple' frame would be a single time record with a flat namespace. A 'compound' frame is multiple time records in a flat namespace. on top of that, we have the idea of a 'complex' frame, where different compound parts are potentially at different time or altitude scales. These are generally frowned upon, but it is how the HSRL processing currently operates, which it does by 'nesting' structures within the frame structure. Breaking apart the monolithic black box from making these monolithic complex frames is something I've been progressively working to do, to the point of setting traps in the code to identify places where monolithic code style or frames are required, or else it would crash.
+
+2) first, this prevents multiple threads from trying to access the autogenerated 'provides' dictionary (see points 3,4) while it is being generated. We still have a problem that sometimes coding glitches will cause this generation to short circuit silently. I still have more to understand on why this happens, and why I can't get the resulting exception to properly reveal itself
+
+3,4) part of DPL framestreams is to expose at initialization time a dictionary describing the content of a frame. the specific protocol of this hasn't been decided yet, but at the very least, every value in the frame should have an entry in the provides dictionary. because the HSRL code dynamically changes its content depending on the deployment and instrument, knowing this structure a priori has become a moving target and near impossible. the autoprovide decorator will cause the provides dictionary to be created at the moment it is requested by running an iteration of the framestream, and describing the resulting frame into a dictionary. the autoprovide decorator allows only for a 1-level frame, with a given object type for its frame it is permitted to descend. autoprovidenested allows for multiple object types and multiple layers, with any instance of the identified object types to be descended into as a nested frame.
+
+5) this identifies a dpl primitive abstract class to have either a provides dictionary, requires dictionary, or both. the 'requires' dictionary is a future plan for DPL objects to document, and potentially validate automatically that the pipeline has the fields it needs and will work correctly.
+
+6) when the autoprovides starts an iterable instance for generating the provides, it retains that instance and the frame it had used to generate the description. when the host object is then iterated on for the normal processing, it checks if it has a retained iterable, and if it does, yields the already generated frame, and resumes the retained iterator. this avoids wasting time generating the first frame for a second time, which for HSRL data can be relatively rather time consuming.
+
+7b) no, this is not consistent with how it should be. My technique of having actors return actors is something Ray has voices opposition to, but has allowed it because another method of being able to execute a 'search' to yield an object that can be fully iterated on (meaning all parameters and runtime are accessible there), while still having actor-like meta data hasn't been described yet.
+
+8) the librarian usually errs on the side of inclusive behavior, leaving it up to the data consumer to ignore parts it won't or can't use. It is probably better that it omit records that couldn't possibly be useful, but if a data gap exists at the start of the interval, returning the prior record that is outside of the requested window may be used by an interpolator to extrapolate missing records, if such a dataflow were in place.
+
+9) this is part of documentation i've been needing to get back to, but never have any time to focus on actually getting it done.  as these classes get better implemented and documented in generally useful ways, they may get promoted to be a tool in dplkit.
+
+Please understand that these codebases are potentially under very dynamic development from week-to-week, often opting to get code that does a specific task, or progressively facilitates getting toward a goal. Because of that, the code is always growing faster than the documentation, so deliberate documentation would often become as vestigial as some code already has.  In the future, there's already been demonstrated desire to start a 'release' branch of tested code, which I need to find the time to start executing and gathering test cases for.
+
+The end goal currently is to get the HSRL code into a state where functional parts of the science code are decoupled, with clear scope to specific tasks, and in the process get DPLkit a trial by fire with the complex nature of the HSRL processing, figure out what does and doesn't work, and simplify the parts that can be matured into describable interfaces and protocols that aren't as spaghetti as they are currently. As that gets more general, we'll be able to have a more approachable set of modules that can be assembled to a processing engine, including external modules and instruments as scientists demand.
+
+--
+Joe Garcia
+Instrumentation Technologist
+UW Lidar Group
+University of Wisconsin - Madison
+
+On Mar 19, 2014, at 4:43 PM, Joe VanAndel <vanandel@ucar.edu> wrote:

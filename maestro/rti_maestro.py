@@ -1749,9 +1749,12 @@ class Rti(object):
             traceback.print_exc()
             print 'exception occurred when trying to store calibration info'
             pass
+            
+        print "i'm before confusing loop"
 
         for f in artists.dpl_netcdf_artist(framestream,template,outputfilename=filename,output=output,forModule=[sys.modules[__name__],artists],addAttributes=attrs):
-            pass
+            print "f= " 
+            print f
         if output:
             output.close()
 

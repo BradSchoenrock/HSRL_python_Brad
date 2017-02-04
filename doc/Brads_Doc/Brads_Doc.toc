@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {chapter}{\numberline {1}Python}{3}
+\contentsline {section}{\numberline {1.1}the python data processing}{3}
+\contentsline {subsection}{\numberline {1.1.1}write\_netcdf}{4}
+\contentsline {subsection}{\numberline {1.1.2}makeNewNCOutputFor}{4}
+\contentsline {subsection}{\numberline {1.1.3}dpl\_netcdf\_artist}{4}
+\contentsline {section}{\numberline {1.2}HSRL2Radx}{4}
+\contentsline {section}{\numberline {1.3}Hawkeye}{4}
+\contentsline {chapter}{\numberline {2}Commands}{5}
+\contentsline {chapter}{\numberline {3}Misc emails}{6}
